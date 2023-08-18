@@ -2562,7 +2562,7 @@ GameObject:
   - component: {fileID: 3287534177694748756}
   m_Layer: 8
   m_Name: Viking
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2681,8 +2681,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CharacterController>k__BackingField: {fileID: 2102870364356314367}
   <InputReader>k__BackingField: {fileID: 3287534177694748756}
-  <FreeLookMovementSpeed>k__BackingField: 1
+  <FreeLookMovementSpeed>k__BackingField: 1.5
   <Animator>k__BackingField: {fileID: 7543965243295787276}
+  <RotationDamping>k__BackingField: 10
 --- !u!114 &3287534177694748756
 MonoBehaviour:
   m_ObjectHideFlags: 0

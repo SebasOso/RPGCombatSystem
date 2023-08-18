@@ -43,6 +43,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnLookAround(InputAction.CallbackContext context)
     {
-        
+       
     }
 }

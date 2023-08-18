@@ -15,8 +15,17 @@ public class PlayerStateMachine : StateMachine
 
     [field: SerializeField]
     public Animator Animator {get; private set;}
+
+    [field: SerializeField]
+    public float RotationDamping {get; private set;}
+
+
+    public Transform MainCameraTransform {get; private set;}
+
     private void Start() 
     {
-        SwitchState(new PlayerTestState(this));
+        MainCameraTransform = Camera.main.transform;
+
+        SwitchState(new PlayerFreeLookState(this));
     }
 }
