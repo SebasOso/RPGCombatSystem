@@ -24,21 +24,12 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Crouch",
+                    "name": "Dodge",
                     "type": "Button",
-                    "id": "ddfe1bbd-11ab-46a8-9997-f49aa58375c8",
+                    "id": "c3a5f1db-8127-4ddb-9364-c66c8f1a9b85",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Sprint",
-                    "type": "Button",
-                    "id": "e9440677-fdfb-4724-a8a0-163e6a5bca36",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 }
             ],
@@ -99,6 +90,61 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "GamePad",
+                    "id": "297e88ba-8332-4b13-a49d-c25255e10832",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "c38599db-b3c1-4e6c-9401-e758fa09d94e",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "f2395648-c7fb-46bf-aaec-ac5f1152a508",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "327f231d-0947-4418-88ec-1fdde409c903",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ff01492f-e511-4921-a162-2092354ae6df",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "5014b017-6505-4eb8-a7e7-7cd87e0d615b",
                     "path": "<Keyboard>/space",
@@ -111,23 +157,34 @@
                 },
                 {
                     "name": "",
-                    "id": "8f679f4f-532f-4c5d-9aac-d35949329eff",
-                    "path": "<Keyboard>/c",
+                    "id": "a6606bc7-9bc2-4269-96e3-fcd065e578e2",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Crouch",
+                    "groups": "GamePad",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "edcbdb72-81fc-4c63-b5db-be349cb8094e",
-                    "path": "<Keyboard>/shift",
+                    "id": "c30b006f-14a8-4a97-b25c-f116e430bbf7",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "Sprint",
+                    "action": "Dodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a04a78b8-6867-435e-9d19-0054d5a71fe7",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -146,6 +203,28 @@
                 },
                 {
                     "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "GamePad",
+            "bindingGroup": "GamePad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Joystick",
+            "bindingGroup": "Joystick",
+            "devices": [
+                {
+                    "devicePath": "<Joystick>",
                     "isOptional": false,
                     "isOR": false
                 }
