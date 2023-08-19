@@ -2689,6 +2689,10 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 7543965243295787276}
   <RotationDamping>k__BackingField: 10
   <Targeter>k__BackingField: {fileID: 3720220482046476661}
+  <Attacks>k__BackingField:
+  - <AnimationName>k__BackingField: Attack01
+  - <AnimationName>k__BackingField: Attack02
+  - <AnimationName>k__BackingField: Attack03
 --- !u!114 &3287534177694748756
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class PlayerTargetingState : PlayerBaseState
     }
     public override void Enter()
     {
+        stateMachine.InputReader.AttackEvent += OnAttack;
+        stateMachine.InputReader.HeavyAttackEvent += OnHeavyAttack;
         stateMachine.InputReader.TargetEvent += OnCancelTarget;
         stateMachine.Animator.Play(TargetingBlendTree);
     }
@@ -59,6 +61,8 @@ public class PlayerTargetingState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.InputReader.TargetEvent -= OnCancelTarget;
+        stateMachine.InputReader.AttackEvent -= OnAttack;
+        stateMachine.InputReader.HeavyAttackEvent -= OnHeavyAttack;
     }
     private void OnCancelTarget()
     {
@@ -72,4 +76,13 @@ public class PlayerTargetingState : PlayerBaseState
         movement += stateMachine.transform.forward * stateMachine.InputReader.MovementValue.y;
         return movement;
     }
+    private void OnAttack()
+    {
+        stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
+    }
+    private void OnHeavyAttack()
+    {
+        stateMachine.SwitchState(new PlayerHeavyAttackState(stateMachine));
+    }
+
 }

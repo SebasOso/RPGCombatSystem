@@ -16,6 +16,8 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.InputReader.AttackEvent += OnAttack;
+        stateMachine.InputReader.HeavyAttackEvent += OnHeavyAttack;
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.Animator.Play(FreeLookBlendTree);
     }
@@ -37,6 +39,8 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Exit()
     {
+        stateMachine.InputReader.AttackEvent -= OnAttack;
+        stateMachine.InputReader.HeavyAttackEvent -= OnHeavyAttack;
         stateMachine.InputReader.TargetEvent -= OnTarget;
     }
 
@@ -67,5 +71,13 @@ public class PlayerFreeLookState : PlayerBaseState
             stateMachine.transform.rotation, 
             Quaternion.LookRotation(movement), 
             deltaTime * stateMachine.RotationDamping);
+    }
+    private void OnAttack()
+    {
+        stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
+    }
+    private void OnHeavyAttack()
+    {
+        stateMachine.SwitchState(new PlayerHeavyAttackState(stateMachine));
     }
 }

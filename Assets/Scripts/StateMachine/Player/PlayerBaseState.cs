@@ -11,6 +11,10 @@ public abstract class PlayerBaseState : State
     {
         this.stateMachine = stateMachine;
     }
+    protected void Move(float deltaTime)
+    {
+        Move(Vector3.zero, deltaTime);
+    }
     protected void Move(Vector3 motion, float deltaTime)
     {
         stateMachine.CharacterController.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
@@ -20,6 +24,10 @@ public abstract class PlayerBaseState : State
         if(stateMachine.Targeter.currentTarget == null){return;}
         Vector3 targetDirection = (stateMachine.Targeter.currentTarget.transform.position - stateMachine.transform.position);
         targetDirection.y = 0;
-        stateMachine.transform.rotation = Quaternion.LookRotation(targetDirection);
+
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+
+        float rotationSpeed = 1.4f; 
+        stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }
