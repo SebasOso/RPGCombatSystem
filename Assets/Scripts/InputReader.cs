@@ -9,6 +9,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public Vector2 MovementValue {get; private set;}
     public event Action JumpEvent;
     public event Action DodgeEvent;
+    public event Action TargetEvent;
+    public event Action CancelTargetEvent;
 
     private Controls controls;
     private void Start() 
@@ -44,5 +46,17 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnLookAround(InputAction.CallbackContext context)
     {
        
+    }
+
+    public void OnTarget(InputAction.CallbackContext context)
+    {
+        if(!context.performed){return;}
+        TargetEvent?.Invoke();
+    }
+
+    public void OnCancelTarget(InputAction.CallbackContext context)
+    {
+        if(!context.performed){return;}
+        CancelTargetEvent?.Invoke();
     }
 }

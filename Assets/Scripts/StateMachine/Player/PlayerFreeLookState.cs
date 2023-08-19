@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerFreeLookState : PlayerBaseState
 {
     private readonly int FreeLookSpeedHash = Animator.StringToHash("speed");
+    private readonly int FreeLookBlendTree = Animator.StringToHash("LocomotionBT");
 
     private const float AnimatorDampTime = 0.1f;
     public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine)
@@ -15,15 +16,15 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.InputReader.JumpEvent += OnJump;
-        Debug.Log("Enter");
+        stateMachine.InputReader.TargetEvent += OnTarget;
+        stateMachine.Animator.Play(FreeLookBlendTree);
     }
 
     public override void Tick(float deltaTime)
     {
         Vector3 movement = CalculateMovement();
-        stateMachine.CharacterController.Move(movement * deltaTime * stateMachine.FreeLookMovementSpeed);
 
+        Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime);
         if(stateMachine.InputReader.MovementValue == Vector2.zero)
         {
             stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
@@ -36,14 +37,13 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Exit()
     {
-        stateMachine.InputReader.JumpEvent -= OnJump;
-        Debug.Log("Exit");
+        stateMachine.InputReader.TargetEvent -= OnTarget;
     }
 
-    private void OnJump()
+    private void OnTarget()
     {
-        Debug.Log("JUMP!!!");
-        stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+        if(!stateMachine.Targeter.SelectTarget()){return;}
+        stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
     }
     private Vector3 CalculateMovement()
     {
