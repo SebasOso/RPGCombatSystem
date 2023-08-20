@@ -2691,24 +2691,24 @@ MonoBehaviour:
   <RotationDamping>k__BackingField: 10
   <Targeter>k__BackingField: {fileID: 3720220482046476661}
   <Attacks>k__BackingField:
-  - <AnimationName>k__BackingField: Attack01
+  - <AnimationName>k__BackingField: Attack03
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 1
     <ComboAttackTime>k__BackingField: 0.6
-    <ForceTime>k__BackingField: 0.25
-    <Force>k__BackingField: 5
-  - <AnimationName>k__BackingField: Attack02
+    <ForceTime>k__BackingField: 0.1
+    <Force>k__BackingField: 0.5
+  - <AnimationName>k__BackingField: Attack01
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 2
     <ComboAttackTime>k__BackingField: 0.5
-    <ForceTime>k__BackingField: 0.25
-    <Force>k__BackingField: 5
-  - <AnimationName>k__BackingField: Attack03
+    <ForceTime>k__BackingField: 0.4
+    <Force>k__BackingField: 0.5
+  - <AnimationName>k__BackingField: Attack02
     <TransitionDuration>k__BackingField: 0.2
     <ComboStateIndex>k__BackingField: -1
     <ComboAttackTime>k__BackingField: 0
     <ForceTime>k__BackingField: 0.35
-    <Force>k__BackingField: 2.5
+    <Force>k__BackingField: 0.2
   <HeavyAttacks>k__BackingField:
   - <AnimationName>k__BackingField: HeavyAttack
     <TransitionDuration>k__BackingField: 0.1

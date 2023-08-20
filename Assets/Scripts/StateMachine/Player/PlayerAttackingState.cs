@@ -7,15 +7,15 @@ public class PlayerAttackingState : PlayerBaseState
     private bool alreadyAppliedForce;
     private float previusFrameTime;
     private Attack attack;
-    public PlayerAttackingState(PlayerStateMachine stateMachine, int attackkIndex) : base(stateMachine)
+    public PlayerAttackingState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
-        attack = stateMachine.Attacks[attackkIndex];
+        attack = stateMachine.Attacks[attackIndex];
     }
 
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
-        stateMachine.InputReader.AttackEvent += HandleDown;
+        stateMachine.InputReader.IsAttacking = false;
     }
 
     public override void Tick(float deltaTime)
@@ -23,12 +23,31 @@ public class PlayerAttackingState : PlayerBaseState
         Move(deltaTime);
         FaceTarget();
         float normalizedTime = GetNormalizedTime();
+        if(normalizedTime >= previusFrameTime && normalizedTime < 1f)
+        {
+            if(stateMachine.InputReader.IsAttacking)
+            {
+                TryComboAttack(normalizedTime);
+                TryApplyForce();
+            }
+        }
+        else
+        {
+            if(stateMachine.Targeter.currentTarget != null)
+            {
+                stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+            }
+            else
+            {
+                stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+            }
+        }
         previusFrameTime = normalizedTime;
     }
 
     public override void Exit()
     {
-        stateMachine.InputReader.AttackEvent -= HandleDown;
+
     }
     private float GetNormalizedTime()
     {
@@ -67,11 +86,5 @@ public class PlayerAttackingState : PlayerBaseState
         if(alreadyAppliedForce){return;}
         stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.Force);
         alreadyAppliedForce = true;
-    }
-    void HandleDown()
-    {
-        float normalizedTime = GetNormalizedTime();
-        previusFrameTime = normalizedTime;
-        TryComboAttack(normalizedTime);
     }
 }
