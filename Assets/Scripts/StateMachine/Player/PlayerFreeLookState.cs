@@ -8,6 +8,7 @@ public class PlayerFreeLookState : PlayerBaseState
     private readonly int FreeLookSpeedHash = Animator.StringToHash("speed");
     private readonly int FreeLookBlendTree = Animator.StringToHash("LocomotionBT");
     private const float AnimatorDampTime = 0.1f;
+    private const float CrossFadeDuration = 0.1f;
     public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
 
@@ -16,7 +17,7 @@ public class PlayerFreeLookState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.InputReader.TargetEvent += OnTarget;
-        stateMachine.Animator.Play(FreeLookBlendTree);
+        stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTree, CrossFadeDuration);
     }
 
     public override void Tick(float deltaTime)
@@ -32,8 +33,17 @@ public class PlayerFreeLookState : PlayerBaseState
         if(stateMachine.InputReader.MovementValue == Vector2.zero)
         {
             stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
+            stateMachine.FreeLookMovementSpeed = 0f;
             return;
         }
+        if(stateMachine.InputReader.IsRunning)
+        {
+            stateMachine.FreeLookMovementSpeed = 3.0f;
+            stateMachine.Animator.SetFloat(FreeLookSpeedHash, 2, AnimatorDampTime, deltaTime);
+            FaceMovementDirection(movement, deltaTime);
+            return;
+        }
+        stateMachine.FreeLookMovementSpeed = 1.5f;
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 1, AnimatorDampTime, deltaTime);
 
         FaceMovementDirection(movement, deltaTime);

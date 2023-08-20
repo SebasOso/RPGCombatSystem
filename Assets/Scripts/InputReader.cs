@@ -13,6 +13,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action TargetEvent;
     public event Action CancelTargetEvent;
     public bool  IsAttacking{get; set;}
+
+    public bool IsRunning{get; private set;}
+
     public bool  IsHeavyAttacking{get; set;}
     private Controls controls;
     private void Start() 
@@ -79,4 +82,16 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         if(!context.performed){return;}
         HeavyAttackEvent?.Invoke();
     }
+    public void OnRun(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            IsRunning = true;
+        }
+        else
+        {
+            IsRunning = false;
+        }
+    }
+
 }

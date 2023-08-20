@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField]
+    public AxeDamage AxeDamage {get; private set;}
+    
+    [field: SerializeField]
     public ForceReceiver ForceReceiver {get; private set;}
 
     [field: SerializeField]
@@ -17,7 +20,10 @@ public class PlayerStateMachine : StateMachine
     public InputReader InputReader {get; private set;}
 
     [field: SerializeField]
-    public float FreeLookMovementSpeed {get; private set;}
+    public float FreeLookMovementSpeed {get;  set;}
+
+    [field: SerializeField]
+    public float RunningMovementSpeed {get; private set;}
 
     [field: SerializeField]
     public Animator Animator {get; private set;}
