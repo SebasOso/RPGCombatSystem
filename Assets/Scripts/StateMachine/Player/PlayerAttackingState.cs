@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackingState : PlayerBaseState
 {
+    private bool alreadyAppliedForce;
     private float previusFrameTime;
     private Attack attack;
     public PlayerAttackingState(PlayerStateMachine stateMachine, int attackkIndex) : base(stateMachine)
@@ -14,6 +15,7 @@ public class PlayerAttackingState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
+        stateMachine.InputReader.AttackEvent += HandleDown;
     }
 
     public override void Tick(float deltaTime)
@@ -21,13 +23,12 @@ public class PlayerAttackingState : PlayerBaseState
         Move(deltaTime);
         FaceTarget();
         float normalizedTime = GetNormalizedTime();
-
         previusFrameTime = normalizedTime;
     }
 
     public override void Exit()
     {
-        
+        stateMachine.InputReader.AttackEvent -= HandleDown;
     }
     private float GetNormalizedTime()
     {
@@ -60,5 +61,17 @@ public class PlayerAttackingState : PlayerBaseState
                 attack.ComboStateIndex
             )
         );
+    }
+    private void TryApplyForce()
+    {
+        if(alreadyAppliedForce){return;}
+        stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.Force);
+        alreadyAppliedForce = true;
+    }
+    void HandleDown()
+    {
+        float normalizedTime = GetNormalizedTime();
+        previusFrameTime = normalizedTime;
+        TryComboAttack(normalizedTime);
     }
 }

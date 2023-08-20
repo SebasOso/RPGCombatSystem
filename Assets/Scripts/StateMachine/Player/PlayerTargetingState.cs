@@ -82,7 +82,7 @@ public class PlayerTargetingState : PlayerBaseState
     }
     private void OnHeavyAttack()
     {
-        stateMachine.SwitchState(new PlayerHeavyAttackState(stateMachine));
+        stateMachine.SwitchState(new PlayerHeavyAttackState(stateMachine, 0));
     }
 
 }

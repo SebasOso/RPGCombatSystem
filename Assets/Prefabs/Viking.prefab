@@ -2590,6 +2590,7 @@ GameObject:
   - component: {fileID: 2102870364356314367}
   - component: {fileID: 8772031347091105724}
   - component: {fileID: 3287534177694748756}
+  - component: {fileID: 9144468836748182444}
   m_Layer: 8
   m_Name: Viking
   m_TagString: Player
@@ -2691,8 +2692,30 @@ MonoBehaviour:
   <Targeter>k__BackingField: {fileID: 3720220482046476661}
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack01
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 1
+    <ComboAttackTime>k__BackingField: 0.6
+    <ForceTime>k__BackingField: 0.25
+    <Force>k__BackingField: 5
   - <AnimationName>k__BackingField: Attack02
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 2
+    <ComboAttackTime>k__BackingField: 0.5
+    <ForceTime>k__BackingField: 0.25
+    <Force>k__BackingField: 5
   - <AnimationName>k__BackingField: Attack03
+    <TransitionDuration>k__BackingField: 0.2
+    <ComboStateIndex>k__BackingField: -1
+    <ComboAttackTime>k__BackingField: 0
+    <ForceTime>k__BackingField: 0.35
+    <Force>k__BackingField: 2.5
+  <HeavyAttacks>k__BackingField:
+  - <AnimationName>k__BackingField: HeavyAttack
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 1
+    <ComboHeavyAttackTime>k__BackingField: 0.6
+    <ForceTime>k__BackingField: 0
+    <Force>k__BackingField: 0
 --- !u!114 &3287534177694748756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2705,6 +2728,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b450f6b94e8d57449522838225c19e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9144468836748182444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840563219719277717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a1f54973d132f4dafbd0940846344f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 2102870364356314367}
+  drag: 0
 --- !u!1 &7335841488038333761
 GameObject:
   m_ObjectHideFlags: 0
