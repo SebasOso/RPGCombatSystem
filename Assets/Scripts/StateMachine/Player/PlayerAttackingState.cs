@@ -44,14 +44,6 @@ public class PlayerAttackingState : PlayerBaseState
         }
         previusFrameTime = normalizedTime;
     }
-    void Shoot()
-    {
-        if(stateMachine.Targeter.currentTarget == null){return;}
-        if(stateMachine.currentWeapon.HasProjectile())
-        {
-            stateMachine.currentWeapon.LaunchProjectile(stateMachine.RightHandSocket,stateMachine.LeftHandSocket,stateMachine.Targeter.currentTarget.GetComponent<Health>());
-        }
-    }
     public override void Exit()
     {
 
