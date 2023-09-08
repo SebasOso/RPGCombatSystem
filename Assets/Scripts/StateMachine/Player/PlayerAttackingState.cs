@@ -14,7 +14,6 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.AxeDamage.SetDamage(attack.AxeDamage);
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
         stateMachine.InputReader.IsAttacking = false;
     }
@@ -23,7 +22,7 @@ public class PlayerAttackingState : PlayerBaseState
     {
         Move(deltaTime);
         FaceTarget();
-        float normalizedTime = GetNormalizedTime();
+        float normalizedTime = GetNormalizedTime(stateMachine.Animator);
         if(normalizedTime >= previusFrameTime && normalizedTime < 1f)
         {
             if(stateMachine.InputReader.IsAttacking)
@@ -45,28 +44,19 @@ public class PlayerAttackingState : PlayerBaseState
         }
         previusFrameTime = normalizedTime;
     }
-
+    void Shoot()
+    {
+        if(stateMachine.Targeter.currentTarget == null){return;}
+        if(stateMachine.currentWeapon.HasProjectile())
+        {
+            stateMachine.currentWeapon.LaunchProjectile(stateMachine.RightHandSocket,stateMachine.LeftHandSocket,stateMachine.Targeter.currentTarget.GetComponent<Health>());
+        }
+    }
     public override void Exit()
     {
 
     }
-    private float GetNormalizedTime()
-    {
-        AnimatorStateInfo currentInfo = stateMachine.Animator.GetCurrentAnimatorStateInfo(0);
-        AnimatorStateInfo nextInfo = stateMachine.Animator.GetNextAnimatorStateInfo(0);
-        if(stateMachine.Animator.IsInTransition(0) && nextInfo.IsTag("Attack"))
-        {
-            return nextInfo.normalizedTime;
-        }
-        else if(!stateMachine.Animator.IsInTransition(0) && currentInfo.IsTag("Attack"))
-        {
-            return currentInfo.normalizedTime;
-        }
-        else
-        {
-            return 0;
-        }
-    }
+    
     private void TryComboAttack(float normalizedTime)
     {
         if(attack.ComboStateIndex == -1){return;}

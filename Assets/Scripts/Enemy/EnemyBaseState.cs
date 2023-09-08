@@ -28,6 +28,22 @@ public abstract class EnemyBaseState : State
         float distancePlayerMagnitude = (enemyStateMachine.Player.transform.position - enemyStateMachine.transform.position).sqrMagnitude;
         return distancePlayerMagnitude <= enemyStateMachine.PlayerDetectionRange * enemyStateMachine.PlayerDetectionRange;
     }
+    protected bool IsInAttackRange()
+    {
+        float distanceAttackMagnitude = (enemyStateMachine.Player.transform.position - enemyStateMachine.transform.position).sqrMagnitude;
+        return distanceAttackMagnitude <= enemyStateMachine.AttackRange * enemyStateMachine.AttackRange;
+    }
+    protected void FacePlayer()
+    {
+        if(enemyStateMachine.Player == null){return;}
+        Vector3 targetDirection = (enemyStateMachine.Player.transform.position - enemyStateMachine.transform.position);
+        targetDirection.y = 0;
+
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+
+        float rotationSpeed = 8.4f; 
+        enemyStateMachine.transform.rotation = Quaternion.Slerp(enemyStateMachine.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
     protected void Move(float deltaTime)
     {
         Move(Vector3.zero, deltaTime);

@@ -27,7 +27,7 @@ public abstract class PlayerBaseState : State
 
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
 
-        float rotationSpeed = 1.4f; 
+        float rotationSpeed = 8.4f; 
         stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }

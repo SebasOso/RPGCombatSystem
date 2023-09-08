@@ -8,8 +8,6 @@ public class SlashManager : MonoBehaviour
     [SerializeField] private ParticleSystem slashNormal02;
     [SerializeField] private ParticleSystem slashNormal03;   
 
-    [SerializeField] private GameObject bloodNormal01;
-
     public void Play01()
     {
         slashNormal01.Play();
@@ -22,10 +20,4 @@ public class SlashManager : MonoBehaviour
     {
         slashNormal03.Play();
     }
-
-    public void NoBlood01()
-    {
-        bloodNormal01.SetActive(false);
-    }
-
 }
