@@ -8,6 +8,7 @@ using UnityEngine.VFX;
 
 public class Health : MonoBehaviour, IJsonSaveable
 {
+    public event Action OnDie;
     public event Action OnTakeDamage;
     [SerializeField] public float health = 100f;
     private bool isDead = false;
@@ -17,6 +18,7 @@ public class Health : MonoBehaviour, IJsonSaveable
     {
         if(health == 0)
         {
+            OnDie?.Invoke();
             Die();
         }
     }
@@ -32,6 +34,7 @@ public class Health : MonoBehaviour, IJsonSaveable
         OnTakeDamage?.Invoke();
         if(health == 0)
         {
+            OnDie?.Invoke();
             Die();
         }
     }
@@ -56,6 +59,7 @@ public class Health : MonoBehaviour, IJsonSaveable
         health = state.ToObject<float>();
         if(health == 0)
         {
+            OnDie?.Invoke();
             Die();
         }
         else

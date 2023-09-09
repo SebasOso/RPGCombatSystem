@@ -10650,7 +10650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226142951}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21671036, y: 0.0033361022, z: -0.0007405713, w: 0.97622997}
+  m_LocalRotation: {x: 0.21671036, y: 0.0033361397, z: -0.0007405796, w: 0.97622997}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -76158,7 +76158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766507770}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25277445, y: 0.003306345, z: -0.0008638169, w: 0.9675192}
+  m_LocalRotation: {x: 0.25277445, y: 0.0033063618, z: -0.0008638212, w: 0.9675192}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -86807,7 +86807,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993399385}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21671036, y: 0.0033360831, z: -0.00074056705, w: 0.97622997}
+  m_LocalRotation: {x: 0.21671036, y: 0.0033361583, z: -0.0007405838, w: 0.97622997}
   m_LocalPosition: {x: 23.076279, y: 6.047, z: -60.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -92690,10 +92690,6 @@ PrefabInstance:
     - target: {fileID: 6840563219719277717, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       propertyPath: m_Name
       value: Viking
-      objectReference: {fileID: 0}
-    - target: {fileID: 8288720286331456125, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
-      propertyPath: playOnAwake
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9153547517413520886, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       propertyPath: backHealth

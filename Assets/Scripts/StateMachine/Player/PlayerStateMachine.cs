@@ -7,6 +7,8 @@ using UnityEngine;
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public List<GameObject> WeaponsLogics {get; private set;}
+    [field: SerializeField] 
     public Health Health {get; private set;}
     [field: SerializeField] 
     public Weapon DefaultWeapon {get; private set;}
@@ -58,10 +60,12 @@ public class PlayerStateMachine : StateMachine
     private void OnEnable() 
     {
         Health.OnTakeDamage += HandleTakeDamage;
+        Health.OnDie += HandleDie;
     }
     private void OnDisable() 
     {
         Health.OnTakeDamage -= HandleTakeDamage;
+        Health.OnDie -= HandleDie;
     }
     public void EquipWeapon(Weapon weapon)
     {
@@ -79,5 +83,9 @@ public class PlayerStateMachine : StateMachine
     private void HandleTakeDamage()
     {
         SwitchState(new PlayerImpactState(this));
+    }
+    private void HandleDie()
+    {
+        SwitchState(new PlayerDeadState(this));
     }
 }

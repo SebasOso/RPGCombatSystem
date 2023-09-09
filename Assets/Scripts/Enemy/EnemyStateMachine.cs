@@ -7,6 +7,12 @@ using UnityEngine.AI;
 public class EnemyStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public Ragdoll ragdoll {get; private set;}
+    [field: SerializeField] 
+    public List<GameObject> WeaponsLogics {get; private set;}
+    [field: SerializeField] 
+    public Target Target {get; private set;}
+    [field: SerializeField] 
     public Health Health {get; private set;}
     [field: SerializeField] 
     public Weapon DefaultWeapon {get; private set;}
@@ -52,10 +58,12 @@ public class EnemyStateMachine : StateMachine
     private void OnEnable() 
     {
         Health.OnTakeDamage += HandleTakeDamage;
+        Health.OnDie += HandleDie;
     }
     private void OnDisable() 
     {
         Health.OnTakeDamage -= HandleTakeDamage;
+        Health.OnDie -= HandleDie;
     }
     private void OnDrawGizmosSelected() 
     {
@@ -70,5 +78,9 @@ public class EnemyStateMachine : StateMachine
     private void HandleTakeDamage()
     {
         SwitchState(new EnemyImpactState(this));
+    }
+    private void HandleDie()
+    {
+        SwitchState(new EnemyDeadState(this));
     }
 }
