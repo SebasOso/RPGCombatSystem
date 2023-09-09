@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
@@ -7,6 +8,7 @@ using UnityEngine.VFX;
 
 public class Health : MonoBehaviour, IJsonSaveable
 {
+    public event Action OnTakeDamage;
     [SerializeField] public float health = 100f;
     private bool isDead = false;
     [SerializeField] private VisualEffect hit;
@@ -27,6 +29,7 @@ public class Health : MonoBehaviour, IJsonSaveable
         if(health <= 0){return;}
         hit.Play();
         health = Mathf.Max(health - damage, 0);
+        OnTakeDamage?.Invoke();
         if(health == 0)
         {
             Die();

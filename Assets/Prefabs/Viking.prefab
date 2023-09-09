@@ -2790,6 +2790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166f920f35782ed4091d50e887877867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Health>k__BackingField: {fileID: 6157023960963652552}
   <DefaultWeapon>k__BackingField: {fileID: 11400000, guid: 3188093264428f04f8653e72ba5374e7, type: 2}
   <RightHandSocket>k__BackingField: {fileID: 8189735743552142878}
   <LeftHandSocket>k__BackingField: {fileID: 7023327966409119157}

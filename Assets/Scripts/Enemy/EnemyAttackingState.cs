@@ -13,14 +13,15 @@ public class EnemyAttackingState : EnemyBaseState
 
     public override void Enter()
     {
+        FacePlayer();
         enemyStateMachine.Animator.CrossFadeInFixedTime(AttackHash, CrossFadeDuration);
     }
 
     public override void Tick(float deltaTime)
     {
+        FacePlayer();
         if(GetNormalizedTime(enemyStateMachine.Animator) >= 1)
         {
-            FacePlayer();
             enemyStateMachine.SwitchState(new EnemyChasingState(enemyStateMachine));
         }
     }

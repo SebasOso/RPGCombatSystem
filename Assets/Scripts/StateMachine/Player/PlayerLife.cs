@@ -61,7 +61,6 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
     private void DeathAnimation()
     {
         isDied = true; 
-        anim.SetTrigger("dead");
         isAlive = false;
         SavingWrapper wrapper = FindAnyObjectByType<SavingWrapper>();
         wrapper.Respawn();

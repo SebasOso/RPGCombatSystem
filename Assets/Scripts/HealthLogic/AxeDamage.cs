@@ -28,5 +28,10 @@ public class AxeDamage : MonoBehaviour
                 PlayerLife.Instance.lerpTimer = 0f;
             }
         }
+        if(other.TryGetComponent<ForceReceiver>(out ForceReceiver force))
+        {
+            Vector3 direction = (other.transform.position - myCollider.transform.position).normalized;
+            force.AddForce(direction * axe.GetWeaponKnokcback());
+        }
     }
 }

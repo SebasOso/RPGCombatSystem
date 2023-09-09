@@ -36,9 +36,12 @@ public class EnemyChasingState : EnemyBaseState
 
     private void MoveToPlayer(float deltaTime)
     {
-       enemyStateMachine.navMeshAgent.destination = enemyStateMachine.Player.transform.position;
-       Move(enemyStateMachine.navMeshAgent.desiredVelocity.normalized * enemyStateMachine.RunningMovementSpeed, deltaTime);
-       enemyStateMachine.navMeshAgent.velocity = enemyStateMachine.CharacterController.velocity;
+        if(enemyStateMachine.navMeshAgent.isOnNavMesh)
+        {
+            enemyStateMachine.navMeshAgent.destination = enemyStateMachine.Player.transform.position;
+            Move(enemyStateMachine.navMeshAgent.desiredVelocity.normalized * enemyStateMachine.RunningMovementSpeed, deltaTime);
+        }
+        enemyStateMachine.navMeshAgent.velocity = enemyStateMachine.CharacterController.velocity;
     }
 
     public override void Exit()

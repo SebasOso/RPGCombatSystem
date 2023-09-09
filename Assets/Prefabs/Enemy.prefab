@@ -2475,7 +2475,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.41
+  m_Radius: 0.84
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.026
@@ -2493,13 +2493,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17be5f405c74e454db679d3fa5aa5833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Health>k__BackingField: {fileID: 586232541755160666}
   <DefaultWeapon>k__BackingField: {fileID: 11400000, guid: d63c1b14ed9e50b408f81139fdd447f0, type: 2}
   <RightHandSocket>k__BackingField: {fileID: 680586712514024124}
   <LeftHandSocket>k__BackingField: {fileID: 6074634221337437887}
   <navMeshAgent>k__BackingField: {fileID: 8080853124129522843}
   <RunningMovementSpeed>k__BackingField: 3
   <Animator>k__BackingField: {fileID: 4588404041592787998}
-  <PlayerDetectionRange>k__BackingField: 1
+  <PlayerDetectionRange>k__BackingField: 5.66
   <AttackRange>k__BackingField: 1.5
   <CharacterController>k__BackingField: {fileID: 7010301425680052660}
   <ForceReceiver>k__BackingField: {fileID: 3832012987118638800}
@@ -2517,6 +2518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 7010301425680052660}
   drag: 0.1
+  navMeshAgent: {fileID: 8080853124129522843}
 --- !u!114 &7651816724640120686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2542,7 +2544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9ea311b553574b9021e5ba58acd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueIdentifier: 
+  uniqueIdentifier: 8b26ddfe-45f9-4936-9f80-fced98a109ff
 --- !u!1 &6962691344543524485
 GameObject:
   m_ObjectHideFlags: 0
@@ -3640,8 +3642,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.21751228, z: 0.120793335}
-  m_Center: {x: -0.0000011597907, y: 0.2943064, z: 0.027652487}
+  m_Size: {x: 1, y: 0.47286013, z: 0.120793335}
+  m_Center: {x: -0.0000012623384, y: 0.16663314, z: 0.02765257}
 --- !u!1 &8934846684258491162
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ namespace RPG.Combat
     {
         [Header("Weapons")]
         [SerializeField] private float weaponDamage;
+        [SerializeField] private float weaponKnockback;
         [SerializeField] private GameObject weaponPrefab;
         [SerializeField] private AnimatorOverrideController weaponOverrideController;
         [SerializeField] private bool isRightHanded = true;
@@ -56,6 +57,10 @@ namespace RPG.Combat
         public float GetWeaponDamage()
         {
             return weaponDamage;
+        }
+        public float GetWeaponKnokcback()
+        {
+            return weaponKnockback;
         }
     }
 }

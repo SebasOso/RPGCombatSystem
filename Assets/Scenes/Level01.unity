@@ -92586,10 +92586,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2090293802}
     m_Modifications:
-    - target: {fileID: 1658291562084023642, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
-      propertyPath: uniqueIdentifier
-      value: 8b26ddfe-45f9-4936-9f80-fced98a109ff
-      objectReference: {fileID: 0}
     - target: {fileID: 3704218406696081690, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.898106
@@ -92629,10 +92625,6 @@ PrefabInstance:
     - target: {fileID: 3704218406696081690, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5076070900488381897, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
-      propertyPath: <PlayerDetectionRange>k__BackingField
-      value: 5.66
       objectReference: {fileID: 0}
     - target: {fileID: 6958142045354269578, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: m_Name
@@ -92698,6 +92690,10 @@ PrefabInstance:
     - target: {fileID: 6840563219719277717, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       propertyPath: m_Name
       value: Viking
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288720286331456125, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9153547517413520886, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       propertyPath: backHealth

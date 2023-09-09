@@ -7,6 +7,8 @@ using UnityEngine.AI;
 public class EnemyStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public Health Health {get; private set;}
+    [field: SerializeField] 
     public Weapon DefaultWeapon {get; private set;}
 
     [field: SerializeField] 
@@ -47,6 +49,14 @@ public class EnemyStateMachine : StateMachine
         navMeshAgent.updateRotation = false;
         SwitchState(new EnemyIdleState(this));
     }
+    private void OnEnable() 
+    {
+        Health.OnTakeDamage += HandleTakeDamage;
+    }
+    private void OnDisable() 
+    {
+        Health.OnTakeDamage -= HandleTakeDamage;
+    }
     private void OnDrawGizmosSelected() 
     {
         Gizmos.color = Color.red;
@@ -56,5 +66,9 @@ public class EnemyStateMachine : StateMachine
     {
         currentWeapon = weapon;
         weapon.Spawn(RightHandSocket, LeftHandSocket, Animator);
+    }
+    private void HandleTakeDamage()
+    {
+        SwitchState(new EnemyImpactState(this));
     }
 }

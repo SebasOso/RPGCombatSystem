@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using RPG.Combat;
@@ -5,6 +6,8 @@ using UnityEngine;
 
 public class PlayerStateMachine : StateMachine
 {
+    [field: SerializeField] 
+    public Health Health {get; private set;}
     [field: SerializeField] 
     public Weapon DefaultWeapon {get; private set;}
     [field: SerializeField] 
@@ -52,6 +55,14 @@ public class PlayerStateMachine : StateMachine
 
         SwitchState(new PlayerFreeLookState(this));
     }
+    private void OnEnable() 
+    {
+        Health.OnTakeDamage += HandleTakeDamage;
+    }
+    private void OnDisable() 
+    {
+        Health.OnTakeDamage -= HandleTakeDamage;
+    }
     public void EquipWeapon(Weapon weapon)
     {
         currentWeapon = weapon;
@@ -64,5 +75,9 @@ public class PlayerStateMachine : StateMachine
         {
             currentWeapon.LaunchProjectile(RightHandSocket,LeftHandSocket,Targeter.currentTarget.GetComponent<Health>());
         }
+    }
+    private void HandleTakeDamage()
+    {
+        SwitchState(new PlayerImpactState(this));
     }
 }

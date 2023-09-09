@@ -195,7 +195,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3326529368987530582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72b7e11e1fefa7f4a880177986928004, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b81e8dba5ee6644dbf03a070c87024c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponToPick: {fileID: 11400000, guid: 3188093264428f04f8653e72ba5374e7, type: 2}
