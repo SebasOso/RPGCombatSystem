@@ -58,8 +58,6 @@ public class Health : MonoBehaviour, IJsonSaveable
         else
         {
             isDead = false;
-            animator.ResetTrigger("dead");
-            animator.SetTrigger("alive");
         }
     }
 }

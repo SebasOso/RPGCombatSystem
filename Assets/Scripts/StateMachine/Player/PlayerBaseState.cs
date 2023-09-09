@@ -30,4 +30,15 @@ public abstract class PlayerBaseState : State
         float rotationSpeed = 8.4f; 
         stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
+    protected void ReturnToLocomotion()
+    {
+        if(stateMachine.Targeter.currentTarget != null)
+        {
+            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+        }
+        else
+        {
+            stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+        }
+    }
 }

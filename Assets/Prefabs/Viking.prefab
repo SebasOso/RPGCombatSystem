@@ -2697,6 +2697,7 @@ GameObject:
   - component: {fileID: 6157023960963652552}
   - component: {fileID: 19838334440056561}
   - component: {fileID: 4442511523300877862}
+  - component: {fileID: 9153547517413520886}
   m_Layer: 8
   m_Name: Viking
   m_TagString: Player
@@ -2904,6 +2905,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueIdentifier: Player
+--- !u!114 &9153547517413520886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840563219719277717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957f62e08f8d9bd4490c35ac12d7985a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  frontHealth: {fileID: 0}
+  backHealth: {fileID: 0}
+  lerpTimer: 0
+  chipSpeed: 2
 --- !u!1 &6952484892728181756
 GameObject:
   m_ObjectHideFlags: 0
