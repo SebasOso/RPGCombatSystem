@@ -54,6 +54,10 @@ namespace RPG.Combat
             Projectile projectileInstance = Instantiate(projectile, GetTransform(rightSocket, leftSocket).position, Quaternion.identity);
             projectileInstance.SetTarget(target, weaponDamage);
         }
+        public void LaunchProjectile(Transform rightSocket, Transform leftSocket)
+        {
+            Projectile projectileInstance = Instantiate(projectile, GetTransform(rightSocket, leftSocket).position, Quaternion.identity);
+        }
         public float GetWeaponDamage()
         {
             return weaponDamage;

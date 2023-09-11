@@ -2790,6 +2790,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166f920f35782ed4091d50e887877867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <JumpForce>k__BackingField: 4
+  <DodgeDistance>k__BackingField: 1.5
+  <DodgeDuration>k__BackingField: 0.5
   <WeaponsLogics>k__BackingField:
   - {fileID: 2089427409781366980}
   <Health>k__BackingField: {fileID: 6157023960963652552}
@@ -2801,7 +2804,8 @@ MonoBehaviour:
   <TargetingMovementSpeed>k__BackingField: 1.5
   <InputReader>k__BackingField: {fileID: 3287534177694748756}
   <FreeLookMovementSpeed>k__BackingField: 1.5
-  <RunningMovementSpeed>k__BackingField: 3
+  <RunningMovementSpeed>k__BackingField: 4.2
+  <WalkingMovementSpeed>k__BackingField: 1.5
   <Animator>k__BackingField: {fileID: 7543965243295787276}
   <RotationDamping>k__BackingField: 10
   <Targeter>k__BackingField: {fileID: 3720220482046476661}

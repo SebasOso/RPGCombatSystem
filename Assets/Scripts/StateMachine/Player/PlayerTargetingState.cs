@@ -17,6 +17,8 @@ public class PlayerTargetingState : PlayerBaseState
     }
     public override void Enter()
     {
+        stateMachine.InputReader.JumpEvent += OnJump;
+        stateMachine.InputReader.DodgeEvent += OnDodge;
         stateMachine.InputReader.TargetEvent += OnCancelTarget;
         stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTree, CrossFadeDuration);
     }
@@ -33,7 +35,7 @@ public class PlayerTargetingState : PlayerBaseState
             return;
         }
         
-        Vector3 movement = CalculateMovement();
+        Vector3 movement = CalculateMovement(deltaTime);
         Move(movement * stateMachine.TargetingMovementSpeed, deltaTime);
         UpdateAnimator(deltaTime);
         FaceTarget();
@@ -63,16 +65,26 @@ public class PlayerTargetingState : PlayerBaseState
 
     public override void Exit()
     {
+        stateMachine.InputReader.JumpEvent -= OnJump;
+        stateMachine.InputReader.DodgeEvent -= OnDodge;
         stateMachine.InputReader.TargetEvent -= OnCancelTarget;
     }
 
-
+    private void OnDodge()
+    {
+        if(stateMachine.InputReader.MovementValue == Vector2.zero){return;}
+        stateMachine.SwitchState(new PlayerDodgingState(stateMachine, stateMachine.InputReader.MovementValue));
+    }
+    private void OnJump()
+    {
+        stateMachine.SwitchState(new PlayerJumpingState(stateMachine));
+    }
     private void OnCancelTarget()
     {
         stateMachine.Targeter.Cancel();
         stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
     }
-    private Vector3 CalculateMovement()
+    private Vector3 CalculateMovement(float deltaTime)
     {
         Vector3 movement = new Vector3();
         movement += stateMachine.transform.right * stateMachine.InputReader.MovementValue.x;

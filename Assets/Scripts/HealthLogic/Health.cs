@@ -12,6 +12,7 @@ public class Health : MonoBehaviour, IJsonSaveable
     public event Action OnTakeDamage;
     [SerializeField] public float health = 100f;
     private bool isDead = false;
+    private bool isInvulnerable;
     [SerializeField] private VisualEffect hit;
     private Animator animator;
     private void Start()
@@ -29,6 +30,7 @@ public class Health : MonoBehaviour, IJsonSaveable
     public void DealDamage(float damage)
     {
         if(health <= 0){return;}
+        if(isInvulnerable){return;}
         hit.Play();
         health = Mathf.Max(health - damage, 0);
         OnTakeDamage?.Invoke();
@@ -38,11 +40,14 @@ public class Health : MonoBehaviour, IJsonSaveable
             Die();
         }
     }
+    public void SetInvulnerable(bool isInvulnerable)
+    {
+        this.isInvulnerable = isInvulnerable;
+    }
     private void Die()
     {
         if(isDead) return;
         isDead = true;
-        //Set state to dead.
     }
     public bool IsDead()
     {
@@ -59,7 +64,6 @@ public class Health : MonoBehaviour, IJsonSaveable
         health = state.ToObject<float>();
         if(health == 0)
         {
-            OnDie?.Invoke();
             Die();
         }
         else

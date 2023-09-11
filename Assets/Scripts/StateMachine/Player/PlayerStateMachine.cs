@@ -7,6 +7,12 @@ using UnityEngine;
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public float JumpForce {get; private set;}
+    [field: SerializeField] 
+    public float DodgeDistance {get; private set;}
+    [field: SerializeField] 
+    public float DodgeDuration {get; private set;}
+    [field: SerializeField] 
     public List<GameObject> WeaponsLogics {get; private set;}
     [field: SerializeField] 
     public Health Health {get; private set;}
@@ -34,6 +40,8 @@ public class PlayerStateMachine : StateMachine
 
     [field: SerializeField]
     public float RunningMovementSpeed {get; private set;}
+    [field: SerializeField]
+    public float WalkingMovementSpeed {get; private set;}
 
     [field: SerializeField]
     public Animator Animator {get; private set;}
@@ -48,6 +56,7 @@ public class PlayerStateMachine : StateMachine
     public Attack[] Attacks {get; private set;}
     public Transform MainCameraTransform {get; private set;}
     public Weapon currentWeapon {get; private set;}
+    public float PreviousDodgeTime {get; private set;} = Mathf.NegativeInfinity;
 
     private void Start() 
     {

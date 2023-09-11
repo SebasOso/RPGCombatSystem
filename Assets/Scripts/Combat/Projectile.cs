@@ -9,9 +9,14 @@ public class Projectile : MonoBehaviour
     private Collider targetCollider;
     [SerializeField] bool isHoming = true;
     [SerializeField] float speed = 1;
+    [SerializeField] float maxLifeTime = 3f;
     float damage = 0;
     private void Start() 
     {
+        if(target == null)
+        {
+            transform.LookAt(Vector3.forward);
+        }
         transform.LookAt(GetAimLocation());
     }
     void Update()
@@ -28,6 +33,7 @@ public class Projectile : MonoBehaviour
     {
         this.target = target;
         this.damage = damage;
+        Destroy(gameObject, maxLifeTime);
     }
     private Vector3 GetAimLocation() 
     {
@@ -53,6 +59,7 @@ public class Projectile : MonoBehaviour
         }
         alreadyColliderWith.Add(other);
         if(target.IsDead()){return;}
+        speed = 0f;
         if(other.TryGetComponent<Health>(out Health health))
         {
             health.DealDamage(damage);

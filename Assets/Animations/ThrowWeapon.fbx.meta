@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7321a04adaf6a1d4a9f9647989757061
+guid: d1e7678572fed31408be511147134c1b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Jump
+      name: ThrowWeapon
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
