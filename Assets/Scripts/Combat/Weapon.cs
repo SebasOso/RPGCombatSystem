@@ -7,6 +7,7 @@ namespace RPG.Combat
     public class Weapon : ScriptableObject 
     {
         [Header("Weapons")]
+        [SerializeField] private float weaponRange;
         [SerializeField] private float weaponDamage;
         [SerializeField] private float weaponKnockback;
         [SerializeField] private GameObject weaponPrefab;
@@ -61,6 +62,10 @@ namespace RPG.Combat
         public float GetWeaponDamage()
         {
             return weaponDamage;
+        }
+        public float GetWeaponRange()
+        {
+            return weaponRange;
         }
         public float GetWeaponKnokcback()
         {

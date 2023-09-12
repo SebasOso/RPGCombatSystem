@@ -74,6 +74,15 @@ public class EnemyStateMachine : StateMachine
     {
         currentWeapon = weapon;
         weapon.Spawn(RightHandSocket, LeftHandSocket, Animator);
+        AttackRange = currentWeapon.GetWeaponRange();
+    }
+    void Shoot()
+    {
+        if(Player == null){return;}
+        if(currentWeapon.HasProjectile())
+        {
+            currentWeapon.LaunchProjectile(RightHandSocket,LeftHandSocket,Player.GetComponent<Health>());
+        }
     }
     private void HandleTakeDamage()
     {
