@@ -53,9 +53,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5076070900488381897, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
+      propertyPath: <AttackRange>k__BackingField
+      value: 8.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076070900488381897, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: <DefaultWeapon>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: c7f29f691e9552942a5929847ce91b78, type: 2}
+    - target: {fileID: 5076070900488381897, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
+      propertyPath: <PlayerDetectionRange>k__BackingField
+      value: 9.81
+      objectReference: {fileID: 0}
     - target: {fileID: 5765859598610865370, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: m_IsActive
       value: 0
