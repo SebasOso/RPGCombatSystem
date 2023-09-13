@@ -28,6 +28,18 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.m_ColorSpace
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7969128586265999559, guid: 4b6333aee3f4948428ed174decf18301, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969128586265999559, guid: 4b6333aee3f4948428ed174decf18301, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969128586265999559, guid: 4b6333aee3f4948428ed174decf18301, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 8712368281302100986, guid: 4b6333aee3f4948428ed174decf18301, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
