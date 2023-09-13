@@ -148,7 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b81e8dba5ee6644dbf03a070c87024c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponToPick: {fileID: 11400000, guid: 78448a1f25628e64d83a5e5c841c60c5, type: 2}
+  weapon: {fileID: 11400000, guid: 78448a1f25628e64d83a5e5c841c60c5, type: 2}
+  pickupUI: {fileID: 0}
 --- !u!4 &6311546559814234649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7668175945735652483, guid: 3159edc5412259e41beb4aa378dc7ec1, type: 3}

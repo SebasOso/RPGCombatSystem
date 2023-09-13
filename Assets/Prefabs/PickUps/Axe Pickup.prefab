@@ -198,7 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b81e8dba5ee6644dbf03a070c87024c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponToPick: {fileID: 11400000, guid: 3188093264428f04f8653e72ba5374e7, type: 2}
+  weapon: {fileID: 11400000, guid: 3188093264428f04f8653e72ba5374e7, type: 2}
+  pickupUI: {fileID: 0}
 --- !u!54 &2284200192048048133
 Rigidbody:
   m_ObjectHideFlags: 0

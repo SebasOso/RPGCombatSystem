@@ -75,6 +75,10 @@ PrefabInstance:
       value: BowPickUp
       objectReference: {fileID: 0}
     - target: {fileID: 4117128463777272799, guid: 3159edc5412259e41beb4aa378dc7ec1, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 5adc0fecc3dd7af428bde73e7cb876ed, type: 2}
+    - target: {fileID: 4117128463777272799, guid: 3159edc5412259e41beb4aa378dc7ec1, type: 3}
       propertyPath: weaponToPick
       value: 
       objectReference: {fileID: 11400000, guid: 5adc0fecc3dd7af428bde73e7cb876ed, type: 2}

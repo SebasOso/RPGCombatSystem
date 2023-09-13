@@ -9,15 +9,17 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public Vector2 MovementValue {get; private set;}
     public event Action JumpEvent;
     public event Action DodgeEvent;
-    public event Action HeavyAttackEvent;
     public event Action TargetEvent;
     public event Action CancelTargetEvent;
+    public event Action InteractEvent;
     public bool  IsAttacking{get; set;}
 
     public bool IsRunning{get; private set;}
 
     public bool  IsHeavyAttacking{get; set;}
     private Controls controls;
+    [SerializeField] private GameObject GamePadUI;
+    [SerializeField] private GameObject KeyboardUI;
     private void Start() 
     {
         if(controls == null)
@@ -76,12 +78,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
             IsAttacking = false;
         }
     }
-
-    public void OnHeavyAttack(InputAction.CallbackContext context)
-    {
-        if(!context.performed){return;}
-        HeavyAttackEvent?.Invoke();
-    }
     public void OnRun(InputAction.CallbackContext context)
     {
         if(context.performed)
@@ -94,4 +90,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         }
     }
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if(!context.performed){return;}
+        InteractEvent?.Invoke();
+    }
 }
