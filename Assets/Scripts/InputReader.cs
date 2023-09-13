@@ -30,6 +30,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
             controls.Player.Enable();
         }
     }
+    private void Update() 
+    {
+            
+    }
     private void OnDestroy() 
     {
         controls.Player.Disable();

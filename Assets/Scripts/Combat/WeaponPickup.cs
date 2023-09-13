@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class WeaponPickup : MonoBehaviour
 {
+    [SerializeField] private UIBehaviour uIBehaviour;
     [SerializeField] private Weapon weapon = null;
     [SerializeField] GameObject pickupUI;
     GameObject player;
@@ -28,6 +29,7 @@ public class WeaponPickup : MonoBehaviour
             player.GetComponent<Armory>().EquipWeapon(weaponToPick);
             weaponToPick = null;
             pickupUI.SetActive(false);
+            uIBehaviour.buttom.SetActive(false);
             StartCoroutine(HideForSeconds(5f));
         }
     }
@@ -38,6 +40,7 @@ public class WeaponPickup : MonoBehaviour
         {
             weaponToPick = weapon;
             pickupUI.SetActive(true);
+            uIBehaviour.buttom.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other) 
@@ -46,6 +49,7 @@ public class WeaponPickup : MonoBehaviour
         {
             weaponToPick = null;
             pickupUI.SetActive(false);
+            uIBehaviour.buttom.SetActive(false);
         }
     }
     private IEnumerator HideForSeconds(float seconds)

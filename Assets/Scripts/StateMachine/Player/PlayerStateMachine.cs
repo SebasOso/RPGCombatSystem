@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Newtonsoft.Json.Linq;
 using RPG.Combat;
 using RPG.Saving;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerStateMachine : StateMachine
 {
+    [field: SerializeField] 
+    public PlayerInput PlayerInput {get; private set;}
     [field: SerializeField] 
     public float JumpForce {get; private set;}
     [field: SerializeField] 
