@@ -2902,6 +2902,7 @@ GameObject:
   - component: {fileID: 7651816724640120686}
   - component: {fileID: 1658291562084023642}
   - component: {fileID: 1464276605885785147}
+  - component: {fileID: 7159916028286050183}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -3109,6 +3110,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4588404041592787998}
   controller: {fileID: 7010301425680052660}
+--- !u!114 &7159916028286050183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958142045354269578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4761570fb7d49b24bbf2bf6aae7226d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultWeapon: {fileID: 11400000, guid: d63c1b14ed9e50b408f81139fdd447f0, type: 2}
+  rightHandSocket: {fileID: 680586712514024124}
+  leftHandSocket: {fileID: 6074634221337437887}
+  animator: {fileID: 4588404041592787998}
+  currentWeapon: {fileID: 0}
 --- !u!1 &6962691344543524485
 GameObject:
   m_ObjectHideFlags: 0

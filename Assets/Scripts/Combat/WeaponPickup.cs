@@ -10,7 +10,7 @@ public class WeaponPickup : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.GetComponent<PlayerStateMachine>().EquipWeapon(weaponToPick);
+            other.GetComponent<Armory>().EquipWeapon(weaponToPick);
             Destroy(gameObject);
         }
     }

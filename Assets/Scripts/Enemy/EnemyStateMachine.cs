@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 using RPG.Combat;
+using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,15 +16,6 @@ public class EnemyStateMachine : StateMachine
     public Target Target {get; private set;}
     [field: SerializeField] 
     public Health Health {get; private set;}
-    [field: SerializeField] 
-    public Weapon DefaultWeapon {get; private set;}
-
-    [field: SerializeField] 
-    public Transform RightHandSocket {get; private set;}
-
-    [field: SerializeField] 
-    public Transform LeftHandSocket {get; private set;}
-
     [field: SerializeField]
     public NavMeshAgent navMeshAgent {get; private set;}
 
@@ -44,13 +37,11 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField]
     public ForceReceiver ForceReceiver {get; private set;}
 
-    public GameObject Player {get; private set;}
-    public Weapon currentWeapon {get; private set;}
+    public Health Player {get; private set;}
 
     private void Start() 
     {
-        EquipWeapon(DefaultWeapon);
-        Player = GameManager.Instance.Player;
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         navMeshAgent.updatePosition = false;
         navMeshAgent.updateRotation = false;
         SwitchState(new EnemyIdleState(this));
@@ -69,20 +60,6 @@ public class EnemyStateMachine : StateMachine
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, PlayerDetectionRange);
-    }
-    public void EquipWeapon(Weapon weapon)
-    {
-        currentWeapon = weapon;
-        weapon.Spawn(RightHandSocket, LeftHandSocket, Animator);
-        AttackRange = currentWeapon.GetWeaponRange();
-    }
-    void Shoot()
-    {
-        if(Player == null){return;}
-        if(currentWeapon.HasProjectile())
-        {
-            currentWeapon.LaunchProjectile(RightHandSocket,LeftHandSocket,Player.GetComponent<Health>());
-        }
     }
     private void HandleTakeDamage()
     {

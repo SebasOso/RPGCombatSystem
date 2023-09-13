@@ -2698,6 +2698,7 @@ GameObject:
   - component: {fileID: 19838334440056561}
   - component: {fileID: 4442511523300877862}
   - component: {fileID: 9153547517413520886}
+  - component: {fileID: 1671434893572173406}
   m_Layer: 8
   m_Name: Viking
   m_TagString: Player
@@ -2796,9 +2797,6 @@ MonoBehaviour:
   <WeaponsLogics>k__BackingField:
   - {fileID: 2089427409781366980}
   <Health>k__BackingField: {fileID: 6157023960963652552}
-  <DefaultWeapon>k__BackingField: {fileID: 11400000, guid: 3188093264428f04f8653e72ba5374e7, type: 2}
-  <RightHandSocket>k__BackingField: {fileID: 8189735743552142878}
-  <LeftHandSocket>k__BackingField: {fileID: 7023327966409119157}
   <ForceReceiver>k__BackingField: {fileID: 9144468836748182444}
   <CharacterController>k__BackingField: {fileID: 2102870364356314367}
   <TargetingMovementSpeed>k__BackingField: 1.5
@@ -2933,6 +2931,24 @@ MonoBehaviour:
   backHealth: {fileID: 0}
   lerpTimer: 0
   chipSpeed: 2
+--- !u!114 &1671434893572173406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840563219719277717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f004c94914afc44831f90d712f9b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultWeapon: {fileID: 11400000, guid: 3188093264428f04f8653e72ba5374e7, type: 2}
+  rightHandSocket: {fileID: 8189735743552142878}
+  leftHandSocket: {fileID: 7023327966409119157}
+  animator: {fileID: 7543965243295787276}
+  currentWeapon: {fileID: 0}
+  Targeter: {fileID: 3720220482046476661}
 --- !u!1 &6952484892728181756
 GameObject:
   m_ObjectHideFlags: 0

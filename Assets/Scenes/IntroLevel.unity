@@ -95604,11 +95604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228234281598458099, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.003306174
+      value: 0.0033061574
       objectReference: {fileID: 0}
     - target: {fileID: 7228234281598458099, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000863773
+      value: -0.00086376857
       objectReference: {fileID: 0}
     - target: {fileID: 7638301437991515606, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: backHealth
@@ -95627,6 +95627,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 532014537}
   - {fileID: 679429259}
   - {fileID: 728823383}
   - {fileID: 6689918270135940847}
@@ -95639,4 +95640,3 @@ SceneRoots:
   - {fileID: 992206489}
   - {fileID: 485174672}
   - {fileID: 2253943472749889721}
-  - {fileID: 532014537}
