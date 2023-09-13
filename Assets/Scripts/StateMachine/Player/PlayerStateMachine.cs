@@ -11,8 +11,6 @@ using UnityEngine.InputSystem;
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField] 
-    public PlayerInput PlayerInput {get; private set;}
-    [field: SerializeField] 
     public float JumpForce {get; private set;}
     [field: SerializeField] 
     public float DodgeDistance {get; private set;}
