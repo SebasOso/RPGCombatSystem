@@ -3000,7 +3000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6523a71dab04e6e469815517c44dfba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 60
+  health: 50
   hit: {fileID: 4956647572125521462}
 --- !u!143 &7010301425680052660
 CharacterController:
@@ -3045,9 +3045,6 @@ MonoBehaviour:
   - {fileID: 8928074185378842918}
   <Target>k__BackingField: {fileID: 3078650295410184677}
   <Health>k__BackingField: {fileID: 586232541755160666}
-  <DefaultWeapon>k__BackingField: {fileID: 11400000, guid: d63c1b14ed9e50b408f81139fdd447f0, type: 2}
-  <RightHandSocket>k__BackingField: {fileID: 680586712514024124}
-  <LeftHandSocket>k__BackingField: {fileID: 6074634221337437887}
   <navMeshAgent>k__BackingField: {fileID: 8080853124129522843}
   <RunningMovementSpeed>k__BackingField: 3
   <Animator>k__BackingField: {fileID: 4588404041592787998}

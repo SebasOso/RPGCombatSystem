@@ -18,8 +18,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public bool  IsHeavyAttacking{get; set;}
     private Controls controls;
-    [SerializeField] private GameObject GamePadUI;
-    [SerializeField] private GameObject KeyboardUI;
     private void Start() 
     {
         if(controls == null)

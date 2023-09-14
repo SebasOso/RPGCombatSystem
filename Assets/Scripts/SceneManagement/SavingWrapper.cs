@@ -11,6 +11,7 @@ public class SavingWrapper : MonoBehaviour
     const string defaultSaveFile = "data";
     IEnumerator Start() 
     {
+        Application.targetFrameRate = 60;
         Fader fader = FindObjectOfType<Fader>();
         fader.FadeOutInmediate();
         yield return GetComponent<JsonSavingSystem>().LoadLastScene(defaultSaveFile);

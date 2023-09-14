@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc2233155189a44292bb0a5394dcfc4, type: 3}
   m_Name: EnemySword
   m_EditorClassIdentifier: 
-  weaponDamage: 11.8
+  weaponRange: 0
+  weaponDamage: 9
+  weaponKnockback: 0
   weaponPrefab: {fileID: 6027540345009413175, guid: 48accfefbc80cbc43be2bc5410c54304, type: 3}
   weaponOverrideController: {fileID: 22100000, guid: 1f11d850b06f85049991d545ba7fcc9c, type: 2}
   isRightHanded: 1
