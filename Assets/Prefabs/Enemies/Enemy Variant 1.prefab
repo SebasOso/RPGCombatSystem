@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: health
       value: 42
       objectReference: {fileID: 0}
+    - target: {fileID: 2254078337025043704, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
+      propertyPath: myCollider
+      value: 
+      objectReference: {fileID: 4758001579185309125}
     - target: {fileID: 2560357859654215490, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -69,3 +73,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
+--- !u!136 &4758001579185309125 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 7076544481792781501, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
+  m_PrefabInstance: {fileID: 2320267007172602232}
+  m_PrefabAsset: {fileID: 0}

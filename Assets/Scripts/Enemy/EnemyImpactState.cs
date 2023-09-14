@@ -19,7 +19,7 @@ public class EnemyImpactState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
-        Move(deltaTime);
+        enemyStateMachine.navMeshAgent.speed = 0f;
         duration -= deltaTime;
         if(duration <= 0f)
         {

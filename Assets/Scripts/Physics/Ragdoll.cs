@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Ragdoll : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private CharacterController controller;
     private Collider[] colliders;
     private Rigidbody[] rigidbodies;
+    [SerializeField] private NavMeshAgent navMeshAgent;
     void Start()
     {
         colliders = GetComponentsInChildren<Collider>(true);
@@ -31,7 +32,7 @@ public class Ragdoll : MonoBehaviour
                 rigidbody.useGravity = isRagdoll;
             }
         }
-        controller.enabled = !isRagdoll;
+        navMeshAgent.enabled = !isRagdoll;
         animator.enabled = !isRagdoll;
     }
 }

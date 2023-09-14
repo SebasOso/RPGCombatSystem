@@ -45,12 +45,12 @@ public class PlayerFreeLookState : PlayerBaseState
         if(stateMachine.InputReader.IsRunning)
         {
             stateMachine.FreeLookMovementSpeed = stateMachine.RunningMovementSpeed;
-            stateMachine.Animator.SetFloat(FreeLookSpeedHash, 3f, AnimatorDampTime, deltaTime);
+            stateMachine.Animator.SetFloat(FreeLookSpeedHash, stateMachine.RunningMovementSpeed, AnimatorDampTime, deltaTime);
             FaceMovementDirection(movement, deltaTime);
             return;
         }
         stateMachine.FreeLookMovementSpeed = stateMachine.WalkingMovementSpeed;
-        stateMachine.Animator.SetFloat(FreeLookSpeedHash, 1.5f, AnimatorDampTime, deltaTime);
+        stateMachine.Animator.SetFloat(FreeLookSpeedHash, stateMachine.WalkingMovementSpeed, AnimatorDampTime, deltaTime);
 
         FaceMovementDirection(movement, deltaTime);
     }

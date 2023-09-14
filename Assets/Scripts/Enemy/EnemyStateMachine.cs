@@ -9,6 +9,10 @@ using UnityEngine.AI;
 public class EnemyStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public EnemyMover EnemyMover {get; private set;}
+    [field: SerializeField] 
+    public EnemyArmory EnemyArmory {get; private set;}
+    [field: SerializeField] 
     public Ragdoll ragdoll {get; private set;}
     [field: SerializeField] 
     public List<GameObject> WeaponsLogics {get; private set;}
@@ -27,23 +31,11 @@ public class EnemyStateMachine : StateMachine
 
     [field: SerializeField]
     public float PlayerDetectionRange {get; private set;}
-
-    [field: SerializeField]
-    public float AttackRange {get; private set;}
-
-    [field: SerializeField]
-    public CharacterController CharacterController {get; private set;}
-
-    [field: SerializeField]
-    public ForceReceiver ForceReceiver {get; private set;}
-
     public Health Player {get; private set;}
 
     private void Start() 
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
-        navMeshAgent.updatePosition = false;
-        navMeshAgent.updateRotation = false;
         SwitchState(new EnemyIdleState(this));
     }
     private void OnEnable() 

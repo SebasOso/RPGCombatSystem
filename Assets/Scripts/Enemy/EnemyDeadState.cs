@@ -16,6 +16,7 @@ public class EnemyDeadState : EnemyBaseState
         {
             enemyStateMachine.WeaponsLogics[i].SetActive(false);
         }
+        enemyStateMachine.GetComponent<Collider>().enabled = false;
         GameObject.Destroy(enemyStateMachine.Target);
     }
 

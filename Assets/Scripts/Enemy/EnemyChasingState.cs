@@ -29,24 +29,12 @@ public class EnemyChasingState : EnemyBaseState
             enemyStateMachine.SwitchState(new EnemyAttackingState(this.enemyStateMachine));
             return;
         }
-        MoveToPlayer(deltaTime);
+        enemyStateMachine.EnemyMover.MoveTo(enemyStateMachine.Player.transform.position, 1.0f);
         FacePlayer();
-        enemyStateMachine.Animator.SetFloat(EnemyLocomotionSpeed, 1.0f, 0.1f, deltaTime);
-    }
-
-    private void MoveToPlayer(float deltaTime)
-    {
-        if(enemyStateMachine.navMeshAgent.isOnNavMesh)
-        {
-            enemyStateMachine.navMeshAgent.destination = enemyStateMachine.Player.transform.position;
-            Move(enemyStateMachine.navMeshAgent.desiredVelocity.normalized * enemyStateMachine.RunningMovementSpeed, deltaTime);
-        }
-        enemyStateMachine.navMeshAgent.velocity = enemyStateMachine.CharacterController.velocity;
     }
 
     public override void Exit()
     {
-        enemyStateMachine.navMeshAgent.ResetPath();
-        enemyStateMachine.navMeshAgent.velocity = Vector3.zero;
+
     }
 }

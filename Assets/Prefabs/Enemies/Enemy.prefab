@@ -2896,13 +2896,13 @@ GameObject:
   - component: {fileID: 4588404041592787998}
   - component: {fileID: 3078650295410184677}
   - component: {fileID: 586232541755160666}
-  - component: {fileID: 7010301425680052660}
   - component: {fileID: 5076070900488381897}
-  - component: {fileID: 3832012987118638800}
   - component: {fileID: 7651816724640120686}
   - component: {fileID: 1658291562084023642}
   - component: {fileID: 1464276605885785147}
   - component: {fileID: 7159916028286050183}
+  - component: {fileID: 1213986963150292888}
+  - component: {fileID: 7076544481792781501}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2942,12 +2942,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 6958142045354269578}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 0
+  m_Radius: 0.36
+  m_Speed: 7
+  m_Acceleration: 9.05
   avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 1
+  m_AngularSpeed: 16000
+  m_StoppingDistance: 2.16
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -3002,32 +3002,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   hit: {fileID: 4956647572125521462}
---- !u!143 &7010301425680052660
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6958142045354269578}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.84
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.026
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5076070900488381897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3040,6 +3014,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17be5f405c74e454db679d3fa5aa5833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnemyMover>k__BackingField: {fileID: 1213986963150292888}
+  <EnemyArmory>k__BackingField: {fileID: 7159916028286050183}
   <ragdoll>k__BackingField: {fileID: 1464276605885785147}
   <WeaponsLogics>k__BackingField:
   - {fileID: 8928074185378842918}
@@ -3049,24 +3025,6 @@ MonoBehaviour:
   <RunningMovementSpeed>k__BackingField: 3
   <Animator>k__BackingField: {fileID: 4588404041592787998}
   <PlayerDetectionRange>k__BackingField: 5.66
-  <AttackRange>k__BackingField: 1.5
-  <CharacterController>k__BackingField: {fileID: 7010301425680052660}
-  <ForceReceiver>k__BackingField: {fileID: 3832012987118638800}
---- !u!114 &3832012987118638800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6958142045354269578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a1f54973d132f4dafbd0940846344f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 7010301425680052660}
-  drag: 0.1
-  navMeshAgent: {fileID: 8080853124129522843}
 --- !u!114 &7651816724640120686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3092,7 +3050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9ea311b553574b9021e5ba58acd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueIdentifier: 8b26ddfe-45f9-4936-9f80-fced98a109ff
+  uniqueIdentifier: 9a2dba61-39fe-4eb5-9935-4c32135a07f2
 --- !u!114 &1464276605885785147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3106,7 +3064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4588404041592787998}
-  controller: {fileID: 7010301425680052660}
+  navMeshAgent: {fileID: 8080853124129522843}
 --- !u!114 &7159916028286050183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3124,6 +3082,44 @@ MonoBehaviour:
   leftHandSocket: {fileID: 6074634221337437887}
   animator: {fileID: 4588404041592787998}
   currentWeapon: {fileID: 0}
+--- !u!114 &1213986963150292888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958142045354269578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad6b347f5dba634aa9a09066b71ffab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 4588404041592787998}
+  maxSpeed: 3.7
+  navMesh: {fileID: 8080853124129522843}
+--- !u!136 &7076544481792781501
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958142045354269578}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.78
+  m_Height: 1.81
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &6962691344543524485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4664,7 +4660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd7d8f3aa39bc941a9be808e65a1484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCollider: {fileID: 7010301425680052660}
+  myCollider: {fileID: 7076544481792781501}
   sword: {fileID: 11400000, guid: d63c1b14ed9e50b408f81139fdd447f0, type: 2}
 --- !u!54 &4066503466131486598
 Rigidbody:

@@ -1,101 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &657788380600345467
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1282830070213996083}
-  - component: {fileID: 8943489124906322170}
-  - component: {fileID: 834579594350090255}
-  - component: {fileID: 3690015833703765213}
-  m_Layer: 0
-  m_Name: SwordLogic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1282830070213996083
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657788380600345467}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.5213339, y: 0.4777144, z: -0.4777144, w: 0.5213339}
-  m_LocalPosition: {x: -0.157, y: 0, z: -0.463}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1350163018544545741}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -85}
---- !u!114 &8943489124906322170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657788380600345467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd7d8f3aa39bc941a9be808e65a1484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCollider: {fileID: 535681162264601183}
-  sword: {fileID: 11400000, guid: d63c1b14ed9e50b408f81139fdd447f0, type: 2}
---- !u!54 &834579594350090255
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657788380600345467}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 0
-  m_ImplicitTensor: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &3690015833703765213
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657788380600345467}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.47286013, z: 0.120793335}
-  m_Center: {x: -0.0000012623384, y: 0.16663314, z: 0.02765257}
 --- !u!1001 &1350163018544172715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107,14 +11,6 @@ PrefabInstance:
     - target: {fileID: 101078, guid: ee184764e771a3e4abd5783e82f1e128, type: 3}
       propertyPath: m_Name
       value: Character_Grunt_02_White
-      objectReference: {fileID: 0}
-    - target: {fileID: 106024, guid: ee184764e771a3e4abd5783e82f1e128, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 119744, guid: ee184764e771a3e4abd5783e82f1e128, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 466372, guid: ee184764e771a3e4abd5783e82f1e128, type: 3}
       propertyPath: m_LocalPosition.x
@@ -156,12 +52,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4882346313935626848, guid: ee184764e771a3e4abd5783e82f1e128, type: 3}
+      propertyPath: myCollider
+      value: 
+      objectReference: {fileID: 293411937997750102}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 438630, guid: ee184764e771a3e4abd5783e82f1e128, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1282830070213996083}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee184764e771a3e4abd5783e82f1e128, type: 3}
 --- !u!4 &1350163018544501615 stripped
@@ -177,6 +74,11 @@ Transform:
 --- !u!4 &1350163018544545741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 438630, guid: ee184764e771a3e4abd5783e82f1e128, type: 3}
+  m_PrefabInstance: {fileID: 1350163018544172715}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2479146411338387671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3520421389539712636, guid: ee184764e771a3e4abd5783e82f1e128, type: 3}
   m_PrefabInstance: {fileID: 1350163018544172715}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7360719267986445291
@@ -242,7 +144,7 @@ PrefabInstance:
     - target: {fileID: 5076070900488381897, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: <WeaponsLogics>k__BackingField.Array.data[0]
       value: 
-      objectReference: {fileID: 657788380600345467}
+      objectReference: {fileID: 2479146411338387671}
     - target: {fileID: 5765859598610865370, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -266,7 +168,7 @@ PrefabInstance:
     - target: {fileID: 7651816724640120686, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: swordLogic
       value: 
-      objectReference: {fileID: 657788380600345467}
+      objectReference: {fileID: 2479146411338387671}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8054306818217040311, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
@@ -282,9 +184,9 @@ PrefabInstance:
       addedObject: {fileID: 1350163018544501615}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
---- !u!143 &535681162264601183 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 7010301425680052660, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
+--- !u!136 &293411937997750102 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 7076544481792781501, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
   m_PrefabInstance: {fileID: 7360719267986445291}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6146991481667308273 stripped
