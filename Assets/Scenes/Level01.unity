@@ -56284,11 +56284,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8538101171078280499, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.003306345
+      value: 0.0033063618
       objectReference: {fileID: 0}
     - target: {fileID: 8538101171078280499, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0008638169
+      value: -0.0008638212
       objectReference: {fileID: 0}
     - target: {fileID: 8660993551504201750, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: backHealth
