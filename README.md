@@ -1,6 +1,9 @@
 # RPGCombatSystem
  
 # Animation Class:
+
+The main scene is "Animacion".
+
 ## Inputs:
 ### Movement: 
 - WASD Keyboard.
