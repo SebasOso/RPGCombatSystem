@@ -14,3 +14,8 @@ The main scene is "Animacion".
 ### Attack:
 - Left Clik Keyboard.
 - R1 Gamepad.
+### Change Character:
+- "M" for "Maria" character in Keyboard.
+- "J" for "John" character in Keyboard.
+- Down Arrow for "John" character in Gamepad.
+- Up Arrow for "Maria" character in Gamepad.
