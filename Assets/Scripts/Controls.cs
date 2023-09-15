@@ -107,6 +107,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeJohn"",
+                    ""type"": ""Button"",
+                    ""id"": ""36a618f0-6290-433c-a800-dff1995c8a2d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeMaria"",
+                    ""type"": ""Button"",
+                    ""id"": ""b1b2fcd2-d347-4203-9a63-3ef30af18a39"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -395,6 +413,50 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""949bd5b3-c4df-48ce-89b3-12e7900b8576"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""ChangeJohn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79616ee1-9778-44d5-b249-1fc2c7030f37"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""ChangeJohn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc4046b6-08c1-4d38-8095-189baa27b435"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""ChangeMaria"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17a599e0-872a-41e2-acbc-9f3a2c441c23"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""ChangeMaria"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -640,6 +702,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_ChangeJohn = m_Player.FindAction("ChangeJohn", throwIfNotFound: true);
+        m_Player_ChangeMaria = m_Player.FindAction("ChangeMaria", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
@@ -715,6 +779,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_ChangeJohn;
+    private readonly InputAction m_Player_ChangeMaria;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -728,6 +794,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @ChangeJohn => m_Wrapper.m_Player_ChangeJohn;
+        public InputAction @ChangeMaria => m_Wrapper.m_Player_ChangeMaria;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -764,6 +832,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @ChangeJohn.started += instance.OnChangeJohn;
+            @ChangeJohn.performed += instance.OnChangeJohn;
+            @ChangeJohn.canceled += instance.OnChangeJohn;
+            @ChangeMaria.started += instance.OnChangeMaria;
+            @ChangeMaria.performed += instance.OnChangeMaria;
+            @ChangeMaria.canceled += instance.OnChangeMaria;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -795,6 +869,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @ChangeJohn.started -= instance.OnChangeJohn;
+            @ChangeJohn.performed -= instance.OnChangeJohn;
+            @ChangeJohn.canceled -= instance.OnChangeJohn;
+            @ChangeMaria.started -= instance.OnChangeMaria;
+            @ChangeMaria.performed -= instance.OnChangeMaria;
+            @ChangeMaria.canceled -= instance.OnChangeMaria;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -912,6 +992,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnChangeJohn(InputAction.CallbackContext context);
+        void OnChangeMaria(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

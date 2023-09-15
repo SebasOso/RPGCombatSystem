@@ -97,4 +97,14 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         if(!context.performed){return;}
         InteractEvent?.Invoke();
     }
+
+    public void OnChangeJohn(InputAction.CallbackContext context)
+    {
+        
+    }
+
+    public void OnChangeMaria(InputAction.CallbackContext context)
+    {
+        
+    }
 }
