@@ -11,6 +11,8 @@ using UnityEngine.InputSystem;
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public AudioSource HitAudio {get; private set;}
+    [field: SerializeField] 
     public IdleBreaker IdleBreaker {get; private set;}
     [field: SerializeField] 
     public float JumpForce {get; private set;}
@@ -75,6 +77,7 @@ public class PlayerStateMachine : StateMachine
     private void HandleTakeDamage()
     {
         SwitchState(new PlayerImpactState(this));
+        HitAudio.Play();
     }
     private void HandleDie()
     {

@@ -5,9 +5,14 @@ using RPG.Combat;
 using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class EnemyStateMachine : StateMachine
 {
+    [field: SerializeField] 
+    public AudioSource DeathClip {get; private set;}
     [field: SerializeField] 
     public EnemyMover EnemyMover {get; private set;}
     [field: SerializeField] 
@@ -60,5 +65,6 @@ public class EnemyStateMachine : StateMachine
     private void HandleDie()
     {
         SwitchState(new EnemyDeadState(this));
+        DeathClip.Play();
     }
 }
