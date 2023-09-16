@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using RPG.Combat;
 using RPG.Saving;
+using RPG.Stats;
 using UnityEngine;
 
 public class Armory : MonoBehaviour, IJsonSaveable
@@ -22,6 +23,10 @@ public class Armory : MonoBehaviour, IJsonSaveable
         {
             EquipWeapon(defaultWeapon);
         }
+    }
+    private void Start() 
+    {
+        animator.SetFloat("attackSpeed", GetComponent<BaseStats>().GetAS());
     }
     public void EquipWeapon(Weapon weapon)
     {

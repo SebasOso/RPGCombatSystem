@@ -2903,8 +2903,9 @@ GameObject:
   - component: {fileID: 7159916028286050183}
   - component: {fileID: 1213986963150292888}
   - component: {fileID: 7076544481792781501}
+  - component: {fileID: 7341160249618278958}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy Hirdmen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3120,6 +3121,21 @@ CapsuleCollider:
   m_Height: 1.81
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &7341160249618278958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958142045354269578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd760600ba7c1542a7a6a6d94771d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingLevel: 1
+  characterClass: 2
+  progression: {fileID: 11400000, guid: 73af80ab9edeb5242bec60a1948cd44d, type: 2}
 --- !u!1 &6962691344543524485
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using RPG.Saving;
+using RPG.Stats;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -17,6 +18,7 @@ public class Health : MonoBehaviour, IJsonSaveable
     private Animator animator;
     private void Start()
     {
+        health = GetComponent<BaseStats>().GetHealth();
         if(health == 0)
         {
             OnDie?.Invoke();
