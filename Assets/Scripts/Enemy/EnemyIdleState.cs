@@ -26,6 +26,10 @@ public class EnemyIdleState : EnemyBaseState
             enemyStateMachine.SwitchState(new EnemyChasingState(this.enemyStateMachine));
             return;
         }
+        if(enemyStateMachine.PatrolPath != null)
+        {
+            enemyStateMachine.SwitchState(new EnemyPatrollingState(enemyStateMachine));
+        }
     }
 
     public override void Exit()
