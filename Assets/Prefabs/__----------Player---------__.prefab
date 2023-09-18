@@ -1433,6 +1433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Viking
       objectReference: {fileID: 0}
+    - target: {fileID: 8472519699599541953, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8772031347091105724, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       propertyPath: <PlayerInput>k__BackingField
       value: 

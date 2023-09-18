@@ -9,6 +9,8 @@ using UnityEngine.AI;
 public class EnemyStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public bool Test {get; private set;}
+    [field: SerializeField] 
     public PatrolPath PatrolPath {get; private set;}
     [field: SerializeField]
     public float StayTime {get; private set;}

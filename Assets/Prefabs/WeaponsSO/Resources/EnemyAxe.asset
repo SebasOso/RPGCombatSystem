@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc2233155189a44292bb0a5394dcfc4, type: 3}
   m_Name: EnemyAxe
   m_EditorClassIdentifier: 
-  weaponRange: 1.71
+  weaponRange: 1.91
   weaponDamage: 9
   weaponKnockback: 0
   weaponPrefab: {fileID: 2789429341532814366, guid: af5b2d0bce04218439c4597d02fa3edd, type: 3}
