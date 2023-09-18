@@ -3016,7 +3016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17be5f405c74e454db679d3fa5aa5833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Test>k__BackingField: 0
+  <FieldOfView>k__BackingField: {fileID: 7180135419205021194}
   <PatrolPath>k__BackingField: {fileID: 0}
   <StayTime>k__BackingField: 3
   <SuspicionTime>k__BackingField: 3
@@ -3031,7 +3031,7 @@ MonoBehaviour:
   <navMeshAgent>k__BackingField: {fileID: 8080853124129522843}
   <RunningMovementSpeed>k__BackingField: 3
   <Animator>k__BackingField: {fileID: 4588404041592787998}
-  <PlayerDetectionRange>k__BackingField: 5.66
+  <PlayerDetectionRange>k__BackingField: 1.99
 --- !u!114 &7651816724640120686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3151,9 +3151,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6958142045354269578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daaf8b412544e8340bc5d8bec1493151, type: 3}
+  m_Script: {fileID: 11500000, guid: a6651a7b237f54d45b1089cad2297413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 4.63
+  angle: 86
+  playerRef: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 8
+  canSeePlayer: 0
 --- !u!1 &6962691344543524485
 GameObject:
   m_ObjectHideFlags: 0

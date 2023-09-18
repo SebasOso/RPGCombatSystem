@@ -22,6 +22,10 @@ public class EnemyPatrollingState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
+        if(enemyStateMachine.FieldOfView.canSeePlayer)
+        {
+            enemyStateMachine.SwitchState(new EnemyChasingState(enemyStateMachine));
+        }
         if(IsInChasingRange())
         {
             enemyStateMachine.SwitchState(new EnemyChasingState(enemyStateMachine));

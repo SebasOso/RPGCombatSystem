@@ -21,7 +21,7 @@ public class EnemyChasingState : EnemyBaseState
     {
         if(!IsInChasingRange())
         {
-            if(!enemyStateMachine.Test)
+            if(!enemyStateMachine.FieldOfView.canSeePlayer)
             {
                 enemyStateMachine.SwitchState(new EnemyIdleState(this.enemyStateMachine));
                 return;

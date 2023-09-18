@@ -20,7 +20,7 @@ public class EnemyIdleState : EnemyBaseState
     public override void Tick(float deltaTime)
     {
         enemyStateMachine.EnemyMover.MoveTo(Vector3.zero, 0f);
-        if(enemyStateMachine.Test)
+        if(enemyStateMachine.FieldOfView.canSeePlayer)
         {
             Debug.Log("In Range");
             enemyStateMachine.SwitchState(new EnemyChasingState(this.enemyStateMachine));
