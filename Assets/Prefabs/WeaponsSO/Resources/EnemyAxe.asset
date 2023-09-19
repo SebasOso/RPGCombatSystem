@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyAxe
   m_EditorClassIdentifier: 
   weaponRange: 1.91
-  weaponDamage: 9
+  weaponDamage: 18
   weaponKnockback: 0
   weaponPrefab: {fileID: 2789429341532814366, guid: af5b2d0bce04218439c4597d02fa3edd, type: 3}
   weaponOverrideController: {fileID: 22100000, guid: 577928655b4c9c24e9c322b0c6548c95, type: 2}

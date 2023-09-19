@@ -26,7 +26,7 @@ public class Armory : MonoBehaviour, IJsonSaveable
     }
     private void Start() 
     {
-        animator.SetFloat("attackSpeed", GetComponent<BaseStats>().GetAS());
+        animator.SetFloat("attackSpeed", GetComponent<BaseStats>().GetStat(Stat.AttackSpeed));
     }
     public void EquipWeapon(Weapon weapon)
     {

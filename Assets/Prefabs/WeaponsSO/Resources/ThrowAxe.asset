@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ThrowAxe
   m_EditorClassIdentifier: 
   weaponRange: 0
-  weaponDamage: 22.87
+  weaponDamage: 37
   weaponKnockback: 0
   weaponPrefab: {fileID: 2532151612520045506, guid: 998b13cd645cf1e4cb6456b4d528cc86, type: 3}
   weaponOverrideController: {fileID: 22100000, guid: 9dfd0894634bc4b408174d1f3b7a6dbc, type: 2}

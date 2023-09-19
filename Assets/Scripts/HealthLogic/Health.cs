@@ -18,7 +18,7 @@ public class Health : MonoBehaviour, IJsonSaveable
     private Animator animator;
     private void Start()
     {
-        health = GetComponent<BaseStats>().GetHealth();
+        health = GetComponent<BaseStats>().GetStat(Stat.Health);
         if(health == 0)
         {
             OnDie?.Invoke();
@@ -40,11 +40,18 @@ public class Health : MonoBehaviour, IJsonSaveable
         {
             OnDie?.Invoke();
             Die();
+            AwardExperience();
         }
     }
     public void SetInvulnerable(bool isInvulnerable)
     {
         this.isInvulnerable = isInvulnerable;
+    }
+    private void AwardExperience()
+    {
+        Experience experience = GameObject.FindWithTag("Player").GetComponent<Experience>();
+        if (experience == null) return;
+        experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
     }
     private void Die()
     {

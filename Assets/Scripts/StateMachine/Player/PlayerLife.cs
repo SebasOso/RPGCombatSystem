@@ -8,13 +8,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
 using RPG.Saving;
 using Newtonsoft.Json.Linq;
+using RPG.Stats;
 
 public class PlayerLife : MonoBehaviour, IJsonSaveable
 {
     private bool isDied = false; 
     [Header("Player Health")]
     public float health;
-    
+    private float maxHealth;
 
 
     [Header("UI Elements")]
@@ -39,6 +40,7 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
         isAlive = true;
         Instance = this;
         health = GetComponent<Health>().health;
+        maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
     }
 
     private void Start()
@@ -49,7 +51,7 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
     void Update()
     {
         HealthBarColor();
-        health = Mathf.Clamp(health, 0, GetComponent<Health>().health);
+        health = GetComponent<Health>().health;
         UpdateHealthUI();
         if (health <= 0 && !isDied)
         {
@@ -75,27 +77,26 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
     
     private void HealthBarColor()
     {
-        if (health <= 100.0f && health >= 60.0f) 
+        if (health <= maxHealth && health >= maxHealth * 0.6f) 
         {
             frontHealth.color = GetColorFromString("2BFF00");
         }
         
-        if (health <= 50.0f && health >= 30.0f) 
+        if (health <= maxHealth * 0.5f && health >= maxHealth * 0.3f) 
         {
             frontHealth.color = GetColorFromString("FFE312");
         }
         
-        if (health <= 20.0f && health >= 0f) 
+        if (health <= maxHealth * 0.2f && health >= 0f) 
         {
             frontHealth.color = GetColorFromString("FF2613");
         }
-        
     }
     public void UpdateHealthUI()
     {
         float fillF = frontHealth.fillAmount;
         float fillB = backHealth.fillAmount;
-        float hFraction = health / 100;
+        float hFraction = health / maxHealth;
         if (fillB > hFraction)
         {
             frontHealth.fillAmount = hFraction;
