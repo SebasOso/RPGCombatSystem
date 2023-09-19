@@ -23,7 +23,7 @@ public class EnemyChasingState : EnemyBaseState
         {
             if(!enemyStateMachine.FieldOfView.canSeePlayer)
             {
-                enemyStateMachine.SwitchState(new EnemyIdleState(this.enemyStateMachine));
+                enemyStateMachine.SwitchState(new EnemySuspiciusState(this.enemyStateMachine));
                 return;
             }
         }
