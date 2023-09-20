@@ -11,14 +11,17 @@ public class Health : MonoBehaviour, IJsonSaveable
 {
     public event Action OnDie;
     public event Action OnTakeDamage;
-    [SerializeField] public float health = 100f;
+    public float health = -1f;
     private bool isDead = false;
     private bool isInvulnerable;
     [SerializeField] private VisualEffect hit;
     private Animator animator;
     private void Start()
     {
-        health = GetComponent<BaseStats>().GetStat(Stat.Health);
+        if(health < 0)
+        {
+            health = GetComponent<BaseStats>().GetStat(Stat.Health);
+        }
         if(health == 0)
         {
             OnDie?.Invoke();

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 586232541755160666, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: health
-      value: 42
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2254078337025043704, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: myCollider

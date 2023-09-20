@@ -57,7 +57,6 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
         {
             DeathAnimation();
         }
-
     }
 
     private void DeathAnimation()
