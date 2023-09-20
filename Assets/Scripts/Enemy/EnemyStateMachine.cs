@@ -9,6 +9,8 @@ using UnityEngine.AI;
 public class EnemyStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public FieldOfView FieldOfView {get; private set;}
+    [field: SerializeField] 
     public EnemyLife HealthBar {get; private set;}
     [field: SerializeField] 
     public PatrolPath PatrolPath {get; private set;}
