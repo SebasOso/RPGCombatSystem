@@ -34,6 +34,10 @@ public class Health : MonoBehaviour, IJsonSaveable
         if(health <= 0){return;}
         if(isInvulnerable){return;}
         hit.Play();
+        if(GetComponent<EnemyLife>())
+        {
+            GetComponent<EnemyLife>().lerpTimer = 0f;
+        }
         health = Mathf.Max(health - damage, 0);
         OnTakeDamage?.Invoke();
         if(health == 0)
