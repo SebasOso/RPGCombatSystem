@@ -3019,6 +3019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <FieldOfView>k__BackingField: {fileID: 7180135419205021194}
+  <HealthBar>k__BackingField: {fileID: 1194462430149876063}
   <PatrolPath>k__BackingField: {fileID: 0}
   <StayTime>k__BackingField: 3
   <SuspicionTime>k__BackingField: 3
@@ -3181,6 +3182,7 @@ MonoBehaviour:
   health: 0
   frontHealth: {fileID: 2550643857984624660}
   backHealth: {fileID: 2550643859096164759}
+  baseHealth: {fileID: 2550643858327643941}
   lerpTimer: 0
   chipSpeed: 2
 --- !u!1 &6962691344543524485
@@ -5081,6 +5083,17 @@ PrefabInstance:
 --- !u!114 &2550643857984624660 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4666843951255055521, guid: 1074b777774baa3449fd598b687adbfb, type: 3}
+  m_PrefabInstance: {fileID: 7180497893005489333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2550643858327643941 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4666843953040905104, guid: 1074b777774baa3449fd598b687adbfb, type: 3}
   m_PrefabInstance: {fileID: 7180497893005489333}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

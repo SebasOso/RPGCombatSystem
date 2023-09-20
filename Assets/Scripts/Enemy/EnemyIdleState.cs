@@ -14,6 +14,7 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void Enter()
     {
+        enemyStateMachine.HealthBar.OffBar();
         enemyStateMachine.Animator.CrossFadeInFixedTime(EnemyLocomotionBlendTree, CrossFadeDuration);
     }
 

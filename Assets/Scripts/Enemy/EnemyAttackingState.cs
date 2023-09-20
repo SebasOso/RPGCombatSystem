@@ -14,6 +14,7 @@ public class EnemyAttackingState : EnemyBaseState
     public override void Enter()
     {
         FacePlayer();
+        enemyStateMachine.HealthBar.OnBar();
         enemyStateMachine.Animator.CrossFadeInFixedTime(AttackHash, CrossFadeDuration);
     }
 
