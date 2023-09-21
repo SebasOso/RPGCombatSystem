@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
@@ -7,9 +8,11 @@ using UnityEngine;
 public class Experience : MonoBehaviour, IJsonSaveable
 {
     [SerializeField] float experiencePoints = 0;
+    public event Action OnExperienceGained;
     public void GainExperience(float experienceGained)
     {
         experiencePoints += experienceGained;
+        OnExperienceGained();
     }
     public float GetExperience()
     {

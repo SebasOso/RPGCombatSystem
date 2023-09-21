@@ -9,9 +9,13 @@ public class SavingWrapper : MonoBehaviour
 {
     private GameObject player;
     const string defaultSaveFile = "data";
-    IEnumerator Start() 
+    private void Awake() 
     {
-        Application.targetFrameRate = 60;
+        StartCoroutine(LoadLastScene());
+    }
+    IEnumerator LoadLastScene() 
+    {
+        //Application.targetFrameRate = 60;
         Fader fader = FindObjectOfType<Fader>();
         fader.FadeOutInmediate();
         yield return GetComponent<JsonSavingSystem>().LoadLastScene(defaultSaveFile);
