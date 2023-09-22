@@ -1,5 +1,4 @@
-# RPGCombatSystem
- 
+
 # Animation Class:
 
 The main scene is "ExamenAnimacion".
