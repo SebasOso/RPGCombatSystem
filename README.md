@@ -2,20 +2,15 @@
  
 # Animation Class:
 
-The main scene is "Animacion".
+The main scene is "ExamenAnimacion".
 
-## Inputs:
-### Movement: 
-- WASD Keyboard.
-- Left Joystick Gamepad.
-### Run:
-- Shift Keyboard.
-- L1 Gamepad.
-### Attack:
-- Left Clik Keyboard.
-- R1 Gamepad.
-### Change Character:
-- "M" for "Maria" character in Keyboard.
-- "J" for "John" character in Keyboard.
-- Down Arrow for "John" character in Gamepad.
-- Up Arrow for "Maria" character in Gamepad.
+#Left Slider:
+##Controls the weight of the left foot ik.
+#Right Slider:
+##Controls the weight of the right foot ik.
+
+#Objects in the scene:
+##OrcExamen:
+###This object have the script "ExamenIKScript" that controls the two sliders and iks.
+##UIExamen:
+###This object have the UI and the two sliders for the two legs.
