@@ -15,7 +15,7 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
     private bool isDied = false; 
     [Header("Player Health")]
     public float health;
-    private float maxHealth;
+    [SerializeField] private float maxHealth;
 
 
     [Header("UI Elements")]
@@ -46,7 +46,17 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
     private void Start()
     {
         anim = GetComponent<Animator>();
+        maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
+        GetComponent<BaseStats>().OnLevelUp += UpdateHealth;
     }
+
+    private void UpdateHealth()
+    {
+        maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
+        UpdateHealthUI();
+        HealthBarColor();
+    }
+
     // Update is called once per frame
     void Update()
     {

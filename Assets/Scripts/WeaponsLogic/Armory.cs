@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
@@ -27,7 +28,14 @@ public class Armory : MonoBehaviour, IJsonSaveable
     private void Start() 
     {
         animator.SetFloat("attackSpeed", GetComponent<BaseStats>().GetStat(Stat.AttackSpeed));
+        GetComponent<BaseStats>().OnLevelUp += UpdateAS;
     }
+
+    private void UpdateAS()
+    {
+        animator.SetFloat("attackSpeed", GetComponent<BaseStats>().GetStat(Stat.AttackSpeed));
+    }
+
     public void EquipWeapon(Weapon weapon)
     {
         currentWeapon = weapon;

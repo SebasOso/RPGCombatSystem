@@ -1671,6 +1671,7 @@ MonoBehaviour:
   startingLevel: 1
   characterClass: 0
   progression: {fileID: 11400000, guid: 73af80ab9edeb5242bec60a1948cd44d, type: 2}
+  levelUpEffect: {fileID: 6064678904431956634, guid: b11840ac3353b78499fcdb87de8376c9, type: 3}
 --- !u!114 &6349487331050348636
 MonoBehaviour:
   m_ObjectHideFlags: 0
