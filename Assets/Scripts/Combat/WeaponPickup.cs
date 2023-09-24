@@ -18,11 +18,7 @@ public class WeaponPickup : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         InputReader = player.GetComponent<InputReader>();
     }
-    private void Start() 
-    {
-        InputReader.InteractEvent += PickUp;
-    }
-    private void PickUp()
+    public void PickUp()
     {
         if(weaponToPick != null)
         {
@@ -37,6 +33,8 @@ public class WeaponPickup : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            player.GetComponent<Armory>().weaponToPickUp = this;
+            InputReader.IsInteracting = true;
             weaponToPick = weapon;
             pickupUI.SetActive(true);
         }
@@ -45,6 +43,8 @@ public class WeaponPickup : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            player.GetComponent<Armory>().weaponToPickUp = null;
+            InputReader.IsInteracting = false;
             weaponToPick = null;
             pickupUI.SetActive(false);
         }
@@ -52,9 +52,7 @@ public class WeaponPickup : MonoBehaviour
     private IEnumerator HideForSeconds(float seconds)
     {
         ToggleShowPickup(false);
-        player.GetComponent<Animator>().SetTrigger("interact");
         yield return new WaitForSeconds(player.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length);
-        player.GetComponent<Animator>().ResetTrigger("interact");
     }
  
     private void ToggleShowPickup(bool toggle)

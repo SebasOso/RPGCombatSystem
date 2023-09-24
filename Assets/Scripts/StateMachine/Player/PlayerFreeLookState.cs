@@ -16,9 +16,15 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.InputReader.InteractEvent += OnInteract;
         stateMachine.InputReader.JumpEvent += OnJump;
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTree, CrossFadeDuration);
+    }
+
+    private void OnInteract()
+    {
+        stateMachine.SwitchState(new PlayerInteractingState(stateMachine));
     }
 
     private void OnJump()

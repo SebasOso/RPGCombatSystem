@@ -13,6 +13,7 @@ public class Armory : MonoBehaviour, IJsonSaveable
     [SerializeField] public Weapon defaultWeapon;
     [SerializeField] private Transform rightHandSocket;
     [SerializeField] private Transform leftHandSocket;
+    public WeaponPickup weaponToPickUp;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -40,6 +41,12 @@ public class Armory : MonoBehaviour, IJsonSaveable
     {
         currentWeapon = weapon;
         weapon.Spawn(rightHandSocket, leftHandSocket, animator);
+    }
+    public void PickUpWeapon()
+    {
+        weaponToPickUp?.PickUp();
+        GetComponent<InputReader>().IsInteracting = false;
+        Destroy(weaponToPickUp.gameObject);
     }
     public JToken CaptureAsJToken()
     {

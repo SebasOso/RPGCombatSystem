@@ -13,6 +13,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action CancelTargetEvent;
     public event Action InteractEvent;
     public bool  IsAttacking{get; set;}
+    public bool IsInteracting{get;set;}
 
     public bool IsRunning{get; private set;}
 
@@ -94,7 +95,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if(!context.performed){return;}
-        InteractEvent?.Invoke();
+        if(IsInteracting)
+        {
+            if(!context.performed){return;}
+            InteractEvent?.Invoke();
+        }
     }
 }
