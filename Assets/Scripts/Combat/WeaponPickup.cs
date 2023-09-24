@@ -52,8 +52,9 @@ public class WeaponPickup : MonoBehaviour
     private IEnumerator HideForSeconds(float seconds)
     {
         ToggleShowPickup(false);
-        yield return new WaitForSeconds(seconds);
-        ToggleShowPickup(true);
+        player.GetComponent<Animator>().SetTrigger("interact");
+        yield return new WaitForSeconds(player.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length);
+        player.GetComponent<Animator>().ResetTrigger("interact");
     }
  
     private void ToggleShowPickup(bool toggle)

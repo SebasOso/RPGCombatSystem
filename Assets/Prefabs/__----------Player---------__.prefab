@@ -77,7 +77,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564014425314569353}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21671051, y: 0.003335899, z: -0.00074052665, w: 0.97622997}
+  m_LocalRotation: {x: 0.21671051, y: 0.0033359663, z: -0.0007405416, w: 0.97622997}
   m_LocalPosition: {x: 23.076279, y: 6.047, z: -60.050003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1426,6 +1426,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1671434893572173406, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 08a57bc48737906428823b47a22aae42, type: 2}
     - target: {fileID: 3720220482046476661, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       propertyPath: cinemachineTargetGroup
       value: 
@@ -1467,6 +1471,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6840563219719277717, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6349487331050348636}
+    - targetCorrespondingSourceObject: {fileID: 6840563219719277717, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2662122039663646781}
   m_SourcePrefab: {fileID: 100100000, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
 --- !u!4 &1255941149767824028 stripped
 Transform:
@@ -1487,6 +1494,11 @@ MonoBehaviour:
 --- !u!4 &4283413027721973396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3348111022143016628, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+  m_PrefabInstance: {fileID: 1515281264087760928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5090076513055053560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6027164125526038232, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
   m_PrefabInstance: {fileID: 1515281264087760928}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5470127838172138677 stripped
@@ -1685,6 +1697,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experiencePoints: 0
+--- !u!114 &2662122039663646781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470127838172138677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cccfddffb04c5b141a99db7e66b814e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punchLogic: {fileID: 5090076513055053560}
 --- !u!4 &7754414798333919634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9122722075377156530, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}

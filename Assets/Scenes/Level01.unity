@@ -4526,11 +4526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 311840701434023536, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0033361022
+      value: 0.0033361397
       objectReference: {fileID: 0}
     - target: {fileID: 311840701434023536, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0007405713
+      value: -0.0007405796
       objectReference: {fileID: 0}
     - target: {fileID: 770375299147074766, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_FollowOffset.y
@@ -4574,11 +4574,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2542890303440364721, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0033360831
+      value: 0.0033361583
       objectReference: {fileID: 0}
     - target: {fileID: 2542890303440364721, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00074056705
+      value: -0.0007405838
       objectReference: {fileID: 0}
     - target: {fileID: 2887011967740655599, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_FollowOffset.y
@@ -4591,6 +4591,10 @@ PrefabInstance:
     - target: {fileID: 2901590333400470602, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ChildCameras.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256182107630685356, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20.400024
       objectReference: {fileID: 0}
     - target: {fileID: 5416607540951644639, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4667,6 +4671,10 @@ PrefabInstance:
     - target: {fileID: 6472873396122003973, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734239113524459910, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20.400024
       objectReference: {fileID: 0}
     - target: {fileID: 7228234281598458099, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29165,6 +29173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Leidang 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5031141830392267606, guid: 962371905ce876447aa9157aa4864bc8, type: 3}
+      propertyPath: startingLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7368712637411642545, guid: 962371905ce876447aa9157aa4864bc8, type: 3}
       propertyPath: <PatrolPath>k__BackingField
       value: 
@@ -52675,6 +52687,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 724057317}
     m_Modifications:
+    - target: {fileID: 272341844686518725, guid: 1ede5708fed1d3d4fb59a34618d95766, type: 3}
+      propertyPath: startingLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 483801058699216993, guid: 1ede5708fed1d3d4fb59a34618d95766, type: 3}
       propertyPath: m_Name
       value: Enemy Hersir 3
@@ -63787,6 +63803,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Hirdmen
       objectReference: {fileID: 0}
+    - target: {fileID: 7341160249618278958, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
+      propertyPath: startingLevel
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -63870,6 +63890,10 @@ PrefabInstance:
       propertyPath: <PatrolPath>k__BackingField
       value: 
       objectReference: {fileID: 1270963326}
+    - target: {fileID: 3580817598157749707, guid: d4e5709aa8fae4648abdb0e1240758d8, type: 3}
+      propertyPath: startingLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3801281812883491951, guid: d4e5709aa8fae4648abdb0e1240758d8, type: 3}
       propertyPath: m_Name
       value: Enemy Hersir 1
@@ -73857,6 +73881,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Berserker
       objectReference: {fileID: 0}
+    - target: {fileID: 7286237342404690619, guid: 6703b6785a349754ebd6c67cb7e7cc9b, type: 3}
+      propertyPath: startingLevel
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -75423,6 +75451,10 @@ PrefabInstance:
     - target: {fileID: 3069898976690022307, guid: e5e57328a442c0444a2a68e9184c7c89, type: 3}
       propertyPath: m_Name
       value: Enemy Bogomenn
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452919319590835719, guid: e5e57328a442c0444a2a68e9184c7c89, type: 3}
+      propertyPath: startingLevel
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6703993881512837491, guid: e5e57328a442c0444a2a68e9184c7c89, type: 3}
       propertyPath: uniqueIdentifier
