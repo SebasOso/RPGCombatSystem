@@ -9,6 +9,7 @@ using UnityEngine.VFX;
 
 public class Health : MonoBehaviour, IJsonSaveable
 {
+    [SerializeField] float regenerationHealth = 80;
     public event Action OnDie;
     public event Action OnTakeDamage;
     public float health = -1f;
@@ -18,6 +19,7 @@ public class Health : MonoBehaviour, IJsonSaveable
     private Animator animator;
     private void Start()
     {
+        GetComponent<BaseStats>().OnLevelUp += RegenerateHealth;
         if(health < 0)
         {
             health = GetComponent<BaseStats>().GetStat(Stat.Health);
@@ -31,6 +33,10 @@ public class Health : MonoBehaviour, IJsonSaveable
     void Update()
     {
         
+    }
+    private void RegenerateHealth()
+    {
+        health += regenerationHealth;
     }
     public void DealDamage(float damage)
     {

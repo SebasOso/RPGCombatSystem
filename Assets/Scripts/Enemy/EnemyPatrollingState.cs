@@ -9,7 +9,6 @@ public class EnemyPatrollingState : EnemyBaseState
     private const float CrossFadeDuration = 0.1f;
     int currentWaypointIndex = 0;
     Vector3 guardPosition;
-    float timeSinceLastSawPlayer = Mathf.Infinity;
     float timeSinceLastWayPoint = Mathf.Infinity;
     public EnemyPatrollingState(EnemyStateMachine enemyStateMachine) : base(enemyStateMachine)
     {
