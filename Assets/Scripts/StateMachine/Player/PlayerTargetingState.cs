@@ -17,11 +17,18 @@ public class PlayerTargetingState : PlayerBaseState
     }
     public override void Enter()
     {
+        stateMachine.InputReader.RuneAttackEvent += OnRuneAttack;
         stateMachine.InputReader.JumpEvent += OnJump;
         stateMachine.InputReader.DodgeEvent += OnDodge;
         stateMachine.InputReader.TargetEvent += OnCancelTarget;
         stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTree, CrossFadeDuration);
     }
+
+    private void OnRuneAttack()
+    {
+        stateMachine.SwitchState(new PlayerRuneAttackState(stateMachine));
+    }
+
     public override void Tick(float deltaTime)
     {
         if(stateMachine.InputReader.IsAttacking)

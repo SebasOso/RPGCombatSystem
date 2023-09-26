@@ -36,7 +36,10 @@ public class Health : MonoBehaviour, IJsonSaveable
     }
     private void RegenerateHealth()
     {
-        health += regenerationHealth;
+        if(health <= 0.3 * GetComponent<BaseStats>().GetStat(Stat.Health))
+        {
+            health += regenerationHealth;
+        }
     }
     public void DealDamage(float damage)
     {

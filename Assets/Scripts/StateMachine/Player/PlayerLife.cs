@@ -46,12 +46,12 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
     private void Start()
     {
         anim = GetComponent<Animator>();
-        maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
         GetComponent<BaseStats>().OnLevelUp += UpdateHealth;
     }
 
     private void UpdateHealth()
     {
+        health = GetComponent<Health>().health;
         maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
         UpdateHealthUI();
         HealthBarColor();

@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteractingState : PlayerBaseState
+public class PlayerRuneAttackState : PlayerBaseState
 {
-    private readonly int InteractHash = Animator.StringToHash("Interact");
+    private readonly int ImpactHash = Animator.StringToHash("RuneAttack");
     private readonly int LocomotionSpeed = Animator.StringToHash("speed");
     private const float CrossFadeDuration = 0.1f;
-    private float duration = 9.8f;
-    public PlayerInteractingState(PlayerStateMachine stateMachine) : base(stateMachine)
+    private float duration = 2.41f;
+    public PlayerRuneAttackState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
-
     }
 
     public override void Enter()
     {
-        stateMachine.Animator.CrossFadeInFixedTime(InteractHash, CrossFadeDuration);
+        stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
     }
+
     public override void Tick(float deltaTime)
     {
-        stateMachine.InputReader.IsInteracting = false;
+        stateMachine.InputReader.IsInRuneAttack = true;
         Move(deltaTime);
         duration -= deltaTime;
         if(duration <= 0f)
@@ -29,6 +29,6 @@ public class PlayerInteractingState : PlayerBaseState
     }
     public override void Exit()
     {
-
+        stateMachine.InputReader.IsInRuneAttack = false;
     }
 }

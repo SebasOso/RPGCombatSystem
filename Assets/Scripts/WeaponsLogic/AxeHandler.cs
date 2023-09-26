@@ -14,4 +14,12 @@ public class AxeHandler : MonoBehaviour
     {
         axeLogic.SetActive(false);
     }
+    public void RuneAttack()
+    {
+        axeLogic.GetComponent<AxeDamage>().runeDamage = true;
+    }
+    public void NoRuneAttack()
+    {
+        axeLogic.GetComponent<AxeDamage>().runeDamage = false;
+    }
 }

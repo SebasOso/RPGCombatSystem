@@ -107,6 +107,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RuneAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""89f7060e-2d72-4690-923a-2532f7d116c2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -234,7 +243,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a6606bc7-9bc2-4269-96e3-fcd065e578e2"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
@@ -377,7 +386,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9a49add7-aa6b-497a-8a0a-b181b171a2c0"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
@@ -388,11 +397,33 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f400f9f0-eaf6-4229-bdf2-41c84f74b883"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d78be8c-31a2-4cf1-b49f-31c978633abe"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""RuneAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74dcfe06-78d7-4519-8ddd-faacf21da014"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""RuneAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -640,6 +671,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_RuneAttack = m_Player.FindAction("RuneAttack", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
@@ -715,6 +747,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_RuneAttack;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -728,6 +761,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @RuneAttack => m_Wrapper.m_Player_RuneAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -764,6 +798,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @RuneAttack.started += instance.OnRuneAttack;
+            @RuneAttack.performed += instance.OnRuneAttack;
+            @RuneAttack.canceled += instance.OnRuneAttack;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -795,6 +832,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @RuneAttack.started -= instance.OnRuneAttack;
+            @RuneAttack.performed -= instance.OnRuneAttack;
+            @RuneAttack.canceled -= instance.OnRuneAttack;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -912,6 +952,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnRuneAttack(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

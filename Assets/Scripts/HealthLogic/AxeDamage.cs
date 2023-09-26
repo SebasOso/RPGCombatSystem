@@ -8,6 +8,8 @@ public class AxeDamage : MonoBehaviour
     private List<Collider> alreadyColliderWith = new List<Collider>();
     [SerializeField] private Collider myCollider;
     [SerializeField] private Weapon axe;
+    public bool runeDamage = false;
+    public float damage;
     private void OnEnable() 
     {
         alreadyColliderWith.Clear();
@@ -22,7 +24,16 @@ public class AxeDamage : MonoBehaviour
         alreadyColliderWith.Add(other);
         if(other.TryGetComponent<Health>(out Health health))
         {
-            health.DealDamage(axe.GetWeaponDamage());
+            if(runeDamage)
+            {
+                damage = axe.GetWeaponDamage() + 10f;
+                health.DealDamage(damage);
+            }
+            else
+            {
+                damage = axe.GetWeaponDamage();
+                health.DealDamage(damage);
+            }
             if(health.tag == "Player")
             {
                 PlayerLife.Instance.lerpTimer = 0f;

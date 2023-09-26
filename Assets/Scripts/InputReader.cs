@@ -10,13 +10,14 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action JumpEvent;
     public event Action DodgeEvent;
     public event Action TargetEvent;
+    public event Action RuneAttackEvent;
     public event Action CancelTargetEvent;
     public event Action InteractEvent;
     public bool  IsAttacking{get; set;}
     public bool IsInteracting{get;set;}
-
+    public bool CanRuneAttack{get;set;}
     public bool IsRunning{get; private set;}
-
+    public bool IsInRuneAttack{get; set;}
     public bool  IsHeavyAttacking{get; set;}
     private Controls controls;
     private void Start() 
@@ -39,8 +40,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(!context.performed){return;}
-        JumpEvent?.Invoke();
+        if(IsRunning)
+        {
+            if(!context.performed){return;}
+            JumpEvent?.Invoke();
+        }
     }
     public void OnDodge(InputAction.CallbackContext context)
     {
@@ -99,6 +103,15 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         {
             if(!context.performed){return;}
             InteractEvent?.Invoke();
+        }
+    }
+
+    public void OnRuneAttack(InputAction.CallbackContext context)
+    {
+        if(CanRuneAttack && !IsInRuneAttack)
+        {
+            if(!context.performed){return;}
+            RuneAttackEvent?.Invoke();
         }
     }
 }

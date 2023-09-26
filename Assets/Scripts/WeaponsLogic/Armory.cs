@@ -41,6 +41,7 @@ public class Armory : MonoBehaviour, IJsonSaveable
     {
         currentWeapon = weapon;
         weapon.Spawn(rightHandSocket, leftHandSocket, animator);
+        GetComponent<InputReader>().CanRuneAttack = weapon.CanRuneAttack;
     }
     public void PickUpWeapon()
     {

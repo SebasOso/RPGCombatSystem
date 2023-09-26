@@ -14,7 +14,7 @@ namespace RPG.Combat
         [SerializeField] private AnimatorOverrideController weaponOverrideController;
         [SerializeField] private bool isRightHanded = true;
         [SerializeField] private Projectile projectile = null;
-
+        [SerializeField] public bool CanRuneAttack = false;
         const string weaponName = "Weapon";
         public void Spawn(Transform rightSocket, Transform leftSocket, Animator animator)
         {
