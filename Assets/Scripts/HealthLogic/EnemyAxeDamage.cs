@@ -7,7 +7,7 @@ public class EnemyAxeDamage : MonoBehaviour
 {
     private List<Collider> alreadyColliderWith = new List<Collider>();
     [SerializeField] private Collider myCollider;
-    [SerializeField] private EnemyArmory enemyArmory;
+    private EnemyArmory enemyArmory;
     public float damage;
     private void OnEnable() 
     {
@@ -15,6 +15,7 @@ public class EnemyAxeDamage : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) 
     {
+        enemyArmory = myCollider.GetComponent<EnemyArmory>();
         if(other.tag == "Enemy"){return;}
         if(other == myCollider){return;}
         if(alreadyColliderWith.Contains(other))

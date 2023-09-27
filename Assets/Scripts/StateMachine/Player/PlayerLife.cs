@@ -88,17 +88,17 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
     {
         if (health <= maxHealth && health >= maxHealth * 0.6f) 
         {
-            frontHealth.color = GetColorFromString("2BFF00");
+            frontHealth.color = GetColorFromString("87CEEB");
         }
         
         if (health <= maxHealth * 0.5f && health >= maxHealth * 0.3f) 
         {
-            frontHealth.color = GetColorFromString("FFE312");
+            frontHealth.color = GetColorFromString("87CEEB");
         }
         
         if (health <= maxHealth * 0.2f && health >= 0f) 
         {
-            frontHealth.color = GetColorFromString("FF2613");
+            frontHealth.color = GetColorFromString("87CEEB");
         }
     }
     public void UpdateHealthUI()

@@ -7,7 +7,7 @@ public class PunchDamage : MonoBehaviour
 {
     private List<Collider> alreadyColliderWith = new List<Collider>();
     [SerializeField] private Collider myCollider;
-    [SerializeField] private Armory armory;
+    private Armory armory;
     [SerializeField] private float damage;
     private void OnEnable() 
     {
@@ -15,6 +15,7 @@ public class PunchDamage : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) 
     {
+        armory = myCollider.GetComponent<Armory>();
         damage = armory.damage;
         if(other == myCollider){return;}
         if(alreadyColliderWith.Contains(other))
