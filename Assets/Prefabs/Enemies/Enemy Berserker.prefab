@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3271511116253061041}
   - component: {fileID: 1595710612970152738}
   - component: {fileID: 172888202157949901}
-  - component: {fileID: 6751505147074470798}
+  - component: {fileID: 1553170271569799231}
   m_Layer: 0
   m_Name: AxeLogic
   m_TagString: Untagged
@@ -82,7 +82,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.35045183, y: 0.31956545, z: 0.15168147}
   m_Center: {x: 0.022315597, y: 0.30319592, z: -0.015319734}
---- !u!114 &6751505147074470798
+--- !u!114 &1553170271569799231
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,11 +91,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8327658229544211141}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6557c7e3918d4a14e9f091d119ebb3d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d34eef6b3786574a9afba5bec60087d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myCollider: {fileID: 7117956453742314536}
-  axe: {fileID: 11400000, guid: 983086e3b63aa724f91bf420f5ca1098, type: 2}
+  enemyAxe: {fileID: 11400000, guid: 983086e3b63aa724f91bf420f5ca1098, type: 2}
+  damage: 0
 --- !u!1001 &71178088528013461
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2908,7 +2908,7 @@ GameObject:
   - component: {fileID: 1194462430149876063}
   m_Layer: 0
   m_Name: Enemy Hirdmen
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3004,6 +3004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6523a71dab04e6e469815517c44dfba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  regenerationHealth: 80
   health: -1
   hit: {fileID: 4956647572125521462}
 --- !u!114 &5076070900488381897
@@ -3145,6 +3146,7 @@ MonoBehaviour:
   startingLevel: 1
   characterClass: 2
   progression: {fileID: 11400000, guid: 73af80ab9edeb5242bec60a1948cd44d, type: 2}
+  levelUpEffect: {fileID: 0}
 --- !u!114 &7180135419205021194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4688,9 +4690,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4917460235729467809}
-  - component: {fileID: 2254078337025043704}
   - component: {fileID: 4066503466131486598}
   - component: {fileID: 3457809818271449758}
+  - component: {fileID: 9189512560965004664}
   m_Layer: 0
   m_Name: SwordLogic
   m_TagString: Untagged
@@ -4713,20 +4715,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 680586712514024124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -47.975}
---- !u!114 &2254078337025043704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8928074185378842918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd7d8f3aa39bc941a9be808e65a1484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCollider: {fileID: 7076544481792781501}
-  sword: {fileID: 11400000, guid: d63c1b14ed9e50b408f81139fdd447f0, type: 2}
 --- !u!54 &4066503466131486598
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4775,6 +4763,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.47286013, z: 0.120793335}
   m_Center: {x: -0.0000012623384, y: 0.16663314, z: 0.02765257}
+--- !u!114 &9189512560965004664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928074185378842918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabfa94bd2bb24f4980d77b5ebdf9b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCollider: {fileID: 7076544481792781501}
+  enemySword: {fileID: 11400000, guid: d63c1b14ed9e50b408f81139fdd447f0, type: 2}
 --- !u!1 &8934846684258491162
 GameObject:
   m_ObjectHideFlags: 0

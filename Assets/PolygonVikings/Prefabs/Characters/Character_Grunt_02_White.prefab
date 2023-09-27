@@ -4569,9 +4569,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1462045325418492478}
-  - component: {fileID: 4882346313935626848}
   - component: {fileID: 1535247957171231863}
   - component: {fileID: 5078925696688673678}
+  - component: {fileID: 6736782170412027459}
   m_Layer: 0
   m_Name: SwordLogic
   m_TagString: Untagged
@@ -4594,20 +4594,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 438630}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -85}
---- !u!114 &4882346313935626848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3520421389539712636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd7d8f3aa39bc941a9be808e65a1484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCollider: {fileID: 0}
-  sword: {fileID: 11400000, guid: d63c1b14ed9e50b408f81139fdd447f0, type: 2}
 --- !u!54 &1535247957171231863
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4656,3 +4642,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.47286013, z: 0.120793335}
   m_Center: {x: -0.0000012623384, y: 0.16663314, z: 0.02765257}
+--- !u!114 &6736782170412027459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520421389539712636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabfa94bd2bb24f4980d77b5ebdf9b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCollider: {fileID: 0}
+  enemySword: {fileID: 11400000, guid: d63c1b14ed9e50b408f81139fdd447f0, type: 2}

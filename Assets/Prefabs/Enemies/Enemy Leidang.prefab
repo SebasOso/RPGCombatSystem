@@ -84,6 +84,14 @@ PrefabInstance:
       propertyPath: characterClass
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 9189512560965004664, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
+      propertyPath: baseStats
+      value: 
+      objectReference: {fileID: 5031141830392267606}
+    - target: {fileID: 9189512560965004664, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
+      propertyPath: enemyArmory
+      value: 
+      objectReference: {fileID: 4858855398675412735}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -94,3 +102,25 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 7076544481792781501, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
   m_PrefabInstance: {fileID: 2320267007172602232}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4858855398675412735 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7159916028286050183, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
+  m_PrefabInstance: {fileID: 2320267007172602232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4761570fb7d49b24bbf2bf6aae7226d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5031141830392267606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7341160249618278958, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
+  m_PrefabInstance: {fileID: 2320267007172602232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd760600ba7c1542a7a6a6d94771d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

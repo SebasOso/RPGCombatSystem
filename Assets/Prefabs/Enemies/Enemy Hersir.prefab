@@ -152,6 +152,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: -0.19099568
       objectReference: {fileID: 0}
+    - target: {fileID: 6736782170412027459, guid: ee184764e771a3e4abd5783e82f1e128, type: 3}
+      propertyPath: myCollider
+      value: 
+      objectReference: {fileID: 293411937997750102}
     - target: {fileID: 7805570870960206918, guid: ee184764e771a3e4abd5783e82f1e128, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.041158207

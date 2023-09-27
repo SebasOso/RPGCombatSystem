@@ -39,13 +39,13 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
     {
         isAlive = true;
         Instance = this;
-        health = GetComponent<Health>().health;
-        maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
     }
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        health = GetComponent<Health>().health;
+        maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
         GetComponent<BaseStats>().OnLevelUp += UpdateHealth;
     }
 

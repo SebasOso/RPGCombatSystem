@@ -6,7 +6,7 @@ using RPG.Saving;
 using RPG.Stats;
 using UnityEngine;
 
-public class EnemyArmory : MonoBehaviour, IJsonSaveable
+public class EnemyArmory : MonoBehaviour, IJsonSaveable, IModifierProvider
 {
     [Header("Weapons")]
     [SerializeField] public Weapon defaultWeapon = null;
@@ -16,6 +16,7 @@ public class EnemyArmory : MonoBehaviour, IJsonSaveable
     [Header("Animation")]
     [SerializeField] private Animator animator;
     public Weapon currentWeapon = null;
+    public float damage;
     Health Player;
     private void Awake() 
     {
@@ -28,6 +29,7 @@ public class EnemyArmory : MonoBehaviour, IJsonSaveable
     private void Start() 
     {
         animator.SetFloat("attackSpeed", GetComponent<BaseStats>().GetStat(Stat.AttackSpeed));
+        damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
     }
     public void EquipWeapon(Weapon weapon)
     {
@@ -51,5 +53,13 @@ public class EnemyArmory : MonoBehaviour, IJsonSaveable
         string weaponName = state.ToObject<string>();
         Weapon weapon = Resources.Load<Weapon>(weaponName);
         EquipWeapon(weapon);
+    }
+
+    public IEnumerable<float> GetAdditiveModifier(Stat stat)
+    {
+        if(stat == Stat.Damage)
+        {
+            yield return currentWeapon.GetWeaponDamage();
+        }
     }
 }

@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6958142045354269578, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: m_Name
-      value: EnemyArcher
+      value: Enemy Bogomenn
       objectReference: {fileID: 0}
     - target: {fileID: 7159916028286050183, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
       propertyPath: defaultWeapon
