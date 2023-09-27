@@ -1430,6 +1430,10 @@ PrefabInstance:
       propertyPath: defaultWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 08a57bc48737906428823b47a22aae42, type: 2}
+    - target: {fileID: 3233078764967680433, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+      propertyPath: armory
+      value: 
+      objectReference: {fileID: 159171239155232382}
     - target: {fileID: 3720220482046476661, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       propertyPath: cinemachineTargetGroup
       value: 
@@ -1442,6 +1446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Viking
       objectReference: {fileID: 0}
+    - target: {fileID: 8368578875338548880, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+      propertyPath: armory
+      value: 
+      objectReference: {fileID: 159171239155232382}
     - target: {fileID: 8472519699599541953, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -1475,6 +1483,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2662122039663646781}
   m_SourcePrefab: {fileID: 100100000, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+--- !u!114 &159171239155232382 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1671434893572173406, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+  m_PrefabInstance: {fileID: 1515281264087760928}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470127838172138677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f004c94914afc44831f90d712f9b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1255941149767824028 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 318246606618325692, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}

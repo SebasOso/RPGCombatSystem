@@ -6,8 +6,9 @@ using RPG.Combat;
 using RPG.Saving;
 using RPG.Stats;
 using UnityEngine;
+using UnityEngine.Rendering;
 
-public class Armory : MonoBehaviour, IJsonSaveable
+public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
 {
     [Header("Weapons")]
     [SerializeField] public Weapon defaultWeapon;
@@ -64,7 +65,7 @@ public class Armory : MonoBehaviour, IJsonSaveable
         if (Targeter.currentTarget == null || Targeter.currentTarget.GetComponent<Health>().IsDead()) return;
         if(currentWeapon.HasProjectile())
         {
-            currentWeapon.LaunchProjectile(rightHandSocket,leftHandSocket,Targeter.currentTarget.GetComponent<Health>());
+            currentWeapon.LaunchProjectile(rightHandSocket,leftHandSocket,Targeter.currentTarget.GetComponent<Health>(), damage);
         }
     }
     public void RestoreFromJToken(JToken state)
@@ -72,5 +73,13 @@ public class Armory : MonoBehaviour, IJsonSaveable
         string weaponName = state.ToObject<string>();
         Weapon weapon = Resources.Load<Weapon>(weaponName);
         EquipWeapon(weapon);
+    }
+
+    public IEnumerable<float> GetAdditiveModifier(Stat stat)
+    {
+        if(stat == Stat.Damage)
+        {
+            yield return currentWeapon.GetWeaponDamage();
+        }
     }
 }

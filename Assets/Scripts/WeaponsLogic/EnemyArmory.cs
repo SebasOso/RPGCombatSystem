@@ -45,7 +45,7 @@ public class EnemyArmory : MonoBehaviour, IJsonSaveable, IModifierProvider
         if (Player == null || Player.IsDead()) return;
         if(currentWeapon.HasProjectile())
         {
-            currentWeapon.LaunchProjectile(rightHandSocket,leftHandSocket,Player);
+            currentWeapon.LaunchProjectile(rightHandSocket,leftHandSocket,Player, damage);
         }
     }
     public void RestoreFromJToken(JToken state)

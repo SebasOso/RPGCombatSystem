@@ -50,10 +50,10 @@ namespace RPG.Combat
             else handTransform = leftSocket;
             return handTransform;
         }
-        public void LaunchProjectile(Transform rightSocket, Transform leftSocket, Health target)
+        public void LaunchProjectile(Transform rightSocket, Transform leftSocket, Health target, float damage)
         {
             Projectile projectileInstance = Instantiate(projectile, GetTransform(rightSocket, leftSocket).position, Quaternion.identity);
-            projectileInstance.SetTarget(target, weaponDamage);
+            projectileInstance.SetTarget(target, damage);
         }
         public void LaunchProjectile(Transform rightSocket, Transform leftSocket)
         {
