@@ -3093,6 +3093,7 @@ MonoBehaviour:
   leftHandSocket: {fileID: 6074634221337437887}
   animator: {fileID: 4588404041592787998}
   currentWeapon: {fileID: 0}
+  damage: 0
 --- !u!114 &1213986963150292888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4777,6 +4778,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCollider: {fileID: 7076544481792781501}
   enemySword: {fileID: 11400000, guid: d63c1b14ed9e50b408f81139fdd447f0, type: 2}
+  enemyArmory: {fileID: 7159916028286050183}
+  damage: 0
 --- !u!1 &8934846684258491162
 GameObject:
   m_ObjectHideFlags: 0
