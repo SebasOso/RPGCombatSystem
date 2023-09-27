@@ -7,7 +7,7 @@ public class AxeDamage : MonoBehaviour
 {
     private List<Collider> alreadyColliderWith = new List<Collider>();
     [SerializeField] private Collider myCollider;
-    [SerializeField] private Weapon axe;
+    [SerializeField] private Armory armory;
     public bool runeDamage = false;
     public float damage;
     private void OnEnable() 
@@ -26,12 +26,12 @@ public class AxeDamage : MonoBehaviour
         {
             if(runeDamage)
             {
-                damage = axe.GetWeaponDamage() + 10f;
+                damage = armory.damage + 10f;
                 health.DealDamage(damage);
             }
             else
             {
-                damage = axe.GetWeaponDamage();
+                damage = armory.damage;
                 health.DealDamage(damage);
             }
             if(health.tag == "Player")
@@ -42,7 +42,7 @@ public class AxeDamage : MonoBehaviour
         if(other.TryGetComponent<ForceReceiver>(out ForceReceiver force))
         {
             Vector3 direction = (other.transform.position - myCollider.transform.position).normalized;
-            force.AddForce(direction * axe.GetWeaponKnokcback());
+            force.AddForce(direction * armory.currentWeapon.GetWeaponKnokcback());
         }
     }
 }

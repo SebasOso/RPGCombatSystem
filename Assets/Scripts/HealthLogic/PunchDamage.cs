@@ -7,13 +7,15 @@ public class PunchDamage : MonoBehaviour
 {
     private List<Collider> alreadyColliderWith = new List<Collider>();
     [SerializeField] private Collider myCollider;
-    [SerializeField] private Weapon punch;
+    [SerializeField] private Armory armory;
+    [SerializeField] private float damage;
     private void OnEnable() 
     {
         alreadyColliderWith.Clear();
     }
     private void OnTriggerEnter(Collider other) 
     {
+        damage = armory.damage;
         if(other == myCollider){return;}
         if(alreadyColliderWith.Contains(other))
         {   
@@ -22,7 +24,7 @@ public class PunchDamage : MonoBehaviour
         alreadyColliderWith.Add(other);
         if(other.TryGetComponent<Health>(out Health health))
         {
-            health.DealDamage(punch.GetWeaponDamage());
+            health.DealDamage(damage);
             if(health.tag == "Player")
             {
                 PlayerLife.Instance.lerpTimer = 0f;
@@ -31,7 +33,7 @@ public class PunchDamage : MonoBehaviour
         if(other.TryGetComponent<ForceReceiver>(out ForceReceiver force))
         {
             Vector3 direction = (other.transform.position - myCollider.transform.position).normalized;
-            force.AddForce(direction * punch.GetWeaponKnokcback());
+            force.AddForce(direction * armory.currentWeapon.GetWeaponKnokcback());
         }
     }
 }

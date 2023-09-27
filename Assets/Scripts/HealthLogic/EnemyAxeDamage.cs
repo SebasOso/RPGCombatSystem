@@ -7,7 +7,7 @@ public class EnemyAxeDamage : MonoBehaviour
 {
     private List<Collider> alreadyColliderWith = new List<Collider>();
     [SerializeField] private Collider myCollider;
-    [SerializeField] private Weapon enemyAxe;
+    [SerializeField] private EnemyArmory enemyArmory;
     public float damage;
     private void OnEnable() 
     {
@@ -24,7 +24,7 @@ public class EnemyAxeDamage : MonoBehaviour
         alreadyColliderWith.Add(other);
         if(other.TryGetComponent<Health>(out Health health))
         {
-            damage = enemyAxe.GetWeaponDamage();
+            damage = enemyArmory.damage;
             health.DealDamage(damage);
             if(health.tag == "Player")
             {
@@ -34,7 +34,7 @@ public class EnemyAxeDamage : MonoBehaviour
         if(other.TryGetComponent<ForceReceiver>(out ForceReceiver force))
         {
             Vector3 direction = (other.transform.position - myCollider.transform.position).normalized;
-            force.AddForce(direction * enemyAxe.GetWeaponKnokcback());
+            force.AddForce(direction * enemyArmory.currentWeapon.GetWeaponKnokcback());
         }
     }
 }

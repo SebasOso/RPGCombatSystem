@@ -14,22 +14,27 @@ public class Armory : MonoBehaviour, IJsonSaveable
     [SerializeField] private Transform rightHandSocket;
     [SerializeField] private Transform leftHandSocket;
     public WeaponPickup weaponToPickUp;
+    public float damage = 0f;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
     public Weapon currentWeapon = null;
     [SerializeField] Targeter Targeter;
-    private void Awake() 
+    private void Start() 
     {
         if(currentWeapon == null)
         {
             EquipWeapon(defaultWeapon);
         }
-    }
-    private void Start() 
-    {
         animator.SetFloat("attackSpeed", GetComponent<BaseStats>().GetStat(Stat.AttackSpeed));
         GetComponent<BaseStats>().OnLevelUp += UpdateAS;
+        GetComponent<BaseStats>().OnLevelUp += UpdateDamage;
+        damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
+    }
+
+    private void UpdateDamage()
+    {
+        damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
     }
 
     private void UpdateAS()
@@ -42,6 +47,7 @@ public class Armory : MonoBehaviour, IJsonSaveable
         currentWeapon = weapon;
         weapon.Spawn(rightHandSocket, leftHandSocket, animator);
         GetComponent<InputReader>().CanRuneAttack = weapon.CanRuneAttack;
+        damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
     }
     public void PickUpWeapon()
     {
