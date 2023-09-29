@@ -12,10 +12,21 @@ public class Targeter : MonoBehaviour
     private Camera mainCamera;
 
     public Target currentTarget {get; private set;}
-
+    [SerializeField] private MusicHandler musicHandler;
     private void Start() 
     {
         mainCamera = Camera.main;
+    }
+    private void Update() 
+    {
+        if(currentTarget == null)
+        {
+            musicHandler.SetPlayerState(MusicHandler.PlayerState.Neutral);
+        }
+        else
+        {
+            musicHandler.SetPlayerState(MusicHandler.PlayerState.Combat);
+        }
     }
     private void OnTriggerEnter(Collider other) 
     {

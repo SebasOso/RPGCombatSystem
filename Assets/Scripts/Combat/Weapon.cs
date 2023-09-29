@@ -9,6 +9,7 @@ namespace RPG.Combat
         [Header("Weapons")]
         [SerializeField] private float weaponRange;
         [SerializeField] private float weaponDamage;
+        [SerializeField] private float percentageDamage;
         [SerializeField] private float weaponKnockback;
         [SerializeField] private GameObject weaponPrefab;
         [SerializeField] private AnimatorOverrideController weaponOverrideController;
@@ -66,6 +67,10 @@ namespace RPG.Combat
         public float GetWeaponRange()
         {
             return weaponRange;
+        }
+        public float GetPercentageDamage()
+        {
+            return percentageDamage;
         }
         public float GetWeaponKnokcback()
         {

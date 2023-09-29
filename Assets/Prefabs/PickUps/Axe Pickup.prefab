@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b81e8dba5ee6644dbf03a070c87024c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uIStateMachine: {fileID: 0}
   weapon: {fileID: 11400000, guid: 3188093264428f04f8653e72ba5374e7, type: 2}
   pickupUI: {fileID: 0}
 --- !u!54 &2284200192048048133
@@ -223,7 +224,7 @@ Rigidbody:
   m_ImplicitCom: 0
   m_ImplicitTensor: 0
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

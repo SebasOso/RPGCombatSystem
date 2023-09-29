@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponRange: 0
   weaponDamage: 30
+  percentageDamage: 22
   weaponKnockback: 10
   weaponPrefab: {fileID: 2789429341532814366, guid: af5b2d0bce04218439c4597d02fa3edd, type: 3}
   weaponOverrideController: {fileID: 22100000, guid: 921b272bfc06c3a419f1fd3a4cf09c8a, type: 2}

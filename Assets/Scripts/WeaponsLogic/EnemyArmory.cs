@@ -62,4 +62,12 @@ public class EnemyArmory : MonoBehaviour, IJsonSaveable, IModifierProvider
             yield return currentWeapon.GetWeaponDamage();
         }
     }
+
+    public IEnumerable<float> GetPercentageModifier(Stat stat)
+    {
+        if(stat == Stat.Damage)
+        {
+            yield return currentWeapon.GetPercentageDamage();
+        }
+    }
 }
