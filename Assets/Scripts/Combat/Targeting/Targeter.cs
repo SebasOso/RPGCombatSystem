@@ -17,17 +17,6 @@ public class Targeter : MonoBehaviour
     {
         mainCamera = Camera.main;
     }
-    private void Update() 
-    {
-        if(currentTarget == null)
-        {
-            musicHandler.SetPlayerState(MusicHandler.PlayerState.Neutral);
-        }
-        else
-        {
-            musicHandler.SetPlayerState(MusicHandler.PlayerState.Combat);
-        }
-    }
     private void OnTriggerEnter(Collider other) 
     {
         if (!other.TryGetComponent<Target>(out Target target))
