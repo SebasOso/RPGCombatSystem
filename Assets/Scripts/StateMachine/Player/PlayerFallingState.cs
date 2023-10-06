@@ -26,7 +26,6 @@ public class PlayerFallingState : PlayerBaseState
         {
             ReturnToLocomotion();
         }
-        FaceTarget();
     }
 
     public override void Exit()

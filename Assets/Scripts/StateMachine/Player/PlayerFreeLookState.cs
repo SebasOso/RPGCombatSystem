@@ -16,9 +16,14 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.InputReader.JumpEvent += OnJump;
         stateMachine.InputReader.TargetEvent += OnTarget;
+        stateMachine.InputReader.JumpEvent += OnJump;
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTree, CrossFadeDuration);
+    }
+
+    private void OnTarget()
+    {
+        stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
     }
 
     private void OnJump()
@@ -28,11 +33,6 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        if(stateMachine.InputReader.IsAttacking)
-        {
-            stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
-            return;
-        }
         Vector3 movement = CalculateMovement(deltaTime);
 
         Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime);
@@ -40,16 +40,10 @@ public class PlayerFreeLookState : PlayerBaseState
         {
             stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
             stateMachine.FreeLookMovementSpeed = 0f;
-            if(stateMachine.IdleBreaker.isBreakTime)
-            {
-                stateMachine.SwitchState(new PlayerBreakState(stateMachine));
-            }
             return;
         }
         if(stateMachine.InputReader.IsRunning)
         {
-            stateMachine.IdleBreaker.timer = 0f;
-            stateMachine.IdleBreaker.isBreakTime = false;
             stateMachine.FreeLookMovementSpeed = stateMachine.RunningMovementSpeed;
             stateMachine.Animator.SetFloat(FreeLookSpeedHash, stateMachine.RunningMovementSpeed, AnimatorDampTime, deltaTime);
             FaceMovementDirection(movement, deltaTime);
@@ -57,20 +51,13 @@ public class PlayerFreeLookState : PlayerBaseState
         }
         stateMachine.FreeLookMovementSpeed = stateMachine.WalkingMovementSpeed;
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, stateMachine.WalkingMovementSpeed, AnimatorDampTime, deltaTime);
-        stateMachine.IdleBreaker.isBreakTime = false;
-        stateMachine.IdleBreaker.timer = 0f;
         FaceMovementDirection(movement, deltaTime);
     }
 
     public override void Exit()
     {
-        stateMachine.InputReader.JumpEvent -= OnJump;
         stateMachine.InputReader.TargetEvent -= OnTarget;
-    }
-    private void OnTarget()
-    {
-        if(!stateMachine.Targeter.SelectTarget()){return;}
-        stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+        stateMachine.InputReader.JumpEvent -= OnJump;
     }
     private Vector3 CalculateMovement(float deltaTime)
     {

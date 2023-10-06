@@ -29,7 +29,6 @@ public class PlayerJumpingState : PlayerBaseState
             stateMachine.SwitchState(new PlayerFallingState(stateMachine));
             return;
         }
-        FaceTarget();
     }
 
     public override void Exit()
