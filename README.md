@@ -11,11 +11,12 @@ The main scene is "Animacion".
 ### Run:
 - Shift Keyboard.
 - L1 Gamepad.
-### Attack:
-- Left Clik Keyboard.
-- R1 Gamepad.
-### Change Character:
-- "M" for "Maria" character in Keyboard.
-- "J" for "John" character in Keyboard.
-- Down Arrow for "John" character in Gamepad.
-- Up Arrow for "Maria" character in Gamepad.
+### Aim:
+- Right Clik Keyboard.
+- L2 Gamepad.
+### Move Aim:
+- Arrows Keyboard.
+- Arrows Gamepad.
+### Jump:
+- Space Keyboard.
+- X Gamepad.
