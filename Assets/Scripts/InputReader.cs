@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector2 MovementValue {get; private set;}
+    public Vector2 IkTargetValue {get; private set;}
     public event Action JumpEvent;
     public event Action DodgeEvent;
     public event Action TargetEvent;
@@ -17,6 +18,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public bool IsRunning{get; private set;}
 
     public bool  IsHeavyAttacking{get; set;}
+    public bool IsAiming{get; set;}
     private Controls controls;
     private void Start() 
     {
@@ -106,5 +108,22 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnChangeMaria(InputAction.CallbackContext context)
     {
         
+    }
+
+    public void OnAim(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            IsAiming = true;
+        }
+        else
+        {
+            IsAiming = false;
+        }
+    }
+
+    public void OnIkMove(InputAction.CallbackContext context)
+    {
+        IkTargetValue = context.ReadValue<Vector2>();
     }
 }

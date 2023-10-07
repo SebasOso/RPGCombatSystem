@@ -12,6 +12,10 @@ using UnityEngine.InputSystem;
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField]
+    public bool IsInCameraOne {get; set;}
+    [field: SerializeField]
+    public Rig HeadRig {get; private set;}
+    [field: SerializeField]
     public Rig ArmRig {get; private set;}
     [field: SerializeField]
     public Transform IkTargetTransform {get; private set;}

@@ -13,20 +13,21 @@ public class PlayerTargetingState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.ArmRig.weight = 1f;
-        stateMachine.InputReader.CancelTargetEvent += OnCancelTarget;
-    }
-
-    private void OnCancelTarget()
-    {
-        stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+        stateMachine.HeadRig.weight = 1f;
     }
 
     public override void Tick(float deltaTime)
     {
+        if(!stateMachine.InputReader.IsAiming)
+        {
+            stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+        }
         Move(deltaTime);
+        stateMachine.Animator.SetFloat("speed", 0, 0.1f, deltaTime);
     }
     public override void Exit()
     {
         stateMachine.ArmRig.weight = 0f;
+        stateMachine.HeadRig.weight = 0f;
     }
 }

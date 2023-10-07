@@ -125,6 +125,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Button"",
+                    ""id"": ""20a02c2a-e5f9-4501-99f3-39f64f167586"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""IkMove"",
+                    ""type"": ""Value"",
+                    ""id"": ""c5f7d03d-a821-4078-8eaf-333e9793c4ce"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -457,6 +475,138 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""ChangeMaria"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70faf09c-3387-43f0-9057-4d8417f1f95a"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9495e82-e34d-438f-b15f-a5e3ac8734d5"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""7d6e273d-17ee-403e-9f75-6ca1666901a4"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IkMove"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""dcd6b1b7-bbf1-4d8c-a992-9c5d187aa755"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IkMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""0fa78a22-8f7e-484c-a7fc-ce150515ace6"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IkMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""adb39939-4688-404d-8b17-f55bc0514486"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IkMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""8a900b49-b6fa-4957-bf18-71c5ea3241fa"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IkMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""ControllerArrows"",
+                    ""id"": ""b77973fc-cfbe-4c8c-81d3-62fb544485bf"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IkMove"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""41431e78-76e8-47bb-81c5-f5f292553015"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IkMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""83cb1709-d930-4cfe-94ac-88b986fddb8d"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IkMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""eede055f-eef0-449a-b6e7-502dbeab5faa"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IkMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""1cbac66b-e64d-4fb7-9607-755acfe59464"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IkMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -704,6 +854,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_ChangeJohn = m_Player.FindAction("ChangeJohn", throwIfNotFound: true);
         m_Player_ChangeMaria = m_Player.FindAction("ChangeMaria", throwIfNotFound: true);
+        m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
+        m_Player_IkMove = m_Player.FindAction("IkMove", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
@@ -781,6 +933,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_ChangeJohn;
     private readonly InputAction m_Player_ChangeMaria;
+    private readonly InputAction m_Player_Aim;
+    private readonly InputAction m_Player_IkMove;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -796,6 +950,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @ChangeJohn => m_Wrapper.m_Player_ChangeJohn;
         public InputAction @ChangeMaria => m_Wrapper.m_Player_ChangeMaria;
+        public InputAction @Aim => m_Wrapper.m_Player_Aim;
+        public InputAction @IkMove => m_Wrapper.m_Player_IkMove;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -838,6 +994,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ChangeMaria.started += instance.OnChangeMaria;
             @ChangeMaria.performed += instance.OnChangeMaria;
             @ChangeMaria.canceled += instance.OnChangeMaria;
+            @Aim.started += instance.OnAim;
+            @Aim.performed += instance.OnAim;
+            @Aim.canceled += instance.OnAim;
+            @IkMove.started += instance.OnIkMove;
+            @IkMove.performed += instance.OnIkMove;
+            @IkMove.canceled += instance.OnIkMove;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -875,6 +1037,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ChangeMaria.started -= instance.OnChangeMaria;
             @ChangeMaria.performed -= instance.OnChangeMaria;
             @ChangeMaria.canceled -= instance.OnChangeMaria;
+            @Aim.started -= instance.OnAim;
+            @Aim.performed -= instance.OnAim;
+            @Aim.canceled -= instance.OnAim;
+            @IkMove.started -= instance.OnIkMove;
+            @IkMove.performed -= instance.OnIkMove;
+            @IkMove.canceled -= instance.OnIkMove;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -994,6 +1162,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnChangeJohn(InputAction.CallbackContext context);
         void OnChangeMaria(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
+        void OnIkMove(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

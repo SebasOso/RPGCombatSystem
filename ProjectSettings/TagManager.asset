@@ -18,8 +18,8 @@ TagManager:
   - Player
   - PostProcess
   - Portal
-  - 
-  - 
+  - IkTarget
+  - IkColliders
   - 
   - 
   - 
