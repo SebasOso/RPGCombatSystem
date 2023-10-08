@@ -39,16 +39,21 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
     {
         isAlive = true;
         Instance = this;
-    }
-
-    private void Start()
-    {
         anim = GetComponent<Animator>();
         health = GetComponent<Health>().health;
-        maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
-        GetComponent<BaseStats>().OnLevelUp += UpdateHealth;
     }
-
+    private void Start() 
+    {
+        maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
+    }
+    private void OnEnable() 
+    {
+        GetComponent<BaseStats>().OnLevelUP += UpdateHealth;
+    }
+    private void OnDisable() 
+    {
+        GetComponent<BaseStats>().OnLevelUP -= UpdateHealth;
+    }
     private void UpdateHealth()
     {
         health = GetComponent<Health>().health;

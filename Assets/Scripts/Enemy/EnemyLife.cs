@@ -35,13 +35,8 @@ public class EnemyLife : MonoBehaviour
         isAlive = true;
         health = GetComponent<Health>().health;
         maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
-    }
-
-    private void Start()
-    {
         anim = GetComponent<Animator>();
     }
-    // Update is called once per frame
     void Update()
     {
         HealthBarColor();

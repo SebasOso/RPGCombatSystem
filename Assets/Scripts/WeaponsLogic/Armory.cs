@@ -28,11 +28,18 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
             EquipWeapon(defaultWeapon);
         }
         animator.SetFloat("attackSpeed", GetComponent<BaseStats>().GetStat(Stat.AttackSpeed));
-        GetComponent<BaseStats>().OnLevelUp += UpdateAS;
-        GetComponent<BaseStats>().OnLevelUp += UpdateDamage;
         damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
     }
-
+    private void OnEnable() 
+    {
+        GetComponent<BaseStats>().OnLevelUP += UpdateAS;
+        GetComponent<BaseStats>().OnLevelUP += UpdateDamage;
+    }
+    private void OnDisable() 
+    {
+        GetComponent<BaseStats>().OnLevelUP -= UpdateAS;
+        GetComponent<BaseStats>().OnLevelUP -= UpdateDamage;
+    }
     private void UpdateDamage()
     {
         damage = GetComponent<BaseStats>().GetStat(Stat.Damage);

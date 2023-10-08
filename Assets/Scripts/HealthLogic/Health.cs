@@ -19,7 +19,7 @@ public class Health : MonoBehaviour, IJsonSaveable
     private Animator animator;
     private void Start()
     {
-        GetComponent<BaseStats>().OnLevelUp += RegenerateHealth;
+        GetComponent<BaseStats>().OnLevelUP += RegenerateHealth;
         if(health < 0)
         {
             health = GetComponent<BaseStats>().GetStat(Stat.Health);

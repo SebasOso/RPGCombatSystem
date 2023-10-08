@@ -16,9 +16,9 @@ public class SavingWrapper : MonoBehaviour
     IEnumerator LoadLastScene() 
     {
         //Application.targetFrameRate = 60;
+        yield return GetComponent<JsonSavingSystem>().LoadLastScene(defaultSaveFile);
         Fader fader = FindObjectOfType<Fader>();
         fader.FadeOutInmediate();
-        yield return GetComponent<JsonSavingSystem>().LoadLastScene(defaultSaveFile);
         yield return fader.FadeIn(0.2f);
     }
     public void Load()

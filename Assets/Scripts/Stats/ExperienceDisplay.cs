@@ -18,8 +18,21 @@ public class ExperienceDisplay : MonoBehaviour
     private void Start() 
     {
         slider.maxValue = baseStats.GetStat(Stat.ExperienceToLevelUp);
+        SetValueExp();
+        if(baseStats.GetLevel() > 1)
+        {
+            slider.minValue = baseStats.GetBaseStat(Stat.ExperienceToLevelUp, 1);
+        }
+    }
+    private void OnEnable() 
+    {
         experience.OnExperienceGained += SetValueExp;    
-        baseStats.OnLevelUp += SetExp;
+        baseStats.OnLevelUP += SetExp;
+    }
+    private void OnDisable() 
+    {
+        experience.OnExperienceGained -= SetValueExp;    
+        baseStats.OnLevelUP -= SetExp;
     }
     private void SetValueExp()
     {
