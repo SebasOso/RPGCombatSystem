@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using RPG.Combat;
 using RPG.Saving;
 using RPG.Stats;
+using RPG.Utils;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -19,14 +20,20 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
-    public Weapon currentWeapon = null;
+    public LazyValue<Weapon> currentWeapon;
     [SerializeField] Targeter Targeter;
+    private void Awake() 
+    {
+        currentWeapon = new LazyValue<Weapon>(GetInitialWeapon);
+    }
+    private Weapon GetInitialWeapon()
+    {
+        AttachWeapon(defaultWeapon);
+        return defaultWeapon;
+    }
     private void Start() 
     {
-        if(currentWeapon == null)
-        {
-            EquipWeapon(defaultWeapon);
-        }
+        currentWeapon.ForceInit();
         animator.SetFloat("attackSpeed", GetComponent<BaseStats>().GetStat(Stat.AttackSpeed));
         damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
     }
@@ -52,11 +59,16 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
 
     public void EquipWeapon(Weapon weapon)
     {
-        currentWeapon = weapon;
+        currentWeapon.value = weapon;
+        AttachWeapon(weapon);
+    }
+
+    private void AttachWeapon(Weapon weapon)
+    {
         weapon.Spawn(rightHandSocket, leftHandSocket, animator);
         GetComponent<InputReader>().CanRuneAttack = weapon.CanRuneAttack;
-        damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
     }
+
     public void PickUpWeapon()
     {
         weaponToPickUp?.PickUp();
@@ -65,14 +77,14 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     }
     public JToken CaptureAsJToken()
     {
-        return JToken.FromObject(currentWeapon.name);
+        return JToken.FromObject(currentWeapon.value.name);
     }
     void Shoot()
     {
         if (Targeter.currentTarget == null || Targeter.currentTarget.GetComponent<Health>().IsDead()) return;
-        if(currentWeapon.HasProjectile())
+        if(currentWeapon.value.HasProjectile())
         {
-            currentWeapon.LaunchProjectile(rightHandSocket,leftHandSocket,Targeter.currentTarget.GetComponent<Health>(), damage);
+            currentWeapon.value.LaunchProjectile(rightHandSocket,leftHandSocket,Targeter.currentTarget.GetComponent<Health>(), damage);
         }
     }
     public void RestoreFromJToken(JToken state)
@@ -86,7 +98,7 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     {
         if(stat == Stat.Damage)
         {
-            yield return currentWeapon.GetWeaponDamage();
+            yield return currentWeapon.value.GetWeaponDamage();
         }
     }
 
@@ -94,7 +106,7 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     {
         if(stat == Stat.Damage)
         {
-            yield return currentWeapon.GetPercentageDamage();
+            yield return currentWeapon.value.GetPercentageDamage();
         }
     }
 }

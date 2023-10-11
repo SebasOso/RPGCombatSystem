@@ -40,11 +40,11 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
         isAlive = true;
         Instance = this;
         anim = GetComponent<Animator>();
-        health = GetComponent<Health>().health;
     }
     private void Start() 
     {
         maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
+        health = GetComponent<Health>().health.value;
     }
     private void OnEnable() 
     {
@@ -56,17 +56,15 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
     }
     private void UpdateHealth()
     {
-        health = GetComponent<Health>().health;
+        health = GetComponent<Health>().health.value;
         maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
         UpdateHealthUI();
-        HealthBarColor();
     }
 
     // Update is called once per frame
     void Update()
     {
-        HealthBarColor();
-        health = GetComponent<Health>().health;
+        health = GetComponent<Health>().health.value;
         UpdateHealthUI();
         if (health <= 0 && !isDied)
         {
@@ -87,24 +85,6 @@ public class PlayerLife : MonoBehaviour, IJsonSaveable
     public void PlayerDie()
     {
         Time.timeScale = 0f;
-    }
-    
-    private void HealthBarColor()
-    {
-        if (health <= maxHealth && health >= maxHealth * 0.6f) 
-        {
-            frontHealth.color = GetColorFromString("87CEEB");
-        }
-        
-        if (health <= maxHealth * 0.5f && health >= maxHealth * 0.3f) 
-        {
-            frontHealth.color = GetColorFromString("87CEEB");
-        }
-        
-        if (health <= maxHealth * 0.2f && health >= 0f) 
-        {
-            frontHealth.color = GetColorFromString("87CEEB");
-        }
     }
     public void UpdateHealthUI()
     {

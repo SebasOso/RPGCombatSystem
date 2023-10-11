@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using RPG.Saving;
 using RPG.Stats;
+using RPG.Utils;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -12,23 +13,35 @@ public class Health : MonoBehaviour, IJsonSaveable
     [SerializeField] float regenerationHealth = 80;
     public event Action OnDie;
     public event Action OnTakeDamage;
-    public float health = -1f;
+    public LazyValue<float> health;
     private bool isDead = false;
     private bool isInvulnerable;
     [SerializeField] private VisualEffect hit;
     private Animator animator;
+    private void Awake() 
+    {
+        health = new LazyValue<float>(GetInitalHealth);
+    }
+    private float GetInitalHealth()
+    {
+        return GetComponent<BaseStats>().GetStat(Stat.Health);
+    }
     private void Start()
     {
-        GetComponent<BaseStats>().OnLevelUP += RegenerateHealth;
-        if(health < 0)
-        {
-            health = GetComponent<BaseStats>().GetStat(Stat.Health);
-        }
-        if(health == 0)
+        health.ForceInit();
+        if(health.value == 0)
         {
             OnDie?.Invoke();
             Die();
         }
+    }
+    private void OnEnable() 
+    {
+        GetComponent<BaseStats>().OnLevelUP += RegenerateHealth;
+    }
+    private void OnDisable() 
+    {
+        GetComponent<BaseStats>().OnLevelUP -= RegenerateHealth;
     }
     void Update()
     {
@@ -36,23 +49,23 @@ public class Health : MonoBehaviour, IJsonSaveable
     }
     private void RegenerateHealth()
     {
-        if(health <= 0.3 * GetComponent<BaseStats>().GetStat(Stat.Health))
+        if(health.value <= 0.3 * GetComponent<BaseStats>().GetStat(Stat.Health))
         {
-            health += regenerationHealth;
+            health.value += regenerationHealth;
         }
     }
     public void DealDamage(float damage)
     {
-        if(health <= 0){return;}
+        if(health.value <= 0){return;}
         if(isInvulnerable){return;}
         hit.Play();
         if(GetComponent<EnemyLife>())
         {
             GetComponent<EnemyLife>().lerpTimer = 0f;
         }
-        health = Mathf.Max(health - damage, 0);
+        health.value = Mathf.Max(health.value - damage, 0);
         OnTakeDamage?.Invoke();
-        if(health == 0)
+        if(health.value == 0)
         {
             OnDie?.Invoke();
             Die();
@@ -81,13 +94,13 @@ public class Health : MonoBehaviour, IJsonSaveable
 
     public JToken CaptureAsJToken()
     {
-        return JToken.FromObject(health);
+        return JToken.FromObject(health.value);
     }
 
     public void RestoreFromJToken(JToken state)
     {
-        health = state.ToObject<float>();
-        if(health == 0)
+        health.value = state.ToObject<float>();
+        if(health.value == 0)
         {
             Die();
         }

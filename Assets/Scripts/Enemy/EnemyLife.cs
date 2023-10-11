@@ -33,14 +33,13 @@ public class EnemyLife : MonoBehaviour
     public void Awake()
     {
         isAlive = true;
-        health = GetComponent<Health>().health;
-        maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
         anim = GetComponent<Animator>();
     }
     void Update()
     {
+        health = GetComponent<Health>().health.value;
+        maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
         HealthBarColor();
-        health = GetComponent<Health>().health;
         UpdateHealthUI();
     }
 

@@ -14,7 +14,6 @@ public class UIKeyboardState : UIBaseState
     }
     public override void Tick(float deltaTime)
     {
-        Debug.Log("KEYBOARD");
         if(uiStateMachine.PlayerInput.currentControlScheme == "GamePad")
         {
             uiStateMachine.SwitchState(new UIGamePadState(uiStateMachine));

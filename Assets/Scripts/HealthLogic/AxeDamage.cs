@@ -43,7 +43,7 @@ public class AxeDamage : MonoBehaviour
         if(other.TryGetComponent<ForceReceiver>(out ForceReceiver force))
         {
             Vector3 direction = (other.transform.position - myCollider.transform.position).normalized;
-            force.AddForce(direction * armory.currentWeapon.GetWeaponKnokcback());
+            force.AddForce(direction * armory.currentWeapon.value.GetWeaponKnokcback());
         }
     }
 }
