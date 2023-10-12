@@ -1721,7 +1721,6 @@ MonoBehaviour:
   characterClass: 0
   progression: {fileID: 11400000, guid: 73af80ab9edeb5242bec60a1948cd44d, type: 2}
   levelUpEffect: {fileID: 6064678904431956634, guid: b11840ac3353b78499fcdb87de8376c9, type: 3}
-  currentLevel: 0
 --- !u!114 &6349487331050348636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,6 +1981,10 @@ PrefabInstance:
     - target: {fileID: 6382192290173284629, guid: 6e66859bf2bb5b64bbf48d72476dcb6a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8901580217887213806, guid: 6e66859bf2bb5b64bbf48d72476dcb6a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -499.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
