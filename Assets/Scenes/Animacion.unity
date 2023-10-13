@@ -59832,11 +59832,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1766072202889273614, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.96
+      value: 0.7754205
       objectReference: {fileID: 0}
     - target: {fileID: 1766072202889273614, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.85
+      value: -5.273213
       objectReference: {fileID: 0}
     - target: {fileID: 1821954774302088741, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_Name
@@ -59872,11 +59872,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4188927206995925551, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.96
+      value: 0.7754205
       objectReference: {fileID: 0}
     - target: {fileID: 4188927206995925551, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.85
+      value: -5.273213
       objectReference: {fileID: 0}
     - target: {fileID: 4212607310482602378, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_ChildCameras.Array.size
@@ -59948,11 +59948,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6468883747971400987, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.96
+      value: 0.7754205
       objectReference: {fileID: 0}
     - target: {fileID: 6468883747971400987, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.85
+      value: -5.273213
       objectReference: {fileID: 0}
     - target: {fileID: 6474902231160480117, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_Name
@@ -59980,7 +59980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8538101171078280499, guid: 92ae60107ef803a48baad4ace23b04a6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0008638168
+      value: -0.0008638169
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
