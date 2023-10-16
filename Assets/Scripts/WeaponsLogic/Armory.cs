@@ -61,6 +61,7 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     {
         currentWeapon.value = weapon;
         AttachWeapon(weapon);
+        damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
     }
 
     private void AttachWeapon(Weapon weapon)

@@ -30,8 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5951685133832002646}
   - {fileID: 1255941149767824028}
+  - {fileID: 5951685133832002646}
   - {fileID: 2081491510916434973}
   - {fileID: 2542890303440364721}
   m_Father: {fileID: 0}
@@ -1965,6 +1965,10 @@ PrefabInstance:
     - target: {fileID: 3214962559879087808, guid: 6e66859bf2bb5b64bbf48d72476dcb6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960001859792852538, guid: 6e66859bf2bb5b64bbf48d72476dcb6a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20.400024
       objectReference: {fileID: 0}
     - target: {fileID: 4584242911776455520, guid: 6e66859bf2bb5b64bbf48d72476dcb6a, type: 3}
       propertyPath: slider
