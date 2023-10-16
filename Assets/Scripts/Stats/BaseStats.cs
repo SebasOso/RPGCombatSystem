@@ -99,6 +99,10 @@ namespace RPG.Stats
         }
         public int GetLevel()
         {
+            if(currentLevel.value == 1)
+            {
+                return CalculateLevel();
+            }
             return currentLevel.value;
         }
         private int CalculateLevel()
