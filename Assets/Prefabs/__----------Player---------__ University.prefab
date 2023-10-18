@@ -4104,6 +4104,7 @@ GameObject:
   - component: {fileID: 6183157784641741956}
   - component: {fileID: 2063691110201437691}
   - component: {fileID: 5531665953994408872}
+  - component: {fileID: 372467888713392734}
   m_Layer: 8
   m_Name: Viking
   m_TagString: Player
@@ -4197,6 +4198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166f920f35782ed4091d50e887877867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EndManager>k__BackingField: {fileID: 372467888713392734}
   <HitAudio>k__BackingField: {fileID: 6183157784641741956}
   <IdleBreaker>k__BackingField: {fileID: 1917514056734891234}
   <JumpForce>k__BackingField: 4
@@ -4660,6 +4662,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kickLogic: {fileID: 6577391948476758227}
+--- !u!114 &372467888713392734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6474902231160480117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321143f2b5b40ff42a6bc9855de691fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 6300145666915746253}
+  music: {fileID: 8300000, guid: 462e45cb1978449428851908f3d8994e, type: 3}
+  deadEnemies: 0
 --- !u!1 &6551434650762105168
 GameObject:
   m_ObjectHideFlags: 0
@@ -6812,6 +6829,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6300145666915746253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 177204204787779992, guid: 6e66859bf2bb5b64bbf48d72476dcb6a, type: 3}
+  m_PrefabInstance: {fileID: 6132516567796025429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8756902277000203925 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3214962559879087808, guid: 6e66859bf2bb5b64bbf48d72476dcb6a, type: 3}

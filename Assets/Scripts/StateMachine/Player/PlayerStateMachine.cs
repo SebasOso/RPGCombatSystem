@@ -5,11 +5,16 @@ using System.Diagnostics;
 using Newtonsoft.Json.Linq;
 using RPG.Combat;
 using RPG.Saving;
+using RPG.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerStateMachine : StateMachine
 {
+    [field: SerializeField] 
+    public Fader EndFader {get; private set;}
+    [field: SerializeField] 
+    public EndManager EndManager {get; private set;}
     [field: SerializeField] 
     public AudioSource HitAudio {get; private set;}
     [field: SerializeField] 
@@ -66,14 +71,22 @@ public class PlayerStateMachine : StateMachine
     }
     private void OnEnable() 
     {
+        EndManager.OnEndGame += HandleEnd;
         Health.OnTakeDamage += HandleTakeDamage;
         Health.OnDie += HandleDie;
     }
     private void OnDisable() 
     {
+        EndManager.OnEndGame -= HandleEnd;
         Health.OnTakeDamage -= HandleTakeDamage;
         Health.OnDie -= HandleDie;
     }
+
+    private void HandleEnd()
+    {
+        SwitchState(new PlayerDancingState(this));
+    }
+
     private void HandleTakeDamage()
     {
         SwitchState(new PlayerImpactState(this));

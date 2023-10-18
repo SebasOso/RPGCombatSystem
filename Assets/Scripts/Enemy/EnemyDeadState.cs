@@ -12,11 +12,13 @@ public class EnemyDeadState : EnemyBaseState
     public override void Enter()
     {
         enemyStateMachine.ragdoll.ToggleRagdoll(true);
+        enemyStateMachine.Player.GetComponent<EndManager>().EnemyKilled();
         for (int i = 0; i < enemyStateMachine.WeaponsLogics.Count; i++)
         {
             enemyStateMachine.WeaponsLogics[i].SetActive(false);
         }
         enemyStateMachine.GetComponent<Collider>().enabled = false;
+
         GameObject.Destroy(enemyStateMachine.Target);
     }
 

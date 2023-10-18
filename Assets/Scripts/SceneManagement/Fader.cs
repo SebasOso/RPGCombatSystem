@@ -41,6 +41,9 @@ namespace RPG.SceneManagement
         {
             return Fade(0,time);
         }
-        
+        public void EndFade()
+        {
+            StartCoroutine(FadeRoutine(1, 2.5f));
+        }
     }
 }

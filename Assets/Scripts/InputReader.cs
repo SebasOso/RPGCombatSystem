@@ -36,6 +36,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         controls.Player.Disable();
     }
+    public void Disable()
+    {
+        controls.Player.Disable();
+    }
     public void OnJump(InputAction.CallbackContext context)
     {
         if(!context.performed){return;}
