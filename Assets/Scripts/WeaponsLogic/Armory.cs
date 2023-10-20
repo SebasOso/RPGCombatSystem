@@ -130,6 +130,10 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     }
     public JToken CaptureAsJToken()
     {
+        if(currentWeapon.value.name == defaultWeapon.name)
+        {
+            return JToken.FromObject(disarmedWeapon.name);
+        }
         return JToken.FromObject(currentWeapon.value.name);
     }
     void Shoot()
