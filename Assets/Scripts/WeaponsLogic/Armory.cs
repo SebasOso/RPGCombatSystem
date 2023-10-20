@@ -16,12 +16,15 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     [SerializeField] public Weapon defaultWeapon;
     [SerializeField] private Transform rightHandSocket;
     [SerializeField] private Transform leftHandSocket;
+    [SerializeField] private Transform backSocket;
+    [SerializeField] private Transform backWeapon;
     public WeaponPickup weaponToPickUp;
     public float damage = 0f;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
     public LazyValue<Weapon> currentWeapon;
+    public Weapon disarmedWeapon;
     [SerializeField] Targeter Targeter;
     [Header("Abilities")]
     private float coolDown = 15f;
@@ -82,14 +85,25 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     }
     public void EquipDisarmedWeapon()
     {
+        if(disarmedWeapon == null)return;
+        backWeapon.gameObject.SetActive(false);
         Debug.Log("EQUIPING WEAPON");
+        EquipWeapon(disarmedWeapon);
+        disarmedWeapon = defaultWeapon;
         //EQUIP THE DISARMED WEAPON, SET THE DISARMED WEAPON TO DEFAULT WEAPON (UNNARMED)
     }
     public void UnequipWeapon()
     {
         Debug.Log("UNEQUIPING WEAPON");
+        AttachWeaponBack(currentWeapon.value);
+        backWeapon = backSocket.Find("Weapon");
+        disarmedWeapon = currentWeapon.value;
         //ATTACH WEAPON TO BACK, AND SET THE DISARMED WEAPON TO THE CURRENT WEAPON
         EquipWeapon(defaultWeapon);
+    }
+    private void AttachWeaponBack(Weapon weapon)
+    {
+        weapon.SpawnBack(backSocket);
     }
     private void AttachWeapon(Weapon weapon)
     {

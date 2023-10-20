@@ -33,6 +33,13 @@ namespace RPG.Combat
             weapon.name = weaponName;
             animator.runtimeAnimatorController = weaponOverrideController;
         }
+        public void SpawnBack(Transform backSocket)
+        {
+            DestroyBackWeapon(backSocket);
+            if(weaponPrefab == null){return;}
+            GameObject weapon = Instantiate(weaponPrefab, backSocket);
+            weapon.name = weaponName;
+        }
 
         private void DestroyOldWeapon(Transform rightSocket, Transform leftSocket)
         {
@@ -46,7 +53,19 @@ namespace RPG.Combat
             oldWeapon.name = "Destroying";
             Destroy(oldWeapon.gameObject);
         }
-
+        private void DestroyBackWeapon(Transform backSocket)
+        {
+            Transform oldWeapon = backSocket.Find(weaponName);
+            if(oldWeapon == null)
+            {
+                oldWeapon = backSocket.Find(weaponName);
+            }
+            if(oldWeapon == null){return;}
+            
+            oldWeapon.name = "Destroying";
+            Destroy(oldWeapon.gameObject);
+        }
+        
         public bool HasProjectile()
         {
             return projectile != null;
