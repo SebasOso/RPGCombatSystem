@@ -6,6 +6,9 @@ namespace RPG.Combat
     [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/Make New Weapon", order = 0)]
     public class Weapon : ScriptableObject 
     {
+        [Header("Equip And Disarm")]
+        public bool CanDisarm;
+        public bool IsEquipped;
         [Header("Weapons")]
         [SerializeField] private float weaponRange;
         [SerializeField] private float weaponDamage;
@@ -16,6 +19,10 @@ namespace RPG.Combat
         [SerializeField] private bool isRightHanded = true;
         [SerializeField] private Projectile projectile = null;
         [SerializeField] public bool CanRuneAttack = false;
+        [Header("Rune Attack")]
+        [SerializeField] public Sprite runeAttackImage;
+        [SerializeField] public float coolDown = 15f;
+        [SerializeField] public float duration = 1.5f;
         const string weaponName = "Weapon";
         public void Spawn(Transform rightSocket, Transform leftSocket, Animator animator)
         {

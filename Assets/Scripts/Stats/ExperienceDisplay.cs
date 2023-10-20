@@ -7,16 +7,13 @@ using UnityEngine.UI;
 
 public class ExperienceDisplay : MonoBehaviour
 {
-    Experience experience;
-    BaseStats baseStats;
+    [SerializeField] Experience experience;
+    [SerializeField] BaseStats baseStats;
     [SerializeField] private Slider slider;
-    private void Awake() 
-    {
-        experience = GameObject.FindWithTag("Player").GetComponent<Experience>();
-        baseStats = GameObject.FindWithTag("Player").GetComponent<BaseStats>();
-    }
     private void Start() 
     {
+        Debug.Log("level: " + baseStats.GetLevel());
+        Debug.Log("Calculatelevel: " + baseStats.CalculateLevel());
         slider.maxValue = baseStats.GetStat(Stat.ExperienceToLevelUp);
         SetValueExp();
         if(baseStats.GetLevel() > 1)

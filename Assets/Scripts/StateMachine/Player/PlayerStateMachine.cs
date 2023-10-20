@@ -11,6 +11,10 @@ using UnityEngine.InputSystem;
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public RuneManager RuneManager {get; private set;}
+    [field: SerializeField] 
+    public Armory Armory {get; private set;}
+    [field: SerializeField] 
     public MusicHandler MusicHandler {get; private set;}
     [field: SerializeField] 
     public float JumpForce {get; private set;}

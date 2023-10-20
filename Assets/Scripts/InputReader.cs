@@ -11,6 +11,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action DodgeEvent;
     public event Action TargetEvent;
     public event Action RuneAttackEvent;
+    public event Action EquipEvent;
+    public event Action DisarmEvent;
     public event Action CancelTargetEvent;
     public event Action InteractEvent;
     public bool  IsAttacking{get; set;}
@@ -19,6 +21,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public bool IsRunning{get; private set;}
     public bool IsInRuneAttack{get; set;}
     public bool  IsHeavyAttacking{get; set;}
+    public bool IsEquipped { get;  set; }
+    public bool CanDisarm{get;set;}
+
     private Controls controls;
     private void Start() 
     {
@@ -112,6 +117,26 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         {
             if(!context.performed){return;}
             RuneAttackEvent?.Invoke();
+        }
+    }
+
+    public void OnEquip(InputAction.CallbackContext context)
+    {
+        if(!IsEquipped && CanDisarm)
+        {
+            if(!context.performed){return;}
+            EquipEvent?.Invoke();
+            IsEquipped = true;
+        }
+    }
+
+    public void OnDisarm(InputAction.CallbackContext context)
+    {
+        if(IsEquipped && CanDisarm)
+        {
+            if(!context.performed){return;}
+            DisarmEvent?.Invoke();
+            IsEquipped = false;
         }
     }
 }

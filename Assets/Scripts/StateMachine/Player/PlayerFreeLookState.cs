@@ -16,6 +16,8 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.InputReader.EquipEvent += OnEquip;
+        stateMachine.InputReader.DisarmEvent += OnDisarm;
         stateMachine.InputReader.RuneAttackEvent += OnRuneAttack;
         stateMachine.InputReader.InteractEvent += OnInteract;
         stateMachine.InputReader.JumpEvent += OnJump;
@@ -23,9 +25,22 @@ public class PlayerFreeLookState : PlayerBaseState
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTree, CrossFadeDuration);
     }
 
+    private void OnDisarm()
+    {
+        stateMachine.SwitchState(new PlayerDisarmingState(stateMachine));
+    }
+
+    private void OnEquip()
+    {
+        stateMachine.SwitchState(new PlayerEquipingState(stateMachine));
+    }
+
     private void OnRuneAttack()
     {
-        stateMachine.SwitchState(new PlayerRuneAttackState(stateMachine));
+        if(stateMachine.RuneManager.isCoolDown == false)
+        {
+            stateMachine.SwitchState(new PlayerRuneAttackState(stateMachine));
+        }
     }
 
     private void OnInteract()

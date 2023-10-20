@@ -26,7 +26,10 @@ public class PlayerTargetingState : PlayerBaseState
 
     private void OnRuneAttack()
     {
-        stateMachine.SwitchState(new PlayerRuneAttackState(stateMachine));
+        if(stateMachine.RuneManager.isCoolDown == false)
+        {
+            stateMachine.SwitchState(new PlayerRuneAttackState(stateMachine));
+        }
     }
 
     public override void Tick(float deltaTime)

@@ -7,7 +7,7 @@ public class PlayerInteractingState : PlayerBaseState
     private readonly int InteractHash = Animator.StringToHash("Interact");
     private readonly int LocomotionSpeed = Animator.StringToHash("speed");
     private const float CrossFadeDuration = 0.1f;
-    private float duration = 9.8f;
+    private float duration = 3.23f;
     public PlayerInteractingState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
 

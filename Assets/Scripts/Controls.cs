@@ -116,6 +116,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Equip"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb4f6b93-9998-4596-af85-f217da38a031"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Disarm"",
+                    ""type"": ""Button"",
+                    ""id"": ""850224c0-3611-463b-a6e4-66259033542d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -426,6 +444,50 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""RuneAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1cd8c78-ade6-4366-a75f-9fe3fe17bdad"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": ""Tap"",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Equip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""afb2ab3d-afd0-470c-990e-e9232d775e3b"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Equip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25fb6a61-5494-4604-8dd2-9461255f650e"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": ""Tap"",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Disarm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96d6e8ea-5120-4e42-bb7b-31efc12c7cc2"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Disarm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -672,6 +734,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_RuneAttack = m_Player.FindAction("RuneAttack", throwIfNotFound: true);
+        m_Player_Equip = m_Player.FindAction("Equip", throwIfNotFound: true);
+        m_Player_Disarm = m_Player.FindAction("Disarm", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
@@ -748,6 +812,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_RuneAttack;
+    private readonly InputAction m_Player_Equip;
+    private readonly InputAction m_Player_Disarm;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -762,6 +828,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @RuneAttack => m_Wrapper.m_Player_RuneAttack;
+        public InputAction @Equip => m_Wrapper.m_Player_Equip;
+        public InputAction @Disarm => m_Wrapper.m_Player_Disarm;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -801,6 +869,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @RuneAttack.started += instance.OnRuneAttack;
             @RuneAttack.performed += instance.OnRuneAttack;
             @RuneAttack.canceled += instance.OnRuneAttack;
+            @Equip.started += instance.OnEquip;
+            @Equip.performed += instance.OnEquip;
+            @Equip.canceled += instance.OnEquip;
+            @Disarm.started += instance.OnDisarm;
+            @Disarm.performed += instance.OnDisarm;
+            @Disarm.canceled += instance.OnDisarm;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -835,6 +909,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @RuneAttack.started -= instance.OnRuneAttack;
             @RuneAttack.performed -= instance.OnRuneAttack;
             @RuneAttack.canceled -= instance.OnRuneAttack;
+            @Equip.started -= instance.OnEquip;
+            @Equip.performed -= instance.OnEquip;
+            @Equip.canceled -= instance.OnEquip;
+            @Disarm.started -= instance.OnDisarm;
+            @Disarm.performed -= instance.OnDisarm;
+            @Disarm.canceled -= instance.OnDisarm;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -953,6 +1033,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnRuneAttack(InputAction.CallbackContext context);
+        void OnEquip(InputAction.CallbackContext context);
+        void OnDisarm(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -21,11 +21,7 @@ namespace RPG.Stats
         private void Awake() 
         {
             experience = GetComponent<Experience>();
-            currentLevel = new LazyValue<int>(GetInitialLevel);
-        }
-        private int GetInitialLevel()
-        {
-            return CalculateLevel();
+            currentLevel = new LazyValue<int>(CalculateLevel);
         }
         private void Start() 
         {
@@ -101,11 +97,11 @@ namespace RPG.Stats
         {
             if(currentLevel.value == 1)
             {
-                return CalculateLevel();
+                currentLevel.value = CalculateLevel();
             }
             return currentLevel.value;
         }
-        private int CalculateLevel()
+        public int CalculateLevel()
         {
             Experience experience = GetComponent<Experience>();
             if(experience == null) return startingLevel;

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc2233155189a44292bb0a5394dcfc4, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
+  CanDisarm: 1
+  IsEquipped: 1
   weaponRange: 0
   weaponDamage: 30
   percentageDamage: 22
@@ -21,3 +23,6 @@ MonoBehaviour:
   isRightHanded: 1
   projectile: {fileID: 0}
   CanRuneAttack: 1
+  runeAttackImage: {fileID: 21300000, guid: eeffe72fc21d94648a9dc04ffe6d102a, type: 3}
+  coolDown: 30
+  duration: 2

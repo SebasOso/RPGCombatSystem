@@ -14,6 +14,10 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Enter()
     {
+        foreach (GameObject weaponLogic in stateMachine.WeaponsLogics)
+        {
+            weaponLogic.SetActive(false);
+        }
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
         stateMachine.InputReader.IsAttacking = false;
     }

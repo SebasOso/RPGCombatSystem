@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using Newtonsoft.Json.Linq;
 using RPG.Combat;
 using RPG.Saving;
@@ -22,6 +23,12 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     [SerializeField] private Animator animator;
     public LazyValue<Weapon> currentWeapon;
     [SerializeField] Targeter Targeter;
+    [Header("Abilities")]
+    private float coolDown = 15f;
+    private float abilityCoolDown = 15f;
+    private bool isCoolDown = false;
+    [SerializeField] public Image abilityImage;
+    [SerializeField] public Image abilityBackGround;
     private void Awake() 
     {
         currentWeapon = new LazyValue<Weapon>(GetInitialWeapon);
@@ -36,6 +43,15 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
         currentWeapon.ForceInit();
         animator.SetFloat("attackSpeed", GetComponent<BaseStats>().GetStat(Stat.AttackSpeed));
         damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
+        if(currentWeapon.value.CanRuneAttack == true)
+        {
+            coolDown = abilityCoolDown;
+            isCoolDown = false;
+            abilityImage.fillAmount = 1;
+            abilityImage.sprite = currentWeapon.value.runeAttackImage;
+            abilityBackGround.sprite = currentWeapon.value.runeAttackImage;
+            return;
+        }
     }
     private void OnEnable() 
     {
@@ -62,12 +78,25 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
         currentWeapon.value = weapon;
         AttachWeapon(weapon);
         damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
+        UpdateAbility();
     }
-
+    public void EquipDisarmedWeapon()
+    {
+        Debug.Log("EQUIPING WEAPON");
+        //EQUIP THE DISARMED WEAPON, SET THE DISARMED WEAPON TO DEFAULT WEAPON (UNNARMED)
+    }
+    public void UnequipWeapon()
+    {
+        Debug.Log("UNEQUIPING WEAPON");
+        //ATTACH WEAPON TO BACK, AND SET THE DISARMED WEAPON TO THE CURRENT WEAPON
+        EquipWeapon(defaultWeapon);
+    }
     private void AttachWeapon(Weapon weapon)
     {
         weapon.Spawn(rightHandSocket, leftHandSocket, animator);
         GetComponent<InputReader>().CanRuneAttack = weapon.CanRuneAttack;
+        GetComponent<InputReader>().CanDisarm = weapon.CanDisarm;
+        GetComponent<InputReader>().IsEquipped = weapon.IsEquipped;
     }
 
     public void PickUpWeapon()
@@ -75,6 +104,15 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
         weaponToPickUp?.PickUp();
         GetComponent<InputReader>().IsInteracting = false;
         Destroy(weaponToPickUp.gameObject);
+    }
+    private void UpdateAbility()
+    {
+        abilityCoolDown = currentWeapon.value.coolDown;
+        coolDown = abilityCoolDown;
+        isCoolDown = false;
+        abilityImage.fillAmount = 1;
+        abilityImage.sprite = currentWeapon.value.runeAttackImage;
+        abilityBackGround.sprite = currentWeapon.value.runeAttackImage;
     }
     public JToken CaptureAsJToken()
     {
@@ -110,4 +148,5 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
             yield return currentWeapon.value.GetPercentageDamage();
         }
     }
+    
 }

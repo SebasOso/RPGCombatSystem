@@ -94,6 +94,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Equip",
+                    "type": "Button",
+                    "id": "bb4f6b93-9998-4596-af85-f217da38a031",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Disarm",
+                    "type": "Button",
+                    "id": "850224c0-3611-463b-a6e4-66259033542d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -402,6 +420,50 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "RuneAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1cd8c78-ade6-4366-a75f-9fe3fe17bdad",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Equip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "afb2ab3d-afd0-470c-990e-e9232d775e3b",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Equip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "25fb6a61-5494-4604-8dd2-9461255f650e",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Disarm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96d6e8ea-5120-4e42-bb7b-31efc12c7cc2",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Disarm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
