@@ -13,6 +13,7 @@ public class PunchDamage : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private float damage;
     [SerializeField] private CinemachineImpulseSource cinemachineImpulseSource;
+    [SerializeField] private ScreenShakeProfile profile;
     private void OnEnable() 
     {
         alreadyColliderWith.Clear();
@@ -29,7 +30,7 @@ public class PunchDamage : MonoBehaviour
         alreadyColliderWith.Add(other);
         if(other.TryGetComponent<Health>(out Health health))
         {
-            CameraShakeManager.Instance.CameraShake(cinemachineImpulseSource, 0.19f);
+            CameraShakeManager.Instance.ScreenShakeFromProfile(cinemachineImpulseSource, profile);
             PlayRandomSound();
             health.DealDamage(damage);
             if(health.tag == "Player")
