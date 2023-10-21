@@ -9,6 +9,7 @@ public class EnemySwordDamage : MonoBehaviour
     private List<Collider> alreadyColliderWith = new List<Collider>();
     [SerializeField] private Collider myCollider;
     [SerializeField] private Weapon enemySword;
+    [SerializeField] private List<AudioClip> audioClips = new List<AudioClip>();
     private EnemyArmory enemyArmory;
     public float damage;
     private void OnEnable() 
@@ -28,11 +29,21 @@ public class EnemySwordDamage : MonoBehaviour
         alreadyColliderWith.Add(other);
         if(other.TryGetComponent<Health>(out Health health))
         {
+            PlayRandomSound(other.GetComponent<AudioSource>());
             health.DealDamage(myCollider.GetComponent<BaseStats>().GetStat(Stat.Damage));
             if(health.tag == "Player")
             {
                 PlayerLife.Instance.lerpTimer = 0f;
             }
+        }
+    }
+    private void PlayRandomSound(AudioSource audioSource)
+    {
+        if (audioClips.Count > 0)
+        {
+            int randomIndex = Random.Range(0, audioClips.Count);
+            audioSource.clip = audioClips[randomIndex];
+            audioSource.Play();
         }
     }
 

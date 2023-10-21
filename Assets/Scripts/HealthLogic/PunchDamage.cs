@@ -10,7 +10,6 @@ public class PunchDamage : MonoBehaviour
     private List<Collider> alreadyColliderWith = new List<Collider>();
     [SerializeField] private Collider myCollider;
     private Armory armory;
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private float damage;
     [SerializeField] private CinemachineImpulseSource cinemachineImpulseSource;
     [SerializeField] private ScreenShakeProfile profile;
@@ -31,7 +30,7 @@ public class PunchDamage : MonoBehaviour
         if(other.TryGetComponent<Health>(out Health health))
         {
             CameraShakeManager.Instance.ScreenShakeFromProfile(cinemachineImpulseSource, profile);
-            PlayRandomSound();
+            PlayRandomSound(other.GetComponent<AudioSource>());
             health.DealDamage(damage);
             if(health.tag == "Player")
             {
@@ -44,7 +43,7 @@ public class PunchDamage : MonoBehaviour
             force.AddForce(direction * armory.currentWeapon.value.GetWeaponKnokcback());
         }
     }
-    private void PlayRandomSound()
+    private void PlayRandomSound(AudioSource audioSource)
     {
         if (audioClips.Count > 0)
         {

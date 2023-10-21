@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCollider: {fileID: 7117956453742314536}
-  enemyAxe: {fileID: 11400000, guid: 983086e3b63aa724f91bf420f5ca1098, type: 2}
+  audioClips:
+  - {fileID: 8300000, guid: 0e964ccdf9adc2f478a8ce9e16413cc7, type: 3}
   damage: 0
 --- !u!1001 &71178088528013461
 PrefabInstance:
@@ -217,6 +218,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axeLogic: {fileID: 8327658229544211141}
+  audioClips: []
+  audioSource: {fileID: 0}
+  runeClip: {fileID: 0}
+  profileDown: {fileID: 0}
+  profileUp: {fileID: 0}
+  profileCut: {fileID: 0}
+  profileRune: {fileID: 0}
+  cinemachineImpulseSource: {fileID: 0}
 --- !u!136 &7117956453742314536 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 7076544481792781501, guid: 8dfa7fd076cd41b409e5a9e414710da7, type: 3}
