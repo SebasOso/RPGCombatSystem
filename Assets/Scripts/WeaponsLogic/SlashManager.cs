@@ -7,7 +7,8 @@ public class SlashManager : MonoBehaviour
     [SerializeField] private ParticleSystem slashNormal01;
     [SerializeField] private ParticleSystem slashNormal02;
     [SerializeField] private ParticleSystem slashNormal03;   
-
+    [SerializeField] private ParticleSystem runeSlash;
+ 
     public void Play01()
     {
         slashNormal01.Play();
@@ -19,5 +20,9 @@ public class SlashManager : MonoBehaviour
     public void Play03()
     {
         slashNormal03.Play();
+    }
+    public void RuneSlash()
+    {
+        runeSlash.Play();
     }
 }

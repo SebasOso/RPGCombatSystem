@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using RPG.Combat;
 using UnityEngine;
 
 public class PunchDamage : MonoBehaviour
 {
+    [SerializeField] private List<AudioClip> audioClips = new List<AudioClip>();
     private List<Collider> alreadyColliderWith = new List<Collider>();
     [SerializeField] private Collider myCollider;
     private Armory armory;
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private float damage;
+    [SerializeField] private CinemachineImpulseSource cinemachineImpulseSource;
     private void OnEnable() 
     {
         alreadyColliderWith.Clear();
@@ -25,6 +29,8 @@ public class PunchDamage : MonoBehaviour
         alreadyColliderWith.Add(other);
         if(other.TryGetComponent<Health>(out Health health))
         {
+            CameraShakeManager.Instance.CameraShake(cinemachineImpulseSource, 0.19f);
+            PlayRandomSound();
             health.DealDamage(damage);
             if(health.tag == "Player")
             {
@@ -35,6 +41,15 @@ public class PunchDamage : MonoBehaviour
         {
             Vector3 direction = (other.transform.position - myCollider.transform.position).normalized;
             force.AddForce(direction * armory.currentWeapon.value.GetWeaponKnokcback());
+        }
+    }
+    private void PlayRandomSound()
+    {
+        if (audioClips.Count > 0)
+        {
+            int randomIndex = Random.Range(0, audioClips.Count);
+            audioSource.clip = audioClips[randomIndex];
+            audioSource.Play();
         }
     }
 }
