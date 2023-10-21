@@ -586,7 +586,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCollider: {fileID: 2102870364356314367}
-  axe: {fileID: 11400000, guid: 3188093264428f04f8653e72ba5374e7, type: 2}
+  runeDamage: 0
+  damage: 0
+  cinemachineImpulseSource: {fileID: 0}
+  profile: {fileID: 0}
+  audioClips: []
+  audioClipRune: {fileID: 0}
 --- !u!54 &4513895584974893352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2495,8 +2500,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2f15af5f10fde489cf75421dc8dfa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
   myCollider: {fileID: 2102870364356314367}
-  punch: {fileID: 11400000, guid: 08a57bc48737906428823b47a22aae42, type: 2}
+  damage: 0
+  cinemachineImpulseSource: {fileID: 0}
+  profile: {fileID: 0}
 --- !u!1 &6243031454102318679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,6 +2835,7 @@ Transform:
   - {fileID: 9122722075377156530}
   - {fileID: 2957754865057247275}
   - {fileID: 5651266910775678509}
+  - {fileID: 1047034006245983875}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7543965243295787276
@@ -2888,6 +2897,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166f920f35782ed4091d50e887877867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <RuneManager>k__BackingField: {fileID: 0}
+  <Armory>k__BackingField: {fileID: 0}
+  <MusicHandler>k__BackingField: {fileID: 0}
   <JumpForce>k__BackingField: 4
   <DodgeDistance>k__BackingField: 1.5
   <DodgeDuration>k__BackingField: 0.5
@@ -2969,6 +2981,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axeLogic: {fileID: 2089427409781366980}
+  audioClips: []
+  audioSource: {fileID: 0}
+  runeClip: {fileID: 0}
+  profileDown: {fileID: 0}
+  profileUp: {fileID: 0}
+  profileCut: {fileID: 0}
+  profileRune: {fileID: 0}
+  cinemachineImpulseSource: {fileID: 0}
 --- !u!114 &6157023960963652552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2981,7 +3001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6523a71dab04e6e469815517c44dfba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  regenerationHealth: 80
   hit: {fileID: 147818540347361851}
 --- !u!114 &19838334440056561
 MonoBehaviour:
@@ -2998,6 +3018,7 @@ MonoBehaviour:
   slashNormal01: {fileID: 8288720285071784813}
   slashNormal02: {fileID: 2653503564060528521}
   slashNormal03: {fileID: 7569546554118561838}
+  runeSlash: {fileID: 0}
 --- !u!114 &4442511523300877862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3044,9 +3065,15 @@ MonoBehaviour:
   defaultWeapon: {fileID: 11400000, guid: 3188093264428f04f8653e72ba5374e7, type: 2}
   rightHandSocket: {fileID: 8189735743552142878}
   leftHandSocket: {fileID: 7023327966409119157}
+  backSocket: {fileID: 0}
+  backWeapon: {fileID: 0}
+  weaponToPickUp: {fileID: 0}
+  damage: 0
   animator: {fileID: 7543965243295787276}
-  currentWeapon: {fileID: 0}
+  disarmedWeapon: {fileID: 0}
   Targeter: {fileID: 3720220482046476661}
+  abilityImage: {fileID: 0}
+  abilityBackGround: {fileID: 0}
 --- !u!1 &6952484892728181756
 GameObject:
   m_ObjectHideFlags: 0
@@ -3811,6 +3838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachineTargetGroup: {fileID: 0}
+  musicHandler: {fileID: 0}
 --- !u!135 &6784677955943968387
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4119,6 +4147,134 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0008534789, y: 0.8621669, z: -0.02354686}
     m_Extent: {x: 1.023706, y: 0.9695147, z: 0.30698425}
   m_DirtyAABB: 0
+--- !u!1 &9107765025380693265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1047034006245983875}
+  - component: {fileID: 9004618628634122869}
+  - component: {fileID: 1022521254915268032}
+  m_Layer: 0
+  m_Name: PreViewCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1047034006245983875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9107765025380693265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00095674326, y: -0.9982351, z: 0.056961156, w: 0.016768152}
+  m_LocalPosition: {x: 0.05002594, y: 1.1841338, z: 1.9595833}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 318246606618325692}
+  m_LocalEulerAnglesHint: {x: 3.92, y: -177.996, z: 0.123}
+--- !u!20 &9004618628634122869
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9107765025380693265}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 1.76
+  far clip plane: 985.17
+  field of view: 45.14823
+  orthographic: 0
+  orthographic size: 0.97
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 70aff08a4c609f64fb564fb60394841d, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!114 &1022521254915268032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9107765025380693265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &9210905069257947996
 GameObject:
   m_ObjectHideFlags: 0

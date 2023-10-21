@@ -134,6 +134,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventoryOpenClose"",
+                    ""type"": ""Button"",
+                    ""id"": ""fa1d692b-8a69-4dc7-96cd-5b6214e6af7f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -488,193 +497,26 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Disarm"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""UI"",
-            ""id"": ""b5afa44d-f184-468a-aa9f-e0746fe7f589"",
-            ""actions"": [
-                {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""48658b9e-7256-4201-b892-fe39b290a584"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""RightClick"",
-                    ""type"": ""Button"",
-                    ""id"": ""43e20623-21cb-43fa-aa9d-23351f92a0f8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Submit"",
-                    ""type"": ""Button"",
-                    ""id"": ""83a9736a-da06-48a1-a8ed-25090b760b3c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""c1c38ae7-0a48-4343-a3c7-9529795f6d76"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""7270d349-2327-4f69-aa05-66884286e2bf"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""81ed6a29-4a1b-4157-b376-9665ab5cf33a"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""712f34f8-9477-41d2-b260-528aeccd3608"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""b9384a46-6719-438c-bc2f-76fdec057c54"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""7861f14b-9ffd-446a-8ac7-ca69ea3f79e5"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""8bd83fca-b0f2-4301-8c11-4f5f4364c52e"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""9b6e7d81-a75d-4887-979f-0fdba3e6e0e5"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""982443d8-4f6e-42f7-b92d-e01143149412"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""1b2baac6-b86f-4b01-bbab-6ebb9049b49e"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e8f740d1-3327-4223-9eb4-fb2dba84ad91"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""id"": ""2103ab7e-b36b-45dd-bc11-7bd5751d29b4"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
-                    ""action"": ""RightClick"",
+                    ""action"": ""InventoryOpenClose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3fbd8e26-d540-4433-8d31-da23b7c7b3db"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""id"": ""8e3b9e3e-c973-4edd-aa2b-cb8b37f64712"",
+                    ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""RightClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2161c394-0f25-43fd-a3fc-0e186b2ec04b"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Submit"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f0110465-ec0d-46fe-98ed-616c4fcb8b03"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Submit"",
+                    ""action"": ""InventoryOpenClose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -736,11 +578,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_RuneAttack = m_Player.FindAction("RuneAttack", throwIfNotFound: true);
         m_Player_Equip = m_Player.FindAction("Equip", throwIfNotFound: true);
         m_Player_Disarm = m_Player.FindAction("Disarm", throwIfNotFound: true);
-        // UI
-        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
-        m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
-        m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
+        m_Player_InventoryOpenClose = m_Player.FindAction("InventoryOpenClose", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -814,6 +652,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RuneAttack;
     private readonly InputAction m_Player_Equip;
     private readonly InputAction m_Player_Disarm;
+    private readonly InputAction m_Player_InventoryOpenClose;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -830,6 +669,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @RuneAttack => m_Wrapper.m_Player_RuneAttack;
         public InputAction @Equip => m_Wrapper.m_Player_Equip;
         public InputAction @Disarm => m_Wrapper.m_Player_Disarm;
+        public InputAction @InventoryOpenClose => m_Wrapper.m_Player_InventoryOpenClose;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -875,6 +715,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Disarm.started += instance.OnDisarm;
             @Disarm.performed += instance.OnDisarm;
             @Disarm.canceled += instance.OnDisarm;
+            @InventoryOpenClose.started += instance.OnInventoryOpenClose;
+            @InventoryOpenClose.performed += instance.OnInventoryOpenClose;
+            @InventoryOpenClose.canceled += instance.OnInventoryOpenClose;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -915,6 +758,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Disarm.started -= instance.OnDisarm;
             @Disarm.performed -= instance.OnDisarm;
             @Disarm.canceled -= instance.OnDisarm;
+            @InventoryOpenClose.started -= instance.OnInventoryOpenClose;
+            @InventoryOpenClose.performed -= instance.OnInventoryOpenClose;
+            @InventoryOpenClose.canceled -= instance.OnInventoryOpenClose;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -932,68 +778,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-
-    // UI
-    private readonly InputActionMap m_UI;
-    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_Move;
-    private readonly InputAction m_UI_RightClick;
-    private readonly InputAction m_UI_Submit;
-    public struct UIActions
-    {
-        private @Controls m_Wrapper;
-        public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_UI_Move;
-        public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
-        public InputAction @Submit => m_Wrapper.m_UI_Submit;
-        public InputActionMap Get() { return m_Wrapper.m_UI; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
-        public void AddCallbacks(IUIActions instance)
-        {
-            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
-            @RightClick.started += instance.OnRightClick;
-            @RightClick.performed += instance.OnRightClick;
-            @RightClick.canceled += instance.OnRightClick;
-            @Submit.started += instance.OnSubmit;
-            @Submit.performed += instance.OnSubmit;
-            @Submit.canceled += instance.OnSubmit;
-        }
-
-        private void UnregisterCallbacks(IUIActions instance)
-        {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
-            @RightClick.started -= instance.OnRightClick;
-            @RightClick.performed -= instance.OnRightClick;
-            @RightClick.canceled -= instance.OnRightClick;
-            @Submit.started -= instance.OnSubmit;
-            @Submit.performed -= instance.OnSubmit;
-            @Submit.canceled -= instance.OnSubmit;
-        }
-
-        public void RemoveCallbacks(IUIActions instance)
-        {
-            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IUIActions instance)
-        {
-            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public UIActions @UI => new UIActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1035,11 +819,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnRuneAttack(InputAction.CallbackContext context);
         void OnEquip(InputAction.CallbackContext context);
         void OnDisarm(InputAction.CallbackContext context);
-    }
-    public interface IUIActions
-    {
-        void OnMove(InputAction.CallbackContext context);
-        void OnRightClick(InputAction.CallbackContext context);
-        void OnSubmit(InputAction.CallbackContext context);
+        void OnInventoryOpenClose(InputAction.CallbackContext context);
     }
 }

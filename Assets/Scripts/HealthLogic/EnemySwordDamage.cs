@@ -29,10 +29,10 @@ public class EnemySwordDamage : MonoBehaviour
         alreadyColliderWith.Add(other);
         if(other.TryGetComponent<Health>(out Health health))
         {
-            PlayRandomSound(other.GetComponent<AudioSource>());
             health.DealDamage(myCollider.GetComponent<BaseStats>().GetStat(Stat.Damage));
             if(health.tag == "Player")
             {
+                PlayRandomSound(other.GetComponent<AudioSource>());
                 PlayerLife.Instance.lerpTimer = 0f;
             }
         }

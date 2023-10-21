@@ -10,6 +10,7 @@ public class WeaponPickup : MonoBehaviour
     [SerializeField] private UIStateMachine uIStateMachine;
     [SerializeField] private Weapon weapon = null;
     [SerializeField] GameObject pickupUI;
+    [SerializeField] GameObject weaponInventory;
     GameObject player;
     private InputReader InputReader;
     Weapon weaponToPick = null;
@@ -23,6 +24,7 @@ public class WeaponPickup : MonoBehaviour
         if(weaponToPick != null)
         {
             player.GetComponent<Armory>().EquipWeapon(weaponToPick);
+            InventoryManager.Instance.AddItemToInventory(weaponInventory);
             weaponToPick = null;
             pickupUI.SetActive(false);
             StartCoroutine(HideForSeconds(5f));

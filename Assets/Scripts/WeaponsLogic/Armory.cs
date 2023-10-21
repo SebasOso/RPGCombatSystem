@@ -12,6 +12,7 @@ using UnityEngine.Rendering;
 
 public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
 {
+    public static Armory Instance;
     [Header("Weapons")]
     [SerializeField] public Weapon defaultWeapon;
     [SerializeField] private Transform rightHandSocket;
@@ -35,6 +36,10 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     private void Awake() 
     {
         currentWeapon = new LazyValue<Weapon>(GetInitialWeapon);
+        if(Instance == null)
+        {
+            Instance = this;
+        }
     }
     private Weapon GetInitialWeapon()
     {
@@ -91,6 +96,11 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
         EquipWeapon(disarmedWeapon);
         disarmedWeapon = defaultWeapon;
         //EQUIP THE DISARMED WEAPON, SET THE DISARMED WEAPON TO DEFAULT WEAPON (UNNARMED)
+    }
+    public void DesactivateBackWeapon()
+    {
+        if(backWeapon == null){return;}
+        backWeapon?.gameObject.SetActive(false);
     }
     public void UnequipWeapon()
     {

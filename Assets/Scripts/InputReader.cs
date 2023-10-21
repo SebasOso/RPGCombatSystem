@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
+    public static InputReader Instance;
+    private PlayerInput playerInput;
+    private InputAction inventoryOpenCloseAction;
+    public bool InventoryOpenCloseInput {get; private set;}
     public Vector2 MovementValue {get; private set;}
     public event Action JumpEvent;
     public event Action DodgeEvent;
@@ -25,6 +29,15 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public bool CanDisarm{get;set;}
 
     private Controls controls;
+    private void Awake() 
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        playerInput = GetComponent<PlayerInput>();
+        inventoryOpenCloseAction = playerInput.actions["InventoryOpenClose"];
+    }
     private void Start() 
     {
         if(controls == null)
@@ -37,7 +50,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     }
     private void Update() 
     {
-            
+        InventoryOpenCloseInput = inventoryOpenCloseAction.WasPressedThisFrame();
     }
     private void OnDestroy() 
     {
@@ -122,6 +135,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnEquip(InputAction.CallbackContext context)
     {
+        if(MenuManager.Instance.isPaused){return;}
         if(!IsEquipped && CanDisarm)
         {
             if(!context.performed){return;}
@@ -132,11 +146,17 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnDisarm(InputAction.CallbackContext context)
     {
+        if(MenuManager.Instance.isPaused){return;}
         if(IsEquipped && CanDisarm)
         {
             if(!context.performed){return;}
             DisarmEvent?.Invoke();
             IsEquipped = false;
         }
+    }
+
+    public void OnInventoryOpenClose(InputAction.CallbackContext context)
+    {
+        
     }
 }

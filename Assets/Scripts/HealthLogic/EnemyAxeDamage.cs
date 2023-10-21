@@ -26,11 +26,11 @@ public class EnemyAxeDamage : MonoBehaviour
         alreadyColliderWith.Add(other);
         if(other.TryGetComponent<Health>(out Health health))
         {
-            PlayRandomSound(other.GetComponent<AudioSource>());
             damage = enemyArmory.damage;
             health.DealDamage(damage);
             if(health.tag == "Player")
             {
+                PlayRandomSound(other.GetComponent<AudioSource>());
                 PlayerLife.Instance.lerpTimer = 0f;
             }
         }
