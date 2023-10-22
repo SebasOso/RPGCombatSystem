@@ -142,6 +142,10 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     {
         if(currentWeapon.value.name == defaultWeapon.name)
         {
+            if(disarmedWeapon == null)
+            {
+                return JToken.FromObject(defaultWeapon.name);
+            }
             return JToken.FromObject(disarmedWeapon.name);
         }
         return JToken.FromObject(currentWeapon.value.name);

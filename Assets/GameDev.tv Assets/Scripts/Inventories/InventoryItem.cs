@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using RPG.Combat;
 using UnityEngine;
 
-namespace GameDevTV.Inventories
+namespace RPG.Inventories
 {
     /// <summary>
     /// A ScriptableObject that represents any item that can be put in an
@@ -13,7 +13,7 @@ namespace GameDevTV.Inventories
     /// In practice, you are likely to use a subclass such as `ActionItem` or
     /// `EquipableItem`.
     /// </remarks>
-    [CreateAssetMenu(menuName = ("GameDevTV/Inventory/Item"))]
+    [CreateAssetMenu(menuName = ("RPG/Inventory/Item"))]
     public class InventoryItem : ScriptableObject, ISerializationCallbackReceiver    {
         // CONFIG DATA
         [Tooltip("Auto-generated UUID for saving/loading. Clear this field if you want to generate a new one.")]
@@ -54,7 +54,11 @@ namespace GameDevTV.Inventories
                 }
             }
 
-            if (itemID == null || !itemLookupCache.ContainsKey(itemID)) return null;
+            if (itemID == null || !itemLookupCache.ContainsKey(itemID))
+            {
+                Debug.Log("No se pudo encontrar el id del item");
+                return null;
+            }
             return itemLookupCache[itemID];
         }
         public Weapon GetWeapon()

@@ -1,24 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Inventories;
+using Newtonsoft.Json.Linq;
+using RPG.Combat;
+using RPG.Saving;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager Instance;
-    [SerializeField] GameObject inventoryGO;
-    private void Awake() 
+    [SerializeField] private WeaponItem[] itemsInInventory;
+    private void Start() 
     {
-        if(Instance == null)
-        {
-            Instance = this;
-        }
+        Redraw();
     }
-    public void AddItemToInventory(GameObject ItemToAdd)
+    private void OnEnable() 
     {
-        if(ItemToAdd != null)
+        Redraw();
+    }
+    private void Redraw()
+    {
+        for (int i = 0; i < MenuManager.Instance.GetSize(); i++)
         {
-            GameObject Item = Instantiate(ItemToAdd, inventoryGO.transform);
+            if(MenuManager.Instance.GetItemInSlot(i) == null)
+            {
+                return;
+            }
+            itemsInInventory[i].SetItem(i);
         }
     }
 }

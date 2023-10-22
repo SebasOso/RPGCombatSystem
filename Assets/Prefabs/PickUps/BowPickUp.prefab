@@ -94,6 +94,10 @@ PrefabInstance:
       propertyPath: weaponToPick
       value: 
       objectReference: {fileID: 11400000, guid: 5adc0fecc3dd7af428bde73e7cb876ed, type: 2}
+    - target: {fileID: 4117128463777272799, guid: 3159edc5412259e41beb4aa378dc7ec1, type: 3}
+      propertyPath: weaponInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: a8fa4ed449e87d044a294dabedf1801a, type: 2}
     - target: {fileID: 7668175945735652483, guid: 3159edc5412259e41beb4aa378dc7ec1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

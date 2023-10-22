@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using GameDevTV.Inventories;
+using RPG.Inventories;
 using RPG.Combat;
 using UnityEditor;
 using UnityEngine;

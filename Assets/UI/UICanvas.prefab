@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 1004235885670994715}
   - component: {fileID: 7420285621963971692}
   - component: {fileID: 476360678287512064}
-  - component: {fileID: 99673503836422156}
-  - component: {fileID: 7421617115916002699}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -111,36 +109,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &99673503836422156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177204204787779992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29c73f5dd03327f439debbc92c9c4b9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slots: []
-  inventoryCanvasGO: {fileID: 8787031938154060728}
-  contentInventory: {fileID: 6611886932032043728}
-  playerStateMachine: {fileID: 0}
-  isPaused: 0
---- !u!114 &7421617115916002699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177204204787779992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b9ea311b553574b9021e5ba58acd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueIdentifier: 
 --- !u!1 &632193523680767351
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9140343762750570558}
   - component: {fileID: 6611886932032043728}
+  - component: {fileID: 5179070015530833851}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -669,6 +638,19 @@ MonoBehaviour:
   m_Spacing: {x: 100, y: 100}
   m_Constraint: 1
   m_ConstraintCount: 6
+--- !u!114 &5179070015530833851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4084373381399974844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f98a24f74a396184a81bc03a33e46af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponItemPrefab: {fileID: 1721120638201117071, guid: e9e602375932846478a81aca8c1e4b10, type: 3}
 --- !u!1 &4660688348932040372
 GameObject:
   m_ObjectHideFlags: 0

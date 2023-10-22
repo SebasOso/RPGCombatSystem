@@ -4526,11 +4526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 311840701434023536, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0033361397
+      value: 0.0033361022
       objectReference: {fileID: 0}
     - target: {fileID: 311840701434023536, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0007405796
+      value: -0.0007405713
       objectReference: {fileID: 0}
     - target: {fileID: 770375299147074766, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_FollowOffset.y
@@ -4574,11 +4574,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2542890303440364721, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0033361583
+      value: 0.0033360831
       objectReference: {fileID: 0}
     - target: {fileID: 2542890303440364721, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0007405838
+      value: -0.00074056705
       objectReference: {fileID: 0}
     - target: {fileID: 2780813754957458307, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4594,7 +4594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2901590333400470602, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ChildCameras.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2901590333400470602, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ChildCameras.Array.data[0]
@@ -4638,11 +4638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5416607540951644639, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0033350233
+      value: 0.0033350568
       objectReference: {fileID: 0}
     - target: {fileID: 5416607540951644639, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00074542494
+      value: -0.0007454324
       objectReference: {fileID: 0}
     - target: {fileID: 5473178056576182491, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_FollowOffset.y
@@ -4738,11 +4738,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228234281598458099, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.003306345
+      value: 0.0033063618
       objectReference: {fileID: 0}
     - target: {fileID: 7228234281598458099, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0008638169
+      value: -0.0008638212
       objectReference: {fileID: 0}
     - target: {fileID: 8272258659629534121, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43340,6 +43340,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 969173331}
     m_Modifications:
+    - target: {fileID: 351054017529128261, guid: 54ba95c0450cd6e4f89fa4f2bf851389, type: 3}
+      propertyPath: pickupUI
+      value: 
+      objectReference: {fileID: 1818883847}
+    - target: {fileID: 351054017529128261, guid: 54ba95c0450cd6e4f89fa4f2bf851389, type: 3}
+      propertyPath: uIStateMachine
+      value: 
+      objectReference: {fileID: 1720706020}
     - target: {fileID: 1429892422073304012, guid: 54ba95c0450cd6e4f89fa4f2bf851389, type: 3}
       propertyPath: m_Name
       value: Throw Axe Pickup

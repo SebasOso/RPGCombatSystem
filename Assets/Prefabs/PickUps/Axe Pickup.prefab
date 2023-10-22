@@ -201,6 +201,7 @@ MonoBehaviour:
   uIStateMachine: {fileID: 0}
   weapon: {fileID: 11400000, guid: 3188093264428f04f8653e72ba5374e7, type: 2}
   pickupUI: {fileID: 0}
+  weaponInventory: {fileID: 11400000, guid: 23a45ee82bdb5984faaefe70aea1121e, type: 2}
 --- !u!54 &2284200192048048133
 Rigidbody:
   m_ObjectHideFlags: 0

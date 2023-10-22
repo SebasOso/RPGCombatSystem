@@ -1,6 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using GameDevTV.Inventories;
+using RPG.Inventories;
 using Newtonsoft.Json.Linq;
 using RPG.Saving;
 using Unity.VisualScripting;
@@ -8,14 +9,17 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour
+public class MenuManager : MonoBehaviour, IJsonSaveable
 {
     public static MenuManager Instance;
     [SerializeField] private InventoryItem[] slots;
     [SerializeField] private GameObject inventoryCanvasGO;
     [SerializeField] private GridLayoutGroup contentInventory;
+    [SerializeField] private List<GameObject> itemsGO;
     [SerializeField] private PlayerStateMachine playerStateMachine;
+    [SerializeField] string a;
     public bool isPaused;
+    public event Action inventoryUpdated;
     // Start is called before the first frame update
     private void Awake() 
     {
@@ -23,11 +27,30 @@ public class MenuManager : MonoBehaviour
         {
             Instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+        inventoryCanvasGO.SetActive(false);
+        slots = new InventoryItem[24];
+    }
+    public int GetSize()
+    {
+        return slots.Length;
     }
     void Start()
     {   
-        inventoryCanvasGO.SetActive(false);
-        slots = new InventoryItem[24];
+        int childCount = contentInventory.transform.childCount;
+
+        for (int i = 0; i < childCount; i++)
+        {
+            Transform child = contentInventory.transform.GetChild(i);
+            GameObject gameObject = child.gameObject;
+            if (!itemsGO.Contains(gameObject))
+            {
+                itemsGO.Add(gameObject);
+            }
+        }
     }
     private void Update() 
     {
@@ -42,6 +65,11 @@ public class MenuManager : MonoBehaviour
                 Unpause();
             }
         }    
+    }
+    public static MenuManager GetPlayerInventory()
+    {
+        var player = GameObject.FindWithTag("Player");
+        return player.GetComponent<MenuManager>();
     }
     private void Pause()
     {
@@ -59,7 +87,7 @@ public class MenuManager : MonoBehaviour
     private void OpenInventory()
     {
         inventoryCanvasGO.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(slots[0].GetComponent<GameObject>());
+        EventSystem.current.SetSelectedGameObject(itemsGO[0]);
     }
     private void CloseAllMenus()
     {
@@ -76,6 +104,10 @@ public class MenuManager : MonoBehaviour
             }
         }
         return -1;
+    }
+    public InventoryItem GetItemInSlot(int slot)
+    {
+        return slots[slot];
     }
     private int FindSlot(InventoryItem item)
     {
@@ -107,5 +139,31 @@ public class MenuManager : MonoBehaviour
 
         slots[i] = item;
         return true;
+    }
+
+    public JToken CaptureAsJToken()
+    {
+        var slotStrings = new string[24];
+        for (int i = 0; i < 24; i++)
+        {
+            if (slots[i] != null)
+            {
+                slotStrings[i] = slots[i].GetItemID();
+            }
+        }
+        return JToken.FromObject(slotStrings);
+    }
+
+    public void RestoreFromJToken(JToken state)
+    {
+        var slotStrings = state.ToObject<String[]>();
+        for (int i = 0; i < 24; i++)
+        {
+            slots[i] = InventoryItem.GetFromID(slotStrings[i]);
+        }
+        if (inventoryUpdated != null)
+        {
+            inventoryUpdated();
+        }
     }
 }
