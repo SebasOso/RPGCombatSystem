@@ -102,6 +102,7 @@ public class Health : MonoBehaviour, IJsonSaveable
         health.value = state.ToObject<float>();
         if(health.value == 0)
         {
+            gameObject.SetActive(false);
             Die();
         }
         else
