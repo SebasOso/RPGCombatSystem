@@ -11,6 +11,8 @@ using UnityEngine.InputSystem;
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public bool IsNearNPC {get;  set;}
+    [field: SerializeField] 
     public RuneManager RuneManager {get; private set;}
     [field: SerializeField] 
     public Armory Armory {get; private set;}

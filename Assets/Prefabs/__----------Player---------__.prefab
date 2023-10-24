@@ -12670,6 +12670,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1022521254915268032, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 1047034006245983875, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 2.379
@@ -12822,6 +12826,10 @@ PrefabInstance:
       propertyPath: <WeaponsLogics>k__BackingField.Array.data[2]
       value: 
       objectReference: {fileID: 2626785426309800976}
+    - target: {fileID: 9004618628634122869, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 9153547517413520886, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       propertyPath: backHealth
       value: 
@@ -14858,6 +14866,10 @@ PrefabInstance:
     - target: {fileID: 1586534432989752, guid: ff493cd6baa032349a466b935b6af92f, type: 3}
       propertyPath: m_Name
       value: ModularCharacter_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586534432989752, guid: ff493cd6baa032349a466b935b6af92f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1641774835627488, guid: ff493cd6baa032349a466b935b6af92f, type: 3}
       propertyPath: m_IsActive

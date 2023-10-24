@@ -21,6 +21,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action InteractEvent;
     public bool  IsAttacking{get; set;}
     public bool IsInteracting{get;set;}
+    public bool IsNPCInteracting{get;set;}
     public bool CanRuneAttack{get;set;}
     public bool IsRunning{get; private set;}
     public bool IsInRuneAttack{get; set;}
@@ -117,7 +118,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if(IsInteracting)
+        if(IsInteracting || IsNPCInteracting)
         {
             if(!context.performed){return;}
             InteractEvent?.Invoke();
