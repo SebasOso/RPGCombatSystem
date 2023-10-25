@@ -12,10 +12,16 @@ public class ForceReceiver : MonoBehaviour
     private Vector3 impact;
 
     private float verticalVelocity;
+    [SerializeField] private bool isGrounded;
+    [SerializeField] LayerMask groundLayerMask;
+    [SerializeField] LayerMask obstaclesLayerMask;
+    [SerializeField] float groundCheckSphereRad = 0.37f;
 
     public Vector3 Movement => impact + Vector3.up * verticalVelocity;
     void Update()
     {
+        HandleGroundCheck();
+        GetComponent<Animator>().SetBool("isGrounded", isGrounded);
         if(verticalVelocity < 0f && controller.isGrounded)
         {
             verticalVelocity = Physics.gravity.y * Time.deltaTime;
@@ -45,5 +51,13 @@ public class ForceReceiver : MonoBehaviour
     public void Jump(float jumpForce)
     {
         verticalVelocity += jumpForce;
+    }
+    protected void HandleGroundCheck()
+    {
+        isGrounded = Physics.CheckSphere(transform.position, groundCheckSphereRad, groundLayerMask);
+    }
+    protected void OnDrawGizmosSelected() 
+    {
+        Gizmos.DrawSphere(transform.position, groundCheckSphereRad);    
     }
 }

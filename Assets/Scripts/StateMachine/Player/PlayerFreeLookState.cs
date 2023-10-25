@@ -50,7 +50,10 @@ public class PlayerFreeLookState : PlayerBaseState
             stateMachine.SwitchState(new PlayerNPCInteractingState(stateMachine));
             CustomSellerManager.Instance.OpenShop();
         }
-        //stateMachine.SwitchState(new PlayerInteractingState(stateMachine));
+        if(stateMachine.InputReader.IsInteracting)
+        {
+            stateMachine.SwitchState(new PlayerInteractingState(stateMachine));
+        }
     }
 
     private void OnJump()

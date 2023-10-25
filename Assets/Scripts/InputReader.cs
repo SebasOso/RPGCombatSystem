@@ -136,6 +136,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnEquip(InputAction.CallbackContext context)
     {
+        if(CustomSellerManager.Instance.isOpen){return;}
         if(MenuManager.Instance.isPaused){return;}
         if(!IsEquipped && CanDisarm)
         {
@@ -147,6 +148,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnDisarm(InputAction.CallbackContext context)
     {
+        if(CustomSellerManager.Instance.isOpen){return;}
         if(MenuManager.Instance.isPaused){return;}
         if(IsEquipped && CanDisarm)
         {

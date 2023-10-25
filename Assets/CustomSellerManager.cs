@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CustomSellerManager : MonoBehaviour
 {
     public static CustomSellerManager Instance;
     [SerializeField] GameObject interactPlayerUI;
     [SerializeField] private bool isPlayerNear = false;
+    [SerializeField] GameObject shopUI;
+    [SerializeField] GameObject exitButtom;
+    public bool isOpen = false;
+    GameObject player;
     private void Awake() 
     {
         if(Instance == null)
@@ -17,6 +22,10 @@ public class CustomSellerManager : MonoBehaviour
         {
             Destroy(gameObject);
         }    
+    }
+    private void Start() 
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     private void OnTriggerEnter(Collider other) 
     {
@@ -43,14 +52,28 @@ public class CustomSellerManager : MonoBehaviour
     {
         if(isPlayerNear)
         {
+            isOpen = true;
             GetComponent<Animator>().SetBool("isInteracting", true);
+            shopUI.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(exitButtom);
+            player.GetComponent<Armory>().enabled = false;
+            player.GetComponent<PlayerStateMachine>().enabled = false;
+            player.GetComponent<InputReader>().enabled = false;
+            interactPlayerUI.SetActive(false);
         }
     }
     public void CloseShop()
     {
         if(isPlayerNear)
         {
+            isOpen = false;
             GetComponent<Animator>().SetBool("isInteracting", false);
+            player.GetComponent<PlayerStateMachine>().IsNearNPC = false;
+            player.GetComponent<InputReader>().enabled = true;
+            player.GetComponent<PlayerStateMachine>().enabled = true;
+            player.GetComponent<Armory>().enabled = true;
+            EventSystem.current.SetSelectedGameObject(null);
+            shopUI.SetActive(false);
         }
     }
 }

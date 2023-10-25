@@ -1,0 +1,9 @@
+OpenShop:
+"No tienes ropa???, Aca puedo darte, y no solo ropa...(risa incomoda) jmm jmm, bueno, tambien puedo hacerte un nuevo corte de pelo. Siempre y cuando tengas el dinero adecuado."
+
+CloseShop:
+"Que tengas una excelente aventura."
+"Que sufran los invasores!"
+"Matalos a todos."
+"Que la sangre pinte la nieve de rojo."
+"Que Odin te acompañe."
