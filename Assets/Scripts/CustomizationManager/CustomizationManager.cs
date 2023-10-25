@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using RPG.Saving;
 using UnityEngine;
 
 public class CustomizationManager : MonoBehaviour
 {
     public static CustomizationManager Instance;
+    [SerializeField] int[] clothesArray = new int[5];
     private void Awake() 
     {
         if(Instance == null)

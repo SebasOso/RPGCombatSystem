@@ -1,14 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using RPG.Saving;
 using UnityEngine;
 
-public class LeftLegManager : MonoBehaviour, IEnumerator
+public class LeftLegManager : MonoBehaviour, IEnumerator, IJsonSaveable
 {
     public static LeftLegManager Instance;
     [SerializeField] private GameObject mainAccesories;
     [SerializeField] private List<GameObject> accesoriesList = new List<GameObject>();
-    [SerializeField] int position = -1;
+    [SerializeField] public int lRPosition = 0;
 
     public object Current => CurrentAccesorie();
     private void Awake() 
@@ -39,46 +41,60 @@ public class LeftLegManager : MonoBehaviour, IEnumerator
         {
             accesorie.SetActive(false);
         }
-        Reset();
+        accesoriesList[lRPosition].SetActive(true);
     }
     public bool MoveNext()
     {
-        if(position >= 0 && position < accesoriesList.Count-1)
+        if(lRPosition >= 0 && lRPosition < accesoriesList.Count-1)
         {
-            position ++;
-            accesoriesList[position].SetActive(true);
-            accesoriesList[position-1].SetActive(false);
+            lRPosition ++;
+            accesoriesList[lRPosition].SetActive(true);
+            accesoriesList[lRPosition-1].SetActive(false);
         }
-        return position < accesoriesList.Count;
+        return lRPosition < accesoriesList.Count;
     }
     public bool MoveBack()
     {
-        if(position > 0)
+        if(lRPosition > 0)
         {
-            position --;
-            accesoriesList[position].SetActive(true);
-            accesoriesList[position+1].SetActive(false);
+            lRPosition --;
+            accesoriesList[lRPosition].SetActive(true);
+            accesoriesList[lRPosition+1].SetActive(false);
         }
-        return position < accesoriesList.Count;
+        return lRPosition < accesoriesList.Count;
     }
     public void Reset()
     {
-        position = 0;
+        lRPosition = 0;
         foreach (GameObject accesorie in accesoriesList)
         {
             accesorie.SetActive(false);
         }
-        accesoriesList[position].SetActive(true);
+        accesoriesList[lRPosition].SetActive(true);
     }
     public GameObject CurrentAccesorie()
     {
         try
         {
-            return accesoriesList[position];
+            return accesoriesList[lRPosition];
         }
         catch (IndexOutOfRangeException)
         {
             throw new InvalidOperationException();
         }
+    }
+    public JToken CaptureAsJToken()
+    {
+        if(lRPosition < 0)
+        {
+            return JToken.FromObject(0);
+        }
+        return JToken.FromObject(lRPosition);
+    }
+
+    public void RestoreFromJToken(JToken state)
+    {
+        int newPosition = state.ToObject<int>();
+        lRPosition = newPosition;
     }
 }

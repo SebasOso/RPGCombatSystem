@@ -1,14 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using RPG.Saving;
 using UnityEngine;
 
-public class HipsManager : MonoBehaviour, IEnumerator
+public class HipsManager : MonoBehaviour, IEnumerator, IJsonSaveable
 {
     public static HipsManager Instance;
     [SerializeField] private GameObject mainAccesories;
     [SerializeField] private List<GameObject> accesoriesList = new List<GameObject>();
-    [SerializeField] int position = -1;
+    [SerializeField] public int hipsPosition = 0;
 
     public object Current => CurrentAccesorie();
     private void Awake() 
@@ -39,46 +41,61 @@ public class HipsManager : MonoBehaviour, IEnumerator
         {
             accesorie.SetActive(false);
         }
-        Reset();
+        accesoriesList[hipsPosition].SetActive(true);
     }
     public bool MoveNext()
     {
-        if(position >= 0 && position < accesoriesList.Count-1)
+        if(hipsPosition >= 0 && hipsPosition < accesoriesList.Count-1)
         {
-            position ++;
-            accesoriesList[position].SetActive(true);
-            accesoriesList[position-1].SetActive(false);
+            hipsPosition ++;
+            accesoriesList[hipsPosition].SetActive(true);
+            accesoriesList[hipsPosition-1].SetActive(false);
         }
-        return position < accesoriesList.Count;
+        return hipsPosition < accesoriesList.Count;
     }
     public bool MoveBack()
     {
-        if(position > 0)
+        if(hipsPosition > 0)
         {
-            position --;
-            accesoriesList[position].SetActive(true);
-            accesoriesList[position+1].SetActive(false);
+            hipsPosition --;
+            accesoriesList[hipsPosition].SetActive(true);
+            accesoriesList[hipsPosition+1].SetActive(false);
         }
-        return position < accesoriesList.Count;
+        return hipsPosition < accesoriesList.Count;
     }
     public void Reset()
     {
-        position = 0;
+        hipsPosition = 0;
         foreach (GameObject accesorie in accesoriesList)
         {
             accesorie.SetActive(false);
         }
-        accesoriesList[position].SetActive(true);
+        accesoriesList[hipsPosition].SetActive(true);
     }
     public GameObject CurrentAccesorie()
     {
         try
         {
-            return accesoriesList[position];
+            return accesoriesList[hipsPosition];
         }
         catch (IndexOutOfRangeException)
         {
             throw new InvalidOperationException();
         }
+    }
+
+    public JToken CaptureAsJToken()
+    {
+        if(hipsPosition < 0)
+        {
+            return JToken.FromObject(0);
+        }
+        return JToken.FromObject(hipsPosition);
+    }
+
+    public void RestoreFromJToken(JToken state)
+    {
+        int newPosition = state.ToObject<int>();
+        hipsPosition = newPosition;
     }
 }

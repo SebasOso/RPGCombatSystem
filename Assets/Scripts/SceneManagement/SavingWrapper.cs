@@ -20,6 +20,7 @@ public class SavingWrapper : MonoBehaviour
         Fader fader = FindObjectOfType<Fader>();
         fader.FadeOutInmediate();
         yield return fader.FadeIn(0.2f);
+        //Load();
     }
     public void Load()
     {

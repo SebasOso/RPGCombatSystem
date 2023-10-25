@@ -1,14 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using RPG.Saving;
 using UnityEngine;
 
-public class HairManager : MonoBehaviour, IEnumerator
+public class HairManager : MonoBehaviour, IEnumerator, IJsonSaveable
 {
     public static HairManager Instance;
     [SerializeField] private GameObject mainAccesories;
     [SerializeField] private List<GameObject> accesoriesList = new List<GameObject>();
-    [SerializeField] int position = -1;
+    [SerializeField] public int hairPosition = 0;
 
     public object Current => CurrentAccesorie();
     private void Awake() 
@@ -39,46 +41,60 @@ public class HairManager : MonoBehaviour, IEnumerator
         {
             accesorie.SetActive(false);
         }
-        Reset();
+        accesoriesList[hairPosition].SetActive(true);
     }
     public bool MoveNext()
     {
-        if(position >= 0 && position < accesoriesList.Count-1)
+        if(hairPosition >= 0 && hairPosition < accesoriesList.Count-1)
         {
-            position ++;
-            accesoriesList[position].SetActive(true);
-            accesoriesList[position-1].SetActive(false);
+            hairPosition ++;
+            accesoriesList[hairPosition].SetActive(true);
+            accesoriesList[hairPosition-1].SetActive(false);
         }
-        return position < accesoriesList.Count;
+        return hairPosition < accesoriesList.Count;
     }
     public bool MoveBack()
     {
-        if(position > 0)
+        if(hairPosition > 0)
         {
-            position --;
-            accesoriesList[position].SetActive(true);
-            accesoriesList[position+1].SetActive(false);
+            hairPosition --;
+            accesoriesList[hairPosition].SetActive(true);
+            accesoriesList[hairPosition+1].SetActive(false);
         }
-        return position < accesoriesList.Count;
+        return hairPosition < accesoriesList.Count;
     }
     public void Reset()
     {
-        position = 0;
+        hairPosition = 0;
         foreach (GameObject accesorie in accesoriesList)
         {
             accesorie.SetActive(false);
         }
-        accesoriesList[position].SetActive(true);
+        accesoriesList[hairPosition].SetActive(true);
     }
     public GameObject CurrentAccesorie()
     {
         try
         {
-            return accesoriesList[position];
+            return accesoriesList[hairPosition];
         }
         catch (IndexOutOfRangeException)
         {
             throw new InvalidOperationException();
         }
+    }
+    public JToken CaptureAsJToken()
+    {
+        if(hairPosition < 0)
+        {
+            return JToken.FromObject(0);
+        }
+        return JToken.FromObject(hairPosition);
+    }
+
+    public void RestoreFromJToken(JToken state)
+    {
+        int newPosition = state.ToObject<int>();
+        hairPosition = newPosition;
     }
 }

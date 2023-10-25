@@ -32519,6 +32519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Axe02 Pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 5140588608885301901, guid: 4cbec32eea806614fa993825ab725e14, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5791563470989739012, guid: 4cbec32eea806614fa993825ab725e14, type: 3}
       propertyPath: pickupUI
       value: 
@@ -101057,7 +101061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5852143921483921567, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ReactionSettings.m_Duration
-      value: 0.8
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5852143921483921567, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ReactionSettings.m_AmplitudeGain
@@ -101213,11 +101217,11 @@ PrefabInstance:
       objectReference: {fileID: 1101126907}
     - target: {fileID: 6558685882725060163, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_DefaultVelocity.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6558685882725060163, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_DefaultVelocity.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6558685882725060163, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_DefaultVelocity.z
@@ -101643,7 +101647,10 @@ PrefabInstance:
       propertyPath: m_DefaultVelocity.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3859819943443950760, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
+    - {fileID: 6299253546710873369, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
+    - {fileID: 3733919853351986724, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
