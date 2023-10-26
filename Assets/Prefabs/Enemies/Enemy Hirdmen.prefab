@@ -2907,6 +2907,7 @@ GameObject:
   - component: {fileID: 7180135419205021194}
   - component: {fileID: 1194462430149876063}
   - component: {fileID: 1440265205835185236}
+  - component: {fileID: 5031785751902770088}
   m_Layer: 0
   m_Name: Enemy Hirdmen
   m_TagString: Enemy
@@ -3019,6 +3020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17be5f405c74e454db679d3fa5aa5833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <LootBag>k__BackingField: {fileID: 5031785751902770088}
   <FieldOfView>k__BackingField: {fileID: 7180135419205021194}
   <HealthBar>k__BackingField: {fileID: 1194462430149876063}
   <PatrolPath>k__BackingField: {fileID: 0}
@@ -3283,6 +3285,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5031785751902770088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958142045354269578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75787a9e4f670864cbfbd9a8a52e6214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList:
+  - {fileID: 11400000, guid: 74ed0a7b2aea10047b6950f18abee7ef, type: 2}
+  - {fileID: 11400000, guid: 800efd7b31c067846afda30a9994e7db, type: 2}
+  - {fileID: 11400000, guid: fc41dcaa49502534c9f856db605af0f2, type: 2}
 --- !u!1 &6962691344543524485
 GameObject:
   m_ObjectHideFlags: 0
