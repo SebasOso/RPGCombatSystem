@@ -69,22 +69,24 @@ public class PlayerFreeLookState : PlayerBaseState
             return;
         }
         Vector3 movement = CalculateMovement(deltaTime);
-
         Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime);
         if(stateMachine.InputReader.MovementValue == Vector2.zero)
         {
-            stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
+            stateMachine.Animator.SetBool("isIdle", true);
+            //stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
             stateMachine.FreeLookMovementSpeed = 0f;
             return;
         }
         if(stateMachine.InputReader.IsRunning)
         {
+            stateMachine.Animator.SetBool("isIdle", false);
             stateMachine.FreeLookMovementSpeed = stateMachine.RunningMovementSpeed;
             stateMachine.Animator.SetFloat(FreeLookSpeedHash, stateMachine.RunningMovementSpeed, AnimatorDampTime, deltaTime);
             FaceMovementDirection(movement, deltaTime);
             return;
         }
         stateMachine.FreeLookMovementSpeed = stateMachine.WalkingMovementSpeed;
+        stateMachine.Animator.SetBool("isIdle", false);
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, stateMachine.WalkingMovementSpeed, AnimatorDampTime, deltaTime);
 
         FaceMovementDirection(movement, deltaTime);

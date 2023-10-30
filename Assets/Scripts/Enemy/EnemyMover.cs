@@ -43,7 +43,7 @@ public class EnemyMover : MonoBehaviour, IJsonSaveable
         Vector3 velocity = gameObject.GetComponent<NavMeshAgent>().velocity;
         Vector3 localVelocity = transform.InverseTransformDirection(velocity);
         float speed = localVelocity.z;
-        anim.SetFloat("enemySpeed", speed);
+        anim.SetFloat("speed", speed);
     }
     public JToken CaptureAsJToken()
     {

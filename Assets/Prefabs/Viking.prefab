@@ -2804,6 +2804,7 @@ GameObject:
   - component: {fileID: 4442511523300877862}
   - component: {fileID: 9153547517413520886}
   - component: {fileID: 1671434893572173406}
+  - component: {fileID: 197569779428985377}
   m_Layer: 8
   m_Name: Viking
   m_TagString: Player
@@ -2897,6 +2898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166f920f35782ed4091d50e887877867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <IsNearNPC>k__BackingField: 0
   <RuneManager>k__BackingField: {fileID: 0}
   <Armory>k__BackingField: {fileID: 0}
   <MusicHandler>k__BackingField: {fileID: 0}
@@ -2968,6 +2970,14 @@ MonoBehaviour:
   controller: {fileID: 2102870364356314367}
   drag: 0.1
   navMeshAgent: {fileID: 0}
+  isGrounded: 0
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstaclesLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckSphereRad: 0.37
 --- !u!114 &7238929729823418921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3074,6 +3084,38 @@ MonoBehaviour:
   Targeter: {fileID: 3720220482046476661}
   abilityImage: {fileID: 0}
   abilityBackGround: {fileID: 0}
+--- !u!114 &197569779428985377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840563219719277717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c73bef375a211c478d273e1657b2871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mudSteps:
+  - {fileID: 8300000, guid: fd5df878d144b434b8188263d43746a9, type: 3}
+  - {fileID: 8300000, guid: 4b6b8e84741aff44a90843bfb77719d7, type: 3}
+  - {fileID: 8300000, guid: eff58f0927b0a05418f4b5f3ae51e1d0, type: 3}
+  - {fileID: 8300000, guid: 82dc85e45507f80458ffe959a461d4b2, type: 3}
+  woodSteps:
+  - {fileID: 8300000, guid: d9aff7bc22395884f8d9b6f870967615, type: 3}
+  - {fileID: 8300000, guid: fe07bace5de77ca47babcb5046ed7fca, type: 3}
+  - {fileID: 8300000, guid: a349ed1050e316b4ba20ac1ec597268a, type: 3}
+  - {fileID: 8300000, guid: 19b3c172abd10c0459f09ed4bad78045, type: 3}
+  snowSteps:
+  - {fileID: 8300000, guid: 0213ccf5abed84e4ba3ebbe388bec038, type: 3}
+  - {fileID: 8300000, guid: 400ae06cd47dbb048a99ac898187fc87, type: 3}
+  - {fileID: 8300000, guid: 6ef1d962f6e8d774e99151e4f572abc5, type: 3}
+  - {fileID: 8300000, guid: f23518564677c2545af282033aa85cc5, type: 3}
+  - {fileID: 8300000, guid: 26f358534c25b9c4884eef5a28c7cb89, type: 3}
+  waterSteps:
+  - {fileID: 8300000, guid: ee2e2b0b4c0a94243829272f837f409e, type: 3}
+  - {fileID: 8300000, guid: 71a3df70429ec30429c1d0810d78dc12, type: 3}
+  audioSource: {fileID: 0}
 --- !u!1 &6952484892728181756
 GameObject:
   m_ObjectHideFlags: 0
