@@ -15,6 +15,7 @@ public class EnemyImpactState : EnemyBaseState
     public override void Enter()
     {
         enemyStateMachine.HealthBar.OnBar();
+        enemyStateMachine.EnemySoundManager.PlayHit();
         enemyStateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
     }
 

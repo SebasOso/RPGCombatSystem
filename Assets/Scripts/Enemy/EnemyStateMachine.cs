@@ -9,6 +9,8 @@ using UnityEngine.AI;
 public class EnemyStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public EnemySoundManager EnemySoundManager {get; private set;}
+    [field: SerializeField] 
     public LootBag LootBag {get; private set;}
     [field: SerializeField] 
     public FieldOfView FieldOfView {get; private set;}

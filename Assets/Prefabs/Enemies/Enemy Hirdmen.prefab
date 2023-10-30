@@ -3006,6 +3006,7 @@ GameObject:
   - component: {fileID: 1440265205835185236}
   - component: {fileID: 5031785751902770088}
   - component: {fileID: 3625783807056485249}
+  - component: {fileID: 6931636583877011790}
   m_Layer: 0
   m_Name: Enemy Hirdmen
   m_TagString: Enemy
@@ -3118,6 +3119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17be5f405c74e454db679d3fa5aa5833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnemySoundManager>k__BackingField: {fileID: 6931636583877011790}
   <LootBag>k__BackingField: {fileID: 5031785751902770088}
   <FieldOfView>k__BackingField: {fileID: 7180135419205021194}
   <HealthBar>k__BackingField: {fileID: 1194462430149876063}
@@ -3431,6 +3433,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ee2e2b0b4c0a94243829272f837f409e, type: 3}
   - {fileID: 8300000, guid: 71a3df70429ec30429c1d0810d78dc12, type: 3}
   audioSource: {fileID: 1987031919197537999}
+--- !u!114 &6931636583877011790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958142045354269578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93eda743786de074b8110385e56a07e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitClip: {fileID: 8300000, guid: e1e8ae05a6cdcdf46baca6de7b614daf, type: 3}
+  dieClip: {fileID: 8300000, guid: 42ab2bc023610384e80f0f7957e75ef3, type: 3}
 --- !u!1 &6962691344543524485
 GameObject:
   m_ObjectHideFlags: 0
