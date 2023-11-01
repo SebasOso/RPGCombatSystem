@@ -28,6 +28,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public bool  IsHeavyAttacking{get; set;}
     public bool IsEquipped { get;  set; }
     public bool CanDisarm{get;set;}
+    public bool IsShop { get;  set; }
 
     private Controls controls;
     private void Awake() 
@@ -118,6 +119,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnInteract(InputAction.CallbackContext context)
     {
+        if(IsShop){return;}
         if(IsInteracting || IsNPCInteracting)
         {
             if(!context.performed){return;}

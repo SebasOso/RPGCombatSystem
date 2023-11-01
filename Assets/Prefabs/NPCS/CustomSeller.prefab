@@ -58122,7 +58122,7 @@ MonoBehaviour:
   interactPlayerUI: {fileID: 0}
   isPlayerNear: 0
   shopUI: {fileID: 1585913030813616969}
-  exitButtom: {fileID: 5003476609652516752}
+  firstToSelect: {fileID: 7892916987960135604}
   isOpen: 0
 --- !u!135 &7616069012129227570
 SphereCollider:
