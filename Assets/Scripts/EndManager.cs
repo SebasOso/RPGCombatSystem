@@ -26,7 +26,6 @@ public class EndManager : MonoBehaviour
         ui.SetActive(false);
         
         GetComponent<InputReader>().Disable();
-        GetComponent<ChangeCharacters>().Jonh();
         GetComponent<ChangeCharacters>().canChange =  false;
         GetComponent<Animator>().CrossFadeInFixedTime("Dance", 0.1f);
     }

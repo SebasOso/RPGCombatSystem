@@ -37,24 +37,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""a7dc422f-24ac-4b64-b99c-2e5b29402653"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Dodge"",
-                    ""type"": ""Button"",
-                    ""id"": ""c3a5f1db-8127-4ddb-9364-c66c8f1a9b85"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""LookAround"",
                     ""type"": ""Value"",
                     ""id"": ""caab99ff-5dfd-494c-9338-5c4eba4b7a84"",
@@ -62,24 +44,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Target"",
-                    ""type"": ""Button"",
-                    ""id"": ""ca5ffbc7-2c19-40f7-962e-a7342ba0a424"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""CancelTarget"",
-                    ""type"": ""Button"",
-                    ""id"": ""76a5821e-cd79-4fd1-b077-06244240ef57"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Attack"",
@@ -94,33 +58,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""name"": ""Run"",
                     ""type"": ""Button"",
                     ""id"": ""0bb3b8f8-e814-404f-b397-e11cd45d63d1"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""989dfb5b-575e-4a79-9d19-86c00202731a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ChangeJohn"",
-                    ""type"": ""Button"",
-                    ""id"": ""36a618f0-6290-433c-a800-dff1995c8a2d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ChangeMaria"",
-                    ""type"": ""Button"",
-                    ""id"": ""b1b2fcd2-d347-4203-9a63-3ef30af18a39"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -240,50 +177,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5014b017-6505-4eb8-a7e7-7cd87e0d615b"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a6606bc7-9bc2-4269-96e3-fcd065e578e2"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c30b006f-14a8-4a97-b25c-f116e430bbf7"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Dodge"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a04a78b8-6867-435e-9d19-0054d5a71fe7"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Dodge"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e201f990-c7cd-4baa-99c9-d49688f11ec0"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
@@ -301,50 +194,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""GamePad"",
                     ""action"": ""LookAround"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9296d0fc-55c3-4cba-883d-c9057960aa7a"",
-                    ""path"": ""<Gamepad>/rightStickPress"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Target"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""851a72ad-ce1e-4d6b-8e5f-7fbda8729864"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Target"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8aa7e35f-4584-4588-9c91-d885b06c7a2e"",
-                    ""path"": ""<Gamepad>/rightStickPress"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""CancelTarget"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5d33db8c-b79b-46db-ae3f-b0f46d4196fe"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""CancelTarget"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -389,72 +238,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Run"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9a49add7-aa6b-497a-8a0a-b181b171a2c0"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f400f9f0-eaf6-4229-bdf2-41c84f74b883"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""949bd5b3-c4df-48ce-89b3-12e7900b8576"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""ChangeJohn"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""79616ee1-9778-44d5-b249-1fc2c7030f37"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""ChangeJohn"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fc4046b6-08c1-4d38-8095-189baa27b435"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""ChangeMaria"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""17a599e0-872a-41e2-acbc-9f3a2c441c23"",
-                    ""path"": ""<Keyboard>/m"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""ChangeMaria"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -694,16 +477,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
         m_Player_LookAround = m_Player.FindAction("LookAround", throwIfNotFound: true);
-        m_Player_Target = m_Player.FindAction("Target", throwIfNotFound: true);
-        m_Player_CancelTarget = m_Player.FindAction("CancelTarget", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_ChangeJohn = m_Player.FindAction("ChangeJohn", throwIfNotFound: true);
-        m_Player_ChangeMaria = m_Player.FindAction("ChangeMaria", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
@@ -771,31 +547,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_Dodge;
     private readonly InputAction m_Player_LookAround;
-    private readonly InputAction m_Player_Target;
-    private readonly InputAction m_Player_CancelTarget;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Run;
-    private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_ChangeJohn;
-    private readonly InputAction m_Player_ChangeMaria;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
         public InputAction @LookAround => m_Wrapper.m_Player_LookAround;
-        public InputAction @Target => m_Wrapper.m_Player_Target;
-        public InputAction @CancelTarget => m_Wrapper.m_Player_CancelTarget;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Run => m_Wrapper.m_Player_Run;
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        public InputAction @ChangeJohn => m_Wrapper.m_Player_ChangeJohn;
-        public InputAction @ChangeMaria => m_Wrapper.m_Player_ChangeMaria;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -808,36 +570,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
-            @Dodge.started += instance.OnDodge;
-            @Dodge.performed += instance.OnDodge;
-            @Dodge.canceled += instance.OnDodge;
             @LookAround.started += instance.OnLookAround;
             @LookAround.performed += instance.OnLookAround;
             @LookAround.canceled += instance.OnLookAround;
-            @Target.started += instance.OnTarget;
-            @Target.performed += instance.OnTarget;
-            @Target.canceled += instance.OnTarget;
-            @CancelTarget.started += instance.OnCancelTarget;
-            @CancelTarget.performed += instance.OnCancelTarget;
-            @CancelTarget.canceled += instance.OnCancelTarget;
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
             @Run.started += instance.OnRun;
             @Run.performed += instance.OnRun;
             @Run.canceled += instance.OnRun;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
-            @ChangeJohn.started += instance.OnChangeJohn;
-            @ChangeJohn.performed += instance.OnChangeJohn;
-            @ChangeJohn.canceled += instance.OnChangeJohn;
-            @ChangeMaria.started += instance.OnChangeMaria;
-            @ChangeMaria.performed += instance.OnChangeMaria;
-            @ChangeMaria.canceled += instance.OnChangeMaria;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -845,36 +586,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
-            @Dodge.started -= instance.OnDodge;
-            @Dodge.performed -= instance.OnDodge;
-            @Dodge.canceled -= instance.OnDodge;
             @LookAround.started -= instance.OnLookAround;
             @LookAround.performed -= instance.OnLookAround;
             @LookAround.canceled -= instance.OnLookAround;
-            @Target.started -= instance.OnTarget;
-            @Target.performed -= instance.OnTarget;
-            @Target.canceled -= instance.OnTarget;
-            @CancelTarget.started -= instance.OnCancelTarget;
-            @CancelTarget.performed -= instance.OnCancelTarget;
-            @CancelTarget.canceled -= instance.OnCancelTarget;
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
             @Run.started -= instance.OnRun;
             @Run.performed -= instance.OnRun;
             @Run.canceled -= instance.OnRun;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
-            @ChangeJohn.started -= instance.OnChangeJohn;
-            @ChangeJohn.performed -= instance.OnChangeJohn;
-            @ChangeJohn.canceled -= instance.OnChangeJohn;
-            @ChangeMaria.started -= instance.OnChangeMaria;
-            @ChangeMaria.performed -= instance.OnChangeMaria;
-            @ChangeMaria.canceled -= instance.OnChangeMaria;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -984,16 +704,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
-        void OnDodge(InputAction.CallbackContext context);
         void OnLookAround(InputAction.CallbackContext context);
-        void OnTarget(InputAction.CallbackContext context);
-        void OnCancelTarget(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
-        void OnChangeJohn(InputAction.CallbackContext context);
-        void OnChangeMaria(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

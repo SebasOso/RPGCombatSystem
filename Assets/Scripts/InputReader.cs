@@ -7,11 +7,6 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector2 MovementValue {get; private set;}
-    public event Action JumpEvent;
-    public event Action DodgeEvent;
-    public event Action TargetEvent;
-    public event Action CancelTargetEvent;
-    public event Action InteractEvent;
     public bool  IsAttacking{get; set;}
 
     public bool IsRunning{get; private set;}
@@ -40,17 +35,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         controls.Player.Disable();
     }
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if(!context.performed){return;}
-        JumpEvent?.Invoke();
-    }
-    public void OnDodge(InputAction.CallbackContext context)
-    {
-        if(!context.performed){return;}
-        DodgeEvent?.Invoke();
-    }
-    
     public void OnMove(InputAction.CallbackContext context)
     {
         MovementValue = context.ReadValue<Vector2>();
@@ -60,19 +44,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
        
     }
-
-    public void OnTarget(InputAction.CallbackContext context)
-    {
-        if(!context.performed){return;}
-        TargetEvent?.Invoke();
-    }
-
-    public void OnCancelTarget(InputAction.CallbackContext context)
-    {
-        if(!context.performed){return;}
-        CancelTargetEvent?.Invoke();
-    }
-
     public void OnAttack(InputAction.CallbackContext context)
     {
         if(context.performed)
@@ -94,21 +65,5 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         {
             IsRunning = false;
         }
-    }
-
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        if(!context.performed){return;}
-        InteractEvent?.Invoke();
-    }
-
-    public void OnChangeJohn(InputAction.CallbackContext context)
-    {
-        
-    }
-
-    public void OnChangeMaria(InputAction.CallbackContext context)
-    {
-        
     }
 }

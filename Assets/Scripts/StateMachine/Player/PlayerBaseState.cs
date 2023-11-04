@@ -32,13 +32,6 @@ public abstract class PlayerBaseState : State
     }
     protected void ReturnToLocomotion()
     {
-        if(stateMachine.Targeter.currentTarget != null)
-        {
-            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
-        }
-        else
-        {
-            stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
-        }
+        stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
     }
 }
