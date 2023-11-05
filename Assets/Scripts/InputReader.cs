@@ -12,6 +12,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public bool IsRunning{get; private set;}
 
     public bool  IsHeavyAttacking{get; set;}
+    public event Action Tornado;
+    public bool IsCasting{get; set;}
     private Controls controls;
     private void Start() 
     {
@@ -64,6 +66,16 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         else
         {
             IsRunning = false;
+        }
+    }
+
+    public void OnTornado(InputAction.CallbackContext context)
+    {
+        if(IsCasting){return;}
+        if(context.performed)
+        {
+            Tornado.Invoke();
+            IsCasting = true;
         }
     }
 }
