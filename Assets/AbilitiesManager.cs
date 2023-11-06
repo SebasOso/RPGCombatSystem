@@ -12,7 +12,11 @@ public class AbilitiesManager : MonoBehaviour
     void Start()
     {
         inputReader = GetComponent<InputReader>();
-        inputReader.Tornado += CastTornado;
+        inputReader.Tornado += TornadoAnim;
+    }
+    public void TornadoAnim()
+    {
+        GetComponent<PlayerStateMachine>().IsTornado = true;
     }
     public void CastTornado()
     {

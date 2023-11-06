@@ -12,6 +12,8 @@ using UnityEngine.InputSystem;
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField] 
+    public bool IsTornado {get;  set;}
+    [field: SerializeField] 
     public Fader EndFader {get; private set;}
     [field: SerializeField] 
     public EndManager EndManager {get; private set;}

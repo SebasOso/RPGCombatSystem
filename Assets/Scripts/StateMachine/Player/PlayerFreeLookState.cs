@@ -26,6 +26,10 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
+        if(stateMachine.IsTornado)
+        {
+            stateMachine.SwitchState(new PlayerTornadoState(stateMachine));
+        }
         if(stateMachine.InputReader.IsAttacking)
         {
             stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
