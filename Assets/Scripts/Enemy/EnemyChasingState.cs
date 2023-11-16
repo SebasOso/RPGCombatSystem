@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyChasingState : EnemyBaseState
 {
-    private readonly int EnemyLocomotionBlendTree = Animator.StringToHash("LocomotionBT");
+    private readonly int EnemyRunLocomotionBlendTree = Animator.StringToHash("RunBT");
     private readonly int EnemyLocomotionSpeed = Animator.StringToHash("enemySpeed");
     private const float CrossFadeDuration = 0.1f;
     public EnemyChasingState(EnemyStateMachine enemyStateMachine) : base(enemyStateMachine)
@@ -14,7 +14,7 @@ public class EnemyChasingState : EnemyBaseState
 
     public override void Enter()
     {
-        enemyStateMachine.Animator.CrossFadeInFixedTime(EnemyLocomotionBlendTree, CrossFadeDuration);
+        enemyStateMachine.Animator.CrossFadeInFixedTime(EnemyRunLocomotionBlendTree, CrossFadeDuration);
     }
 
     public override void Tick(float deltaTime)

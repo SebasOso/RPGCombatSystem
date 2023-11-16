@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class FootStepManager : MonoBehaviour
 {
-    [SerializeField] List<AudioClip> mudSteps = new List<AudioClip>();
-    [SerializeField] List<AudioClip> woodSteps = new List<AudioClip>();
-    [SerializeField] List<AudioClip> snowSteps = new List<AudioClip>();
-    [SerializeField] List<AudioClip> waterSteps = new List<AudioClip>();
+    [SerializeField] AudioClip mudLeft;
+    [SerializeField] AudioClip mudRight;
+    [SerializeField] AudioClip woodLeft;
+    [SerializeField] AudioClip woodRight;
+    [SerializeField] AudioClip snowLeft;
+    [SerializeField] AudioClip snowRight;
+    [SerializeField] AudioClip waterLeft;
+    [SerializeField] AudioClip waterRight;
     private RaycastHit raycastHit;
     [SerializeField] AudioSource audioSource;
-    public void FootStep()
+    public void LeftFootStep()
     {
         if(GetComponent<Animator>().GetFloat("speed") <= 0)
         {
@@ -27,33 +31,65 @@ public class FootStepManager : MonoBehaviour
                 //MUD LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 12)
                 {
-                    PlayFootStep(mudSteps);
+                    PlayFootStep(mudLeft);
                 }
                 //WOOD LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 13)
                 {
-                    PlayFootStep(woodSteps);
+                    PlayFootStep(woodLeft);
                 }
                 //SNOW LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 14)
                 {
-                    PlayFootStep(snowSteps);
+                    PlayFootStep(snowLeft);
                 }
                 //SEA LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 6)
                 {
-                    PlayFootStep(waterSteps);
+                    PlayFootStep(waterLeft);
                 }
             }
         }
     }
-    public void PlayFootStep(List<AudioClip> audioClips)
+    public void RightFootStep()
     {
-        if (audioClips.Count > 0)
+        if(GetComponent<Animator>().GetFloat("speed") <= 0)
         {
-            int randomIndex = Random.Range(0, audioClips.Count);
-            audioSource.clip = audioClips[randomIndex];
-            audioSource.Play();
+            return;
         }
+        Vector3 rayDirection = new Vector3(0, -1, 0);
+        Ray ray = new Ray(transform.position, rayDirection);
+        if(Physics.Raycast(ray, out raycastHit, Mathf.Infinity))
+        {
+            Debug.Log("Raycast hit Layer: " + raycastHit.transform.gameObject.layer);
+            if(GetComponent<Animator>().GetFloat("speed") >= 0)
+            {
+                //MUD LAYER MANAGER
+                if(raycastHit.transform.gameObject.layer == 12)
+                {
+                    PlayFootStep(mudRight);
+                }
+                //WOOD LAYER MANAGER
+                if(raycastHit.transform.gameObject.layer == 13)
+                {
+                    PlayFootStep(woodRight);
+                }
+                //SNOW LAYER MANAGER
+                if(raycastHit.transform.gameObject.layer == 14)
+                {
+                    PlayFootStep(snowRight);
+                }
+                //SEA LAYER MANAGER
+                if(raycastHit.transform.gameObject.layer == 6)
+                {
+                    PlayFootStep(waterRight);
+                }
+            }
+        }
+    }
+    public void PlayFootStep(AudioClip audioClip)
+    {
+       audioSource.clip = audioClip;
+       audioSource.Play();
     }
 }

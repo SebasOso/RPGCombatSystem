@@ -15,6 +15,7 @@ public class AxeDamage : MonoBehaviour
     [SerializeField] private ScreenShakeProfile profile;
     [SerializeField] private List<AudioClip> audioClips = new List<AudioClip>();
     [SerializeField] private AudioClip audioClipRune;
+    [SerializeField] private AudioSource audioSource;
     private void OnEnable() 
     {
         alreadyColliderWith.Clear();
@@ -32,21 +33,21 @@ public class AxeDamage : MonoBehaviour
         {
             if(runeDamage)
             {
-                PlayRuneSound(other.GetComponent<AudioSource>());
+                PlayRuneSound();
                 CameraShakeManager.Instance.ScreenShakeFromProfile(cinemachineImpulseSource, profile);
                 damage = armory.damage + 10f;
                 health.DealDamage(damage);
             }
             else
             {
-                PlayRandomSound(other.GetComponent<AudioSource>());
+                PlayRandomSound();
                 CameraShakeManager.Instance.ScreenShakeFromProfile(cinemachineImpulseSource, profile);
                 damage = armory.damage;
                 health.DealDamage(damage);
             }
             if(health.tag == "Player")
             {
-                PlayRandomSound(other.GetComponent<AudioSource>());
+                PlayRandomSound();
                 PlayerLife.Instance.lerpTimer = 0f;
             }
         }
@@ -56,7 +57,7 @@ public class AxeDamage : MonoBehaviour
             force.AddForce(direction * armory.currentWeapon.value.GetWeaponKnokcback());
         }
     }
-    private void PlayRandomSound(AudioSource audioSource)
+    private void PlayRandomSound()
     {
         if (audioClips.Count > 0)
         {
@@ -65,7 +66,7 @@ public class AxeDamage : MonoBehaviour
             audioSource.Play();
         }
     }
-    private void PlayRuneSound(AudioSource audioSource)
+    private void PlayRuneSound()
     {
         audioSource.clip = audioClipRune;
         audioSource.Play();

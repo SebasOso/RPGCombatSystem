@@ -7,6 +7,7 @@ public class PlayerFreeLookState : PlayerBaseState
 {
     private readonly int FreeLookSpeedHash = Animator.StringToHash("speed");
     private readonly int FreeLookBlendTree = Animator.StringToHash("LocomotionBT");
+    private readonly int RunBlendTree = Animator.StringToHash("RunningBT");
     private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.1f;
     public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine)
@@ -73,13 +74,14 @@ public class PlayerFreeLookState : PlayerBaseState
         if(stateMachine.InputReader.MovementValue == Vector2.zero)
         {
             stateMachine.Animator.SetBool("isIdle", true);
-            //stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
+            
             stateMachine.FreeLookMovementSpeed = 0f;
             return;
         }
         if(stateMachine.InputReader.IsRunning)
         {
             stateMachine.Animator.SetBool("isIdle", false);
+            stateMachine.Animator.SetBool("isRun", true);
             stateMachine.FreeLookMovementSpeed = stateMachine.RunningMovementSpeed;
             stateMachine.Animator.SetFloat(FreeLookSpeedHash, stateMachine.RunningMovementSpeed, AnimatorDampTime, deltaTime);
             FaceMovementDirection(movement, deltaTime);
@@ -87,6 +89,7 @@ public class PlayerFreeLookState : PlayerBaseState
         }
         stateMachine.FreeLookMovementSpeed = stateMachine.WalkingMovementSpeed;
         stateMachine.Animator.SetBool("isIdle", false);
+        stateMachine.Animator.SetBool("isRun", false);
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, stateMachine.WalkingMovementSpeed, AnimatorDampTime, deltaTime);
 
         FaceMovementDirection(movement, deltaTime);

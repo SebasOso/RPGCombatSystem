@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bbb64c6819de048a4d6d01be803d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 1e8a06dbb5664eb4da1ec4b3ce5990a1, type: 3}
+  audioClip: {fileID: 8300000, guid: 68646f2008d3a1e4290eb48fad107172, type: 3}
   moneyToAdd: 25
 --- !u!1 &3590955745569471775
 GameObject:
