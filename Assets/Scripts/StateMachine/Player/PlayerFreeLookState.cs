@@ -74,6 +74,8 @@ public class PlayerFreeLookState : PlayerBaseState
         if(stateMachine.InputReader.MovementValue == Vector2.zero)
         {
             stateMachine.Animator.SetBool("isIdle", true);
+            stateMachine.Animator.SetBool("isRun", false);
+            stateMachine.Animator.SetFloat("speed", 0f);
             
             stateMachine.FreeLookMovementSpeed = 0f;
             return;

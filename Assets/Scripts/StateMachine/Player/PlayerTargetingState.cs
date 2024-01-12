@@ -45,6 +45,8 @@ public class PlayerTargetingState : PlayerBaseState
             return;
         }
         
+
+
         Vector3 movement = CalculateMovement(deltaTime);
         Move(movement * stateMachine.TargetingMovementSpeed, deltaTime);
         UpdateAnimator(deltaTime);
@@ -70,6 +72,16 @@ public class PlayerTargetingState : PlayerBaseState
         {
             float valueRight = stateMachine.InputReader.MovementValue.x > 0 ? 1f : -1f;
             stateMachine.Animator.SetFloat(TargetingRightSpeed, valueRight, AnimatorDampTime, deltaTime);
+        }
+        if (stateMachine.InputReader.MovementValue == Vector2.zero)
+        {
+            stateMachine.Animator.SetFloat("speed", 0f);
+
+            stateMachine.FreeLookMovementSpeed = 0f;
+        }
+        else
+        {
+            stateMachine.Animator.SetFloat("speed", 1.5f, AnimatorDampTime, deltaTime);
         }
     }
 

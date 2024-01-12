@@ -15,10 +15,15 @@ public class FootStepManager : MonoBehaviour
     [SerializeField] AudioClip waterRight;
     private RaycastHit raycastHit;
     [SerializeField] AudioSource audioSource;
+
+    private float lastStepTime;
+    public float stepCooldown = 0.5f;
+
     public void LeftFootStep()
     {
-        if(GetComponent<Animator>().GetFloat("speed") <= 0)
+        if(GetComponent<Animator>().GetFloat("speed") <= 1)
         {
+            Debug.Log("No speed");
             return;
         }
         Vector3 rayDirection = new Vector3(0, -1, 0);
@@ -31,30 +36,31 @@ public class FootStepManager : MonoBehaviour
                 //MUD LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 12)
                 {
-                    PlayFootStep(mudLeft);
+                    TryPlayFootStep(mudLeft);
                 }
                 //WOOD LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 13)
                 {
-                    PlayFootStep(woodLeft);
+                    TryPlayFootStep(woodLeft);
                 }
                 //SNOW LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 14)
                 {
-                    PlayFootStep(snowLeft);
+                    TryPlayFootStep(snowLeft);
                 }
                 //SEA LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 6)
                 {
-                    PlayFootStep(waterLeft);
+                    TryPlayFootStep(waterLeft);
                 }
             }
         }
     }
     public void RightFootStep()
     {
-        if(GetComponent<Animator>().GetFloat("speed") <= 0)
+        if(GetComponent<Animator>().GetFloat("speed") <= 1)
         {
+            Debug.Log("No speed");
             return;
         }
         Vector3 rayDirection = new Vector3(0, -1, 0);
@@ -67,24 +73,32 @@ public class FootStepManager : MonoBehaviour
                 //MUD LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 12)
                 {
-                    PlayFootStep(mudRight);
+                    TryPlayFootStep(mudRight);
                 }
                 //WOOD LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 13)
                 {
-                    PlayFootStep(woodRight);
+                    TryPlayFootStep(woodRight);
                 }
                 //SNOW LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 14)
                 {
-                    PlayFootStep(snowRight);
+                    TryPlayFootStep(snowRight);
                 }
                 //SEA LAYER MANAGER
                 if(raycastHit.transform.gameObject.layer == 6)
                 {
-                    PlayFootStep(waterRight);
+                    TryPlayFootStep(waterRight);
                 }
             }
+        }
+    }
+    private void TryPlayFootStep(AudioClip audioClip)
+    {
+        if (Time.time - lastStepTime > stepCooldown)
+        {
+            PlayFootStep(audioClip);
+            lastStepTime = Time.time;
         }
     }
     public void PlayFootStep(AudioClip audioClip)

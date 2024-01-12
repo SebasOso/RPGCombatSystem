@@ -7,3 +7,7 @@ CloseShop:
 "Matalos a todos."
 "Que la sangre pinte la nieve de rojo."
 "Que Odin te acompañe."
+
+
+
+-0.545,1.334,-0.64

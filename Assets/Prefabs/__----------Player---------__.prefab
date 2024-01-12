@@ -12958,6 +12958,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 3771698981287933445}
+    - target: {fileID: 197569779428985377, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+      propertyPath: stepCooldown
+      value: 0.27
+      objectReference: {fileID: 0}
     - target: {fileID: 318246606618325692, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.076279
