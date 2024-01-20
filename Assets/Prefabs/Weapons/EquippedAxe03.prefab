@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2789429341532814366, guid: af5b2d0bce04218439c4597d02fa3edd, type: 3}
       propertyPath: m_Name
-      value: EquippedAxe03 Variant
+      value: EquippedAxe03
       objectReference: {fileID: 0}
     - target: {fileID: 2789429341532814366, guid: af5b2d0bce04218439c4597d02fa3edd, type: 3}
       propertyPath: m_IsActive

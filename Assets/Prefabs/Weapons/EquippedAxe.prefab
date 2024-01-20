@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8495653121845177424}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EquippedAxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3075948893416203195}
   - component: {fileID: 3075948893417089855}
   - component: {fileID: 3075948893418067329}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Wep_Axe_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

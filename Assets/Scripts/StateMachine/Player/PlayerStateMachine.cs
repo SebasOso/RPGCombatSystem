@@ -10,6 +10,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerStateMachine : StateMachine
 {
+    [field: SerializeField]
+    public HealManager HealManager { get; set; }
     [field: SerializeField] 
     public bool IsNearNPC {get;  set;}
     [field: SerializeField] 

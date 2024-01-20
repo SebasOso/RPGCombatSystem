@@ -5,9 +5,17 @@ using UnityEngine.UI;
 
 public class RuneManager : MonoBehaviour
 {
+    public static RuneManager Instance { get; private set; }
     public bool isCoolDown;
-    [SerializeField] float coolDown = 15f;
-    [SerializeField] float abilityCoolDown = 15f;
+    [SerializeField] public float coolDown = 15f;
+    [SerializeField] public float abilityCoolDown = 15f;
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
     void Start()
     {
         if(GetComponent<Armory>().currentWeapon.value.CanRuneAttack == false)
@@ -31,6 +39,13 @@ public class RuneManager : MonoBehaviour
     {
         GetComponent<Armory>().abilityImage.fillAmount = 0;
         isCoolDown = true;
+    }
+    public void UpdateAbility()
+    {
+        abilityCoolDown = GetComponent<Armory>().currentWeapon.value.coolDown;
+        coolDown = abilityCoolDown;
+        isCoolDown = true;
+        GetComponent<Armory>().abilityImage.fillAmount = 0;
     }
     private void AbilityBehaviour()
     {

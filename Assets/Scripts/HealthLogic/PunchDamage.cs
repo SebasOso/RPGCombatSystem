@@ -33,7 +33,8 @@ public class PunchDamage : MonoBehaviour
             CameraShakeManager.Instance.ScreenShakeFromProfile(cinemachineImpulseSource, profile);
             PlayRandomSound();
             health.DealDamage(damage);
-            if(health.tag == "Player")
+            HealManager.Instance.AddHitHeal();
+            if (health.tag == "Player")
             {
                 PlayerLife.Instance.lerpTimer = 0f;
             }

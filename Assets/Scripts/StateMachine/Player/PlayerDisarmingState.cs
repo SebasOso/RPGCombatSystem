@@ -21,6 +21,7 @@ public class PlayerDisarmingState : PlayerBaseState
     }
     public override void Tick(float deltaTime)
     {
+        stateMachine.InputReader.IsDisarming = true;
         Move(deltaTime);
         duration -= deltaTime;
         if(duration <= 0f)
@@ -30,6 +31,6 @@ public class PlayerDisarmingState : PlayerBaseState
     }
     public override void Exit()
     {
-        
+        stateMachine.InputReader.IsDisarming = false;
     }
 }

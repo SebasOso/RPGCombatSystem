@@ -17,11 +17,17 @@ public class PlayerTargetingState : PlayerBaseState
     }
     public override void Enter()
     {
+        stateMachine.InputReader.HealEvent += OnHeal;
         stateMachine.InputReader.RuneAttackEvent += OnRuneAttack;
         stateMachine.InputReader.JumpEvent += OnJump;
         stateMachine.InputReader.DodgeEvent += OnDodge;
         stateMachine.InputReader.TargetEvent += OnCancelTarget;
         stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTree, CrossFadeDuration);
+    }
+
+    private void OnHeal()
+    {
+        stateMachine.SwitchState(new PlayerHealingState(stateMachine));
     }
 
     private void OnRuneAttack()

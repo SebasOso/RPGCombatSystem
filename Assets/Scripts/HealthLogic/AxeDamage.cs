@@ -37,6 +37,7 @@ public class AxeDamage : MonoBehaviour
                 CameraShakeManager.Instance.ScreenShakeFromProfile(cinemachineImpulseSource, profile);
                 damage = armory.damage + 10f;
                 health.DealDamage(damage);
+                HealManager.Instance.AddHitHeal();
             }
             else
             {
@@ -44,6 +45,7 @@ public class AxeDamage : MonoBehaviour
                 CameraShakeManager.Instance.ScreenShakeFromProfile(cinemachineImpulseSource, profile);
                 damage = armory.damage;
                 health.DealDamage(damage);
+                HealManager.Instance.AddHitHeal();
             }
             if(health.tag == "Player")
             {

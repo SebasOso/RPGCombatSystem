@@ -17,6 +17,7 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.InputReader.HealEvent += OnHeal;
         stateMachine.InputReader.EquipEvent += OnEquip;
         stateMachine.InputReader.DisarmEvent += OnDisarm;
         stateMachine.InputReader.RuneAttackEvent += OnRuneAttack;
@@ -24,6 +25,12 @@ public class PlayerFreeLookState : PlayerBaseState
         stateMachine.InputReader.JumpEvent += OnJump;
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTree, CrossFadeDuration);
+    }
+
+    private void OnHeal()
+    {
+        stateMachine.HealManager.Ability();
+        stateMachine.SwitchState(new PlayerHealingState(stateMachine));
     }
 
     private void OnDisarm()

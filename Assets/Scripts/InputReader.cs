@@ -15,6 +15,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action DodgeEvent;
     public event Action TargetEvent;
     public event Action RuneAttackEvent;
+    public event Action HealEvent;
     public event Action EquipEvent;
     public event Action DisarmEvent;
     public event Action CancelTargetEvent;
@@ -23,12 +24,16 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public bool IsInteracting{get;set;}
     public bool IsNPCInteracting{get;set;}
     public bool CanRuneAttack{get;set;}
+    [field: SerializeField] public bool CanHeal { get; set;}
     public bool IsRunning{get; private set;}
     public bool IsInRuneAttack{get; set;}
     public bool  IsHeavyAttacking{get; set;}
     public bool IsEquipped { get;  set; }
+    public bool IsHealing { get; set;}
     public bool CanDisarm{get;set;}
     public bool IsShop { get;  set; }
+    public bool IsDisarming { get; set;}
+    public bool IsEquiping { get; set;}
 
     private Controls controls;
     private void Awake() 
@@ -60,6 +65,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     }
     public void OnJump(InputAction.CallbackContext context)
     {
+        if(MovementValue == Vector2.zero) return;
         if(IsRunning)
         {
             if(!context.performed){return;}
@@ -68,7 +74,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     }
     public void OnDodge(InputAction.CallbackContext context)
     {
-        if(!context.performed){return;}
+        if (IsHealing) { return; }
+        if (!context.performed){return;}
         DodgeEvent?.Invoke();
     }
     
@@ -96,7 +103,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (IsHealing) { return; }
+        if (context.performed)
         {
             IsAttacking = true;
         }
@@ -107,7 +115,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     }
     public void OnRun(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (MovementValue == Vector2.zero) return;
+        if (IsHealing) { return; }
+        if (context.performed)
         {
             IsRunning = true;
         }
@@ -129,7 +139,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnRuneAttack(InputAction.CallbackContext context)
     {
-        if(CanRuneAttack && !IsInRuneAttack)
+        if (IsHealing) { return; }
+        if (CanRuneAttack && !IsInRuneAttack)
         {
             if(!context.performed){return;}
             RuneAttackEvent?.Invoke();
@@ -138,7 +149,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnEquip(InputAction.CallbackContext context)
     {
-        if(CustomSellerManager.Instance.isOpen){return;}
+        if(IsDisarming) { return; }
+        if (IsHealing) { return; }
+        if (CustomSellerManager.Instance.isOpen){return;}
         if(MenuManager.Instance.isPaused){return;}
         if(!IsEquipped && CanDisarm)
         {
@@ -150,7 +163,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnDisarm(InputAction.CallbackContext context)
     {
-        if(CustomSellerManager.Instance.isOpen){return;}
+        if (IsEquiping) {  return; }
+        if (IsHealing) { return; }
+        if (CustomSellerManager.Instance.isOpen){return;}
         if(MenuManager.Instance.isPaused){return;}
         if(IsEquipped && CanDisarm)
         {
@@ -163,5 +178,18 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnInventoryOpenClose(InputAction.CallbackContext context)
     {
         
+    }
+
+    public void OnHeal(InputAction.CallbackContext context)
+    {
+        if (IsHealing) { return; }
+        if (IsAttacking) { return; }
+        if (CustomSellerManager.Instance.isOpen) { return; }
+        if (MenuManager.Instance.isPaused) { return; }
+        if (CanHeal && !IsInRuneAttack)
+        {
+            if (!context.performed) { return; }
+            HealEvent?.Invoke();
+        }
     }
 }

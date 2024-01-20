@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4920096310a9a21409f67c3f76f73903, type: 2}
     - target: {fileID: 8770962024888113492, guid: f5d992d249fe3264eb2e13f8e9dafa84, type: 3}
       propertyPath: m_Name
-      value: EquippedAxe04 Variant
+      value: EquippedAxe04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

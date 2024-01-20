@@ -1,10 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using RPG.Inventories;
 using Newtonsoft.Json.Linq;
 using RPG.Saving;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -18,6 +16,7 @@ public class MenuManager : MonoBehaviour, IJsonSaveable
     [SerializeField] private List<GameObject> itemsGO;
     [SerializeField] private PlayerStateMachine playerStateMachine;
     [SerializeField] string a;
+    [SerializeField] private List<GameObject> uiToHide;
     public bool isPaused;
     public event Action inventoryUpdated;
     // Start is called before the first frame update
@@ -74,6 +73,8 @@ public class MenuManager : MonoBehaviour, IJsonSaveable
     private void Pause()
     {
         isPaused = true;
+        GetComponent<Animator>().SetBool("isRun", false);
+        GetComponent<Animator>().SetBool("isIdle", true);
         playerStateMachine.enabled = false;
         OpenInventory();
     }
@@ -87,12 +88,28 @@ public class MenuManager : MonoBehaviour, IJsonSaveable
     private void OpenInventory()
     {
         inventoryCanvasGO.SetActive(true);
+        HideAllUI();
         EventSystem.current.SetSelectedGameObject(itemsGO[0]);
     }
     private void CloseAllMenus()
     {
         inventoryCanvasGO.SetActive(false);
+        ShowAllUI();
         EventSystem.current.SetSelectedGameObject(null);
+    }
+    private void ShowAllUI()
+    {
+        foreach (var ui in uiToHide)
+        {
+            ui.SetActive(true);
+        }
+    }
+    private void HideAllUI()
+    {
+        foreach(var ui in uiToHide)
+        {
+            ui.SetActive(false);
+        }
     }
     private int FindEmptySlot()
     {

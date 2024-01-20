@@ -10,13 +10,27 @@ using UnityEngine.VFX;
 
 public class Health : MonoBehaviour, IJsonSaveable
 {
+    [Header("Heal Settings")]
     [SerializeField] float regenerationHealth = 80;
+    [SerializeField] float healRate = 6.5f;
+
+    //Events
     public event Action OnDie;
     public event Action OnTakeDamage;
+
+    //Health Main Variable
     public LazyValue<float> health;
+
+    //Booleans
     private bool isDead = false;
     private bool isInvulnerable;
+    public bool isFullHealth;
+
+    //Effects
     [SerializeField] private VisualEffect hit;
+    [SerializeField] private ParticleSystem healingEffect;
+
+    //Variables
     private Animator animator;
     private void Awake() 
     {
@@ -47,11 +61,39 @@ public class Health : MonoBehaviour, IJsonSaveable
     {
         
     }
+    public bool GetFullHealth()
+    {
+        return health.value >= 1 * GetComponent<BaseStats>().GetStat(Stat.Health);
+    }
     private void RegenerateHealth()
     {
         if(health.value <= 0.3 * GetComponent<BaseStats>().GetStat(Stat.Health))
         {
             health.value += regenerationHealth;
+        }
+    }
+    public void Heal()
+    {
+        StartCoroutine(Regeneration(healRate));
+    }
+    private IEnumerator Regeneration(float regenerationRate)
+    {
+        healingEffect.Stop();
+        var main = healingEffect.main;
+        main.duration = 6f;
+        healingEffect.Play();
+        float healingTime = 0f;
+        while (healingTime < 6f)
+        {
+            float healthToAdd = regenerationRate * Time.deltaTime;
+            health.value += healthToAdd;
+            healingTime += Time.deltaTime;
+            if (health.value >= GetComponent<BaseStats>().GetStat(Stat.Health))
+            {
+                health.value = GetComponent<BaseStats>().GetStat(Stat.Health);
+                healingEffect.Stop();
+            }
+            yield return null;
         }
     }
     public void DealDamage(float damage)

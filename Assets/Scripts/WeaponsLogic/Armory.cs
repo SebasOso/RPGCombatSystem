@@ -131,10 +131,7 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     }
     private void UpdateAbility()
     {
-        abilityCoolDown = currentWeapon.value.coolDown;
-        coolDown = abilityCoolDown;
-        isCoolDown = false;
-        abilityImage.fillAmount = 1;
+        RuneManager.Instance.UpdateAbility();  
         abilityImage.sprite = currentWeapon.value.runeAttackImage;
         abilityBackGround.sprite = currentWeapon.value.runeAttackImage;
     }

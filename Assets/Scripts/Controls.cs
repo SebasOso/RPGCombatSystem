@@ -143,6 +143,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Heal"",
+                    ""type"": ""Button"",
+                    ""id"": ""e994608e-585e-4150-9af0-e48354cde7d4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -519,6 +528,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""InventoryOpenClose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3262c4aa-28e5-43c3-a8a8-1aa0d26d8acb"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Heal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c6720dff-ee56-4531-8dd9-070a3e32db52"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Heal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -579,6 +610,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Equip = m_Player.FindAction("Equip", throwIfNotFound: true);
         m_Player_Disarm = m_Player.FindAction("Disarm", throwIfNotFound: true);
         m_Player_InventoryOpenClose = m_Player.FindAction("InventoryOpenClose", throwIfNotFound: true);
+        m_Player_Heal = m_Player.FindAction("Heal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -653,6 +685,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Equip;
     private readonly InputAction m_Player_Disarm;
     private readonly InputAction m_Player_InventoryOpenClose;
+    private readonly InputAction m_Player_Heal;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -670,6 +703,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Equip => m_Wrapper.m_Player_Equip;
         public InputAction @Disarm => m_Wrapper.m_Player_Disarm;
         public InputAction @InventoryOpenClose => m_Wrapper.m_Player_InventoryOpenClose;
+        public InputAction @Heal => m_Wrapper.m_Player_Heal;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -718,6 +752,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @InventoryOpenClose.started += instance.OnInventoryOpenClose;
             @InventoryOpenClose.performed += instance.OnInventoryOpenClose;
             @InventoryOpenClose.canceled += instance.OnInventoryOpenClose;
+            @Heal.started += instance.OnHeal;
+            @Heal.performed += instance.OnHeal;
+            @Heal.canceled += instance.OnHeal;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -761,6 +798,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @InventoryOpenClose.started -= instance.OnInventoryOpenClose;
             @InventoryOpenClose.performed -= instance.OnInventoryOpenClose;
             @InventoryOpenClose.canceled -= instance.OnInventoryOpenClose;
+            @Heal.started -= instance.OnHeal;
+            @Heal.performed -= instance.OnHeal;
+            @Heal.canceled -= instance.OnHeal;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -820,5 +860,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnEquip(InputAction.CallbackContext context);
         void OnDisarm(InputAction.CallbackContext context);
         void OnInventoryOpenClose(InputAction.CallbackContext context);
+        void OnHeal(InputAction.CallbackContext context);
     }
 }
