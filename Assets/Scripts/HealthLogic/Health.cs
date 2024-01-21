@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using Newtonsoft.Json.Linq;
 using RPG.Saving;
 using RPG.Stats;
@@ -24,11 +25,17 @@ public class Health : MonoBehaviour, IJsonSaveable
     //Booleans
     private bool isDead = false;
     private bool isInvulnerable;
+    [Header("Bool For Debug")]
     public bool isFullHealth;
 
+    [Header("Visual Effects")]
     //Effects
     [SerializeField] private VisualEffect hit;
     [SerializeField] private ParticleSystem healingEffect;
+
+    [Header("Sounds")]
+    [SerializeField] private AudioClip arrowImpactSound;
+    [SerializeField] private AudioSource impactAudioSource;
 
     //Variables
     private Animator animator;
@@ -106,6 +113,23 @@ public class Health : MonoBehaviour, IJsonSaveable
             GetComponent<EnemyLife>().lerpTimer = 0f;
         }
         health.value = Mathf.Max(health.value - damage, 0);
+        if(gameObject.CompareTag("Enemy"))
+        {
+            if(GetComponent<EnemyStateMachine>().isStunned)
+            {
+                if (health.value == 0)
+                {
+                    OnDie?.Invoke();
+                    Die();
+                    AwardExperience();
+                }
+                return;
+            }
+            else if(!GetComponent<EnemyStateMachine>().isStunned)
+            {
+                OnTakeDamage?.Invoke();
+            }
+        }
         OnTakeDamage?.Invoke();
         if(health.value == 0)
         {
@@ -113,6 +137,28 @@ public class Health : MonoBehaviour, IJsonSaveable
             Die();
             AwardExperience();
         }
+    }
+    public void DealArrowDamage(float damage)
+    {
+        if (health.value <= 0) { return; }
+        if (isInvulnerable) { return; }
+        hit.Play();
+        if (GetComponent<EnemyLife>())
+        {
+            GetComponent<EnemyLife>().lerpTimer = 0f;
+        }
+        health.value = Mathf.Max(health.value - damage, 0);
+        if (health.value == 0)
+        {
+            OnDie?.Invoke();
+            Die();
+            AwardExperience();
+        }
+    }
+    public void PlayArrowImpact()
+    {
+        impactAudioSource.clip = arrowImpactSound;
+        impactAudioSource.Play();
     }
     public void SetInvulnerable(bool isInvulnerable)
     {

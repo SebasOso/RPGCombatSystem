@@ -22,17 +22,26 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
     public WeaponPickup weaponToPickUp;
     public float damage = 0f;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioSource weaponSoundsSource;
+    [SerializeField] private AudioClip bowShoot;
+    [SerializeField] private AudioClip bowLoad;
+    [SerializeField] private AudioClip freezeArrow;
+
     [Header("Animation")]
     [SerializeField] private Animator animator;
     public LazyValue<Weapon> currentWeapon;
     public Weapon disarmedWeapon;
+
     [SerializeField] Targeter Targeter;
+
     [Header("Abilities")]
     private float coolDown = 15f;
     private float abilityCoolDown = 15f;
     private bool isCoolDown = false;
     [SerializeField] public Image abilityImage;
     [SerializeField] public Image abilityBackGround;
+
     private void Awake() 
     {
         currentWeapon = new LazyValue<Weapon>(GetInitialWeapon);
@@ -154,6 +163,31 @@ public class Armory : MonoBehaviour, IJsonSaveable, IModifierProvider
         {
             currentWeapon.value.LaunchProjectile(rightHandSocket,leftHandSocket,Targeter.currentTarget.GetComponent<Health>(), damage);
         }
+    }
+    public void FreezeShoot()
+    {
+        if (Targeter.currentTarget == null || Targeter.currentTarget.GetComponent<Health>().IsDead()) return;
+        if (currentWeapon.value.HasProjectile())
+        {
+            print("FREEEEEEEEZE");
+            currentWeapon.value.LaunchFreezeArrow(rightHandSocket, leftHandSocket, Targeter.currentTarget.GetComponent<Health>(), damage + 10f);
+            PlayFreeze();
+        }
+    }
+    public void PlayFreeze()
+    {
+        weaponSoundsSource.clip = freezeArrow;
+        weaponSoundsSource.Play();
+    }
+    public void PlayShoot()
+    {
+        weaponSoundsSource.clip = bowShoot;
+        weaponSoundsSource.Play();
+    }
+    public void PlayLoad()
+    {
+        weaponSoundsSource.clip = bowLoad;
+        weaponSoundsSource.Play();
     }
     public void RestoreFromJToken(JToken state)
     {

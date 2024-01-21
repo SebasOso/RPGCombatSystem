@@ -10,6 +10,15 @@ public class EnemyStateMachine : StateMachine
 {
     [field: SerializeField] 
     public EnemySoundManager EnemySoundManager {get; private set;}
+    [field: SerializeField]
+
+    public ParticleSystem snowSystem;
+    [field: SerializeField]
+
+    public bool isStunned;
+    [field: SerializeField]
+
+    public bool isAggro;
     [field: SerializeField] 
     public LootBag LootBag {get; private set;}
     [field: SerializeField] 
@@ -76,5 +85,15 @@ public class EnemyStateMachine : StateMachine
     private void HandleDie()
     {
         SwitchState(new EnemyDeadState(this));
+    }
+    public void EnemyAggro()
+    {
+        isStunned = false;
+        isAggro = true;
+        SwitchState(new EnemyChasingState(this));
+    }
+    public void EnemyStun()
+    {
+        SwitchState(new EnemyStunState(this));
     }
 }

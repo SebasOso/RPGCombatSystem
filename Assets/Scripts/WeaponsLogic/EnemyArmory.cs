@@ -14,11 +14,16 @@ public class EnemyArmory : MonoBehaviour, IJsonSaveable, IModifierProvider
     [SerializeField] private Transform rightHandSocket;
     [SerializeField] private Transform leftHandSocket;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioSource weaponSoundsSource;
+    [SerializeField] private AudioClip bowShoot;
+    [SerializeField] private AudioClip bowLoad;
+
     [Header("Animation")]
     [SerializeField] private Animator animator;
     public LazyValue<Weapon> currentWeapon;
     public float damage;
-    Health Player;
+    Health Player; 
     private void Awake() 
     {
         Player = GameObject.FindWithTag("Player").GetComponent<Health>();
@@ -57,6 +62,16 @@ public class EnemyArmory : MonoBehaviour, IJsonSaveable, IModifierProvider
         {
             currentWeapon.value.LaunchProjectile(rightHandSocket,leftHandSocket,Player, damage);
         }
+    }
+    public void PlayShoot()
+    {
+        weaponSoundsSource.clip = bowShoot;
+        weaponSoundsSource.Play();
+    }
+    public void PlayLoad()
+    {
+        weaponSoundsSource.clip = bowLoad;
+        weaponSoundsSource.Play();
     }
     public void RestoreFromJToken(JToken state)
     {

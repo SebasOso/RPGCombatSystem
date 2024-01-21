@@ -19,7 +19,7 @@ public class EnemyChasingState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
-        if(!IsInChasingRange())
+        if(!IsInChasingRange() && !enemyStateMachine.isAggro)
         {
             if(!enemyStateMachine.FieldOfView.canSeePlayer)
             {

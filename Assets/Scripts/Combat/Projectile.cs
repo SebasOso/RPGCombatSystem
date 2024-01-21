@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] float speed = 1;
     [SerializeField] float maxLifeTime = 3f;
     float damage = 0;
+    private bool isFreezeTime = false;
     private void Start() 
     {
         if(target == null)
@@ -50,6 +51,10 @@ public class Projectile : MonoBehaviour
     {
         alreadyColliderWith.Clear();
     }
+    public void SetFreeze()
+    {
+        isFreezeTime = true;
+    }
     private void OnTriggerEnter(Collider other) 
     {
         if(other.GetComponent<Health>() != target){return;}
@@ -62,8 +67,21 @@ public class Projectile : MonoBehaviour
         speed = 0f;
         if(other.TryGetComponent<Health>(out Health health))
         {
-            health.DealDamage(damage);
-            if(health.tag == "Player")
+            health.DealArrowDamage(damage);
+            health.PlayArrowImpact();
+            if (health.tag == "Enemy")
+            {
+                if (!health.GetComponent<EnemyStateMachine>().isStunned)
+                {
+                    health.GetComponent<EnemyStateMachine>().EnemyAggro();
+                }
+                if (isFreezeTime)
+                {
+                    health.GetComponent<EnemyStateMachine>().EnemyStun();
+                    Destroy(gameObject);
+                }
+            }
+            if (health.tag == "Player")
             {
                 PlayerLife.Instance.lerpTimer = 0f;
             }

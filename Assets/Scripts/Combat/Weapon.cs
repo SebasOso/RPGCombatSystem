@@ -82,6 +82,12 @@ namespace RPG.Combat
             Projectile projectileInstance = Instantiate(projectile, GetTransform(rightSocket, leftSocket).position, Quaternion.identity);
             projectileInstance.SetTarget(target, damage);
         }
+        public void LaunchFreezeArrow(Transform rightSocket, Transform leftSocket, Health target, float damage)
+        {
+            Projectile projectileInstance = Instantiate(projectile, GetTransform(rightSocket, leftSocket).position, Quaternion.identity);
+            projectileInstance.SetFreeze();
+            projectileInstance.SetTarget(target, damage);
+        }
         public void LaunchProjectile(Transform rightSocket, Transform leftSocket)
         {
             Projectile projectileInstance = Instantiate(projectile, GetTransform(rightSocket, leftSocket).position, Quaternion.identity);
