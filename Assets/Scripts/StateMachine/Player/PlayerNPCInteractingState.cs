@@ -14,11 +14,12 @@ public class PlayerNPCInteractingState : PlayerBaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(NPCHash, CrossFadeDuration);
         stateMachine.Armory.UnequipWeapon();
+        stateMachine.isInteracting = true;
     }
 
     public override void Exit()
     {
-        
+        stateMachine.isInteracting = false;
     }
 
     public override void Tick(float deltaTime)
@@ -28,6 +29,7 @@ public class PlayerNPCInteractingState : PlayerBaseState
         if(!stateMachine.IsNearNPC)
         {
             stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+            stateMachine.isInteracting = false;
         }
     }
 }

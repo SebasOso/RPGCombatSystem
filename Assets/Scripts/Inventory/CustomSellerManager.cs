@@ -10,6 +10,7 @@ public class CustomSellerManager : MonoBehaviour
     [SerializeField] private bool isPlayerNear = false;
     [SerializeField] GameObject shopUI;
     [SerializeField] GameObject firstToSelect;
+    [SerializeField] private List<GameObject> gameplayUI;
     public bool isOpen = false;
     GameObject player;
     private void Awake() 
@@ -58,6 +59,7 @@ public class CustomSellerManager : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(firstToSelect);
             player.GetComponent<Armory>().enabled = false;
             player.GetComponent<PlayerStateMachine>().enabled = false;
+            HideGameplayUI();
             player.GetComponent<InputReader>().IsShop = true;
             interactPlayerUI.SetActive(false);
         }
@@ -72,9 +74,24 @@ public class CustomSellerManager : MonoBehaviour
             player.GetComponent<InputReader>().enabled = true;
             player.GetComponent<PlayerStateMachine>().enabled = true;
             player.GetComponent<Armory>().enabled = true;
+            ShowGameplayUI();
             player.GetComponent<InputReader>().IsShop = false;
             EventSystem.current.SetSelectedGameObject(null);
             shopUI.SetActive(false);
+        }
+    }
+    private void ShowGameplayUI()
+    {
+        foreach (GameObject item in gameplayUI)
+        {
+            item.SetActive(true);
+        }
+    }
+    private void HideGameplayUI()
+    {
+        foreach (GameObject item in gameplayUI)
+        {
+            item.SetActive(false);
         }
     }
 }

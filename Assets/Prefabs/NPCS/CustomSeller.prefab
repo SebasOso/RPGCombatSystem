@@ -58123,6 +58123,11 @@ MonoBehaviour:
   isPlayerNear: 0
   shopUI: {fileID: 1585913030813616969}
   firstToSelect: {fileID: 7892916987960135604}
+  gameplayUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   isOpen: 0
 --- !u!135 &7616069012129227570
 SphereCollider:

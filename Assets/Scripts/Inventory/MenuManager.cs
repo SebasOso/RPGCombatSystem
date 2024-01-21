@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour, IJsonSaveable
     [SerializeField] private GameObject inventoryCanvasGO;
     [SerializeField] private GridLayoutGroup contentInventory;
     [SerializeField] private List<GameObject> itemsGO;
-    [SerializeField] private PlayerStateMachine playerStateMachine;
+    private PlayerStateMachine playerStateMachine;
     [SerializeField] string a;
     [SerializeField] private List<GameObject> uiToHide;
     public bool isPaused;
@@ -32,6 +32,7 @@ public class MenuManager : MonoBehaviour, IJsonSaveable
         }
         inventoryCanvasGO.SetActive(false);
         slots = new InventoryItem[24];
+        playerStateMachine = GetComponent<PlayerStateMachine>();
     }
     public int GetSize()
     {
@@ -53,6 +54,7 @@ public class MenuManager : MonoBehaviour, IJsonSaveable
     }
     private void Update() 
     {
+        if(playerStateMachine.isInteracting) { return; }
         if(InputReader.Instance.InventoryOpenCloseInput)
         {
             if(!isPaused)

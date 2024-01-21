@@ -11,6 +11,8 @@ using UnityEngine.InputSystem;
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField]
+    public bool isInteracting { get; set; }
+    [field: SerializeField]
     public HealManager HealManager { get; set; }
     [field: SerializeField] 
     public bool IsNearNPC {get;  set;}
