@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using RPG.Saving;
 using RPG.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SavingWrapper : MonoBehaviour
 {
@@ -32,13 +33,14 @@ public class SavingWrapper : MonoBehaviour
     }
     public void Respawn()
     {
-        StartCoroutine(Spawn());
+        StartCoroutine(Transition());
     }
-    IEnumerator Spawn()
+    private IEnumerator Transition()
     {
         Fader fader = FindObjectOfType<Fader>();
         fader.FadeOutInmediate();
-        yield return GetComponent<JsonSavingSystem>().LoadLastScene(defaultSaveFile);
-        yield return fader.FadeIn(0.2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Load();
+        yield return fader.FadeIn(1f);
     }
 }
