@@ -25,7 +25,6 @@ public class WeaponPickup : MonoBehaviour
     {
         if(weaponToPick != null)
         {
-            player.GetComponent<Armory>().EquipWeapon(weaponToPick);
             bool foundSlot = MenuManager.Instance.AddToFirstEmptySlot(weaponInventory);
             if(foundSlot)
             {

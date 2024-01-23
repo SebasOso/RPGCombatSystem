@@ -159,7 +159,10 @@ public class MenuManager : MonoBehaviour, IJsonSaveable
         slots[i] = item;
         return true;
     }
-
+    public void DeleteItemFlomSlot(int index)
+    {
+        slots[index] = null;
+    }
     public JToken CaptureAsJToken()
     {
         var slotStrings = new string[24];

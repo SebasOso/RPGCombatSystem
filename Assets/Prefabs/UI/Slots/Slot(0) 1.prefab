@@ -139,6 +139,8 @@ MonoBehaviour:
   itemSprite: {fileID: 1010610096457665546}
   itemId: 
   weapon: {fileID: 0}
+  index: 0
+  defaultSprite: {fileID: 21300010, guid: 7188e9d0ec465034995ea794e337b4bd, type: 3}
 --- !u!114 &2056457411172066604
 MonoBehaviour:
   m_ObjectHideFlags: 0

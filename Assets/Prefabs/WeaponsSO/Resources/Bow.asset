@@ -26,3 +26,4 @@ MonoBehaviour:
   runeAttackImage: {fileID: 21300000, guid: 25324db84233f054c86e74e0613e6b75, type: 3}
   coolDown: 15
   duration: 0.23
+  weaponItem: {fileID: 11400000, guid: a8fa4ed449e87d044a294dabedf1801a, type: 2}

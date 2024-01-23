@@ -1,3 +1,4 @@
+using RPG.Inventories;
 using System;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace RPG.Combat
         [Header("Equip And Disarm")]
         public bool CanDisarm;
         public bool IsEquipped;
+
         [Header("Weapons")]
         [SerializeField] private float weaponRange;
         [SerializeField] private float weaponDamage;
@@ -18,11 +20,16 @@ namespace RPG.Combat
         [SerializeField] private AnimatorOverrideController weaponOverrideController;
         [SerializeField] private bool isRightHanded = true;
         [SerializeField] private Projectile projectile = null;
-        [SerializeField] public bool CanRuneAttack = false;
+        public bool CanRuneAttack = false;
+
         [Header("Rune Attack")]
-        [SerializeField] public Sprite runeAttackImage;
-        [SerializeField] public float coolDown = 15f;
-        [SerializeField] public float duration = 1.5f;
+        public Sprite runeAttackImage;
+        public float coolDown = 15f;
+        public float duration = 1.5f;
+
+        [Header("Inventory")]
+        public InventoryItem weaponItem = null;
+
         const string weaponName = "Weapon";
         public void Spawn(Transform rightSocket, Transform leftSocket, Animator animator)
         {
@@ -107,6 +114,10 @@ namespace RPG.Combat
         public float GetWeaponKnokcback()
         {
             return weaponKnockback;
+        }
+        public InventoryItem GetInventoryItem()
+        {
+            return weaponItem;
         }
     }
 }

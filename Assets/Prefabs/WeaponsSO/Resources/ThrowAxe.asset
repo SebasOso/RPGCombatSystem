@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc2233155189a44292bb0a5394dcfc4, type: 3}
   m_Name: ThrowAxe
   m_EditorClassIdentifier: 
+  CanDisarm: 0
+  IsEquipped: 0
   weaponRange: 0
   weaponDamage: 37
   percentageDamage: 20
@@ -21,3 +23,7 @@ MonoBehaviour:
   isRightHanded: 1
   projectile: {fileID: 65921257313333828, guid: eb952727c5aeba042a6585385a181c91, type: 3}
   CanRuneAttack: 0
+  runeAttackImage: {fileID: 0}
+  coolDown: 15
+  duration: 1.5
+  weaponItem: {fileID: 11400000, guid: 2ee54f59ff9fd6a45b84f4b0283e176d, type: 2}
