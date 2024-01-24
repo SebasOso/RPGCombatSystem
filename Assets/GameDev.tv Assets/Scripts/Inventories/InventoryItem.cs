@@ -22,6 +22,7 @@ namespace RPG.Inventories
         [Tooltip("The UI icon to represent this item in the inventory.")]
         [SerializeField] Sprite icon = null;
         [SerializeField] Weapon weapon = null;
+        [SerializeField] Shoulder shoulder = null;
         // STATE
         static Dictionary<string, InventoryItem> itemLookupCache;
 
@@ -74,6 +75,10 @@ namespace RPG.Inventories
         public string GetItemID()
         {
             return itemID;
+        }
+        public Shoulder GetShoulder()
+        {
+            return shoulder;
         }
         // PRIVATE
         

@@ -23,7 +23,7 @@ public class WeaponPickup : MonoBehaviour
     }
     public void PickUp()
     {
-        if(weaponToPick != null)
+        if(weaponInventory != null)
         {
             bool foundSlot = MenuManager.Instance.AddToFirstEmptySlot(weaponInventory);
             if(foundSlot)

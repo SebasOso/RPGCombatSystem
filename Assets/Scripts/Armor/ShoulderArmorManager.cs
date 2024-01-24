@@ -5,12 +5,14 @@ using RPG.Saving;
 using Newtonsoft.Json.Linq;
 using System;
 using UnityEngine.Rendering;
+using RPG.Combat;
 
 public class ShoulderArmorManager : MonoBehaviour, IJsonSaveable
 {
     public static ShoulderArmorManager Instance;
     [Header("Position")]
     [SerializeField] public int shouldersPosition = 0;
+    [SerializeField] public Shoulder shoulder;
 
     [Header("Shoulder Right")]
     [SerializeField] private GameObject mainAccesories;
@@ -86,16 +88,21 @@ public class ShoulderArmorManager : MonoBehaviour, IJsonSaveable
     }
     public JToken CaptureAsJToken()
     {
-        if(shouldersPosition < 0)
+        if(shoulder == null)
         {
             return JToken.FromObject(0);
         }
-        return JToken.FromObject(shouldersPosition);
+        else
+        {
+            return JToken.FromObject(shoulder.name);
+        }
     }
 
     public void RestoreFromJToken(JToken state)
     {
-        int newPosition = state.ToObject<int>();
-        shouldersPosition = newPosition;
+        string shoulderName = state.ToObject<string>();
+        Shoulder shoulder = Resources.Load<Shoulder>(shoulderName);
+        this.shoulder = shoulder;
+        shouldersPosition = shoulder.GetIndex();
     }
 }
