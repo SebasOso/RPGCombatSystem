@@ -12,6 +12,7 @@ public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private WeaponItem[] itemsInInventory;
     public InventoryItem weaponEquipped;
+    public InventoryItem weaponInBack;
     public static InventoryManager Instance { get; set; }
     private void Awake()
     {
@@ -32,9 +33,14 @@ public class InventoryManager : MonoBehaviour
     private void OnEnable() 
     {
         Redraw();
-        if (weaponEquipped == null)
+        weaponEquipped = Armory.Instance.currentWeapon.value.GetInventoryItem();
+        if(Armory.Instance.disarmedWeapon != null)
         {
-            weaponEquipped = Armory.Instance.currentWeapon.value.GetInventoryItem();
+            weaponInBack = Armory.Instance.disarmedWeapon.GetInventoryItem();
+        }
+        else
+        {
+            weaponInBack = null;
         }
     }
     private void Redraw()
@@ -51,7 +57,14 @@ public class InventoryManager : MonoBehaviour
     private IEnumerator SetNewWeapon(InventoryItem weaponToEquip, WeaponItem weaponToDeleteFromInventory)
     {
         yield return new WaitForSeconds(0.1f);
-        MenuManager.Instance.AddToFirstEmptySlot(weaponEquipped);
+        if(weaponEquipped != null)
+        {
+            MenuManager.Instance.AddToFirstEmptySlot(weaponEquipped);
+        }
+        else if(weaponInBack != null)
+        {
+            MenuManager.Instance.AddToFirstEmptySlot(weaponInBack);
+        }
         weaponToDeleteFromInventory.DeleteItemFromInventory();
         weaponEquipped = weaponToEquip;
         Redraw();
