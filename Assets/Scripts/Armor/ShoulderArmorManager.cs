@@ -11,7 +11,6 @@ public class ShoulderArmorManager : MonoBehaviour, IJsonSaveable
 {
     public static ShoulderArmorManager Instance;
     [Header("Position")]
-    [SerializeField] public int shouldersPosition = 0;
     [SerializeField] public Shoulder shoulder;
 
     [Header("Shoulder Right")]
@@ -53,7 +52,14 @@ public class ShoulderArmorManager : MonoBehaviour, IJsonSaveable
         {
             accesorie.SetActive(false);
         }
-        accesoriesList[shouldersPosition].SetActive(true);
+        if (shoulder != null)
+        {
+            accesoriesList[shoulder.GetIndex()].SetActive(true);
+        }
+        else
+        {
+            accesoriesList[0].SetActive(true);
+        }
     }
     private void SetUpLeft()
     {
@@ -71,9 +77,16 @@ public class ShoulderArmorManager : MonoBehaviour, IJsonSaveable
         {
             accesorie.SetActive(false);
         }
-        accesoriesList02[shouldersPosition].SetActive(true);
+        if (shoulder != null)
+        {
+            accesoriesList02[shoulder.GetIndex()].SetActive(true);
+        }
+        else
+        {
+            accesoriesList02[0].SetActive(true);
+        }
     }
-    public void SetShoulders(int index)
+    public void SetShoulders(Shoulder shoulderToEquip)
     {
         foreach (GameObject accesorie in accesoriesList)
         {
@@ -83,18 +96,19 @@ public class ShoulderArmorManager : MonoBehaviour, IJsonSaveable
         {
             accesorie.SetActive(false);
         }
-        accesoriesList02[index].SetActive(true);
-        accesoriesList[index].SetActive(true);
+        shoulder = shoulderToEquip;
+        accesoriesList02[shoulderToEquip.GetIndex()].SetActive(true);
+        accesoriesList[shoulderToEquip.GetIndex()].SetActive(true);
     }
     public JToken CaptureAsJToken()
     {
-        if(shoulder == null)
+        if(shoulder != null)
         {
-            return JToken.FromObject(0);
+            return JToken.FromObject(shoulder.name);
         }
         else
         {
-            return JToken.FromObject(shoulder.name);
+            return JToken.FromObject(0);
         }
     }
 
@@ -103,6 +117,5 @@ public class ShoulderArmorManager : MonoBehaviour, IJsonSaveable
         string shoulderName = state.ToObject<string>();
         Shoulder shoulder = Resources.Load<Shoulder>(shoulderName);
         this.shoulder = shoulder;
-        shouldersPosition = shoulder.GetIndex();
     }
 }

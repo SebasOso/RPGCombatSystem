@@ -10,9 +10,18 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private WeaponItem[] itemsInInventory;
+    [SerializeField] private Item[] itemsInInventory;
+
+    [Header("Weapons")]
     public InventoryItem weaponEquipped;
     public InventoryItem weaponInBack;
+
+    [Header("Armor")]
+    public InventoryItem shoulderEquipped;
+
+    [Header("Sounds Settings")]
+    [SerializeField] private AudioClip equipClip;
+    [SerializeField] private AudioSource audioSource;
     public static InventoryManager Instance { get; set; }
     private void Awake()
     {
@@ -34,6 +43,7 @@ public class InventoryManager : MonoBehaviour
     {
         Redraw();
         weaponEquipped = Armory.Instance.currentWeapon.value.GetInventoryItem();
+        shoulderEquipped = ShoulderArmorManager.Instance.shoulder.GetInventoryItem();
         if(Armory.Instance.disarmedWeapon != null)
         {
             weaponInBack = Armory.Instance.disarmedWeapon.GetInventoryItem();
@@ -54,7 +64,7 @@ public class InventoryManager : MonoBehaviour
             itemsInInventory[i].SetItem(i);
         }
     }
-    private IEnumerator SetNewWeapon(InventoryItem weaponToEquip, WeaponItem weaponToDeleteFromInventory)
+    private IEnumerator SetNewWeapon(InventoryItem weaponToEquip, Item itemToDeleteFromInventory)
     {
         yield return new WaitForSeconds(0.1f);
         if(weaponEquipped != null)
@@ -65,14 +75,36 @@ public class InventoryManager : MonoBehaviour
         {
             MenuManager.Instance.AddToFirstEmptySlot(weaponInBack);
         }
-        weaponToDeleteFromInventory.DeleteItemFromInventory();
+        itemToDeleteFromInventory.DeleteItemFromInventory();
+        PlayEquipSound();
         weaponEquipped = weaponToEquip;
         Redraw();
     }
+    private IEnumerator SetNewShoulder(InventoryItem shoulderToEquip, Item itemToDeleteFromInventory)
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (shoulderEquipped != null)
+        {
+            MenuManager.Instance.AddToFirstEmptySlot(shoulderEquipped);
+        }
+        itemToDeleteFromInventory.DeleteItemFromInventory();
+        PlayEquipSound();
+        shoulderEquipped = shoulderToEquip;
+        Redraw();
+    }
+    private void PlayEquipSound()
+    {
+        audioSource.clip = equipClip;
+        audioSource.Play();
+    }
 
     //Setters
-    public void SetNewInventoryWeapon(InventoryItem weaponToEquip, WeaponItem weaponToDeleteFromInventory)
+    public void SetNewInventoryWeapon(InventoryItem weaponToEquip, Item itemToDeleteFromInventory)
     {
-        StartCoroutine(SetNewWeapon(weaponToEquip, weaponToDeleteFromInventory));
+        StartCoroutine(SetNewWeapon(weaponToEquip, itemToDeleteFromInventory));
+    }
+    public void SetNewInventoryShoulder(InventoryItem shoulderToEquip, Item itemToDeleteFromInventory)
+    {
+        StartCoroutine(SetNewShoulder(shoulderToEquip, itemToDeleteFromInventory));
     }
 }

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShoulderIndex: 1
   ShoulderArmor: 10
+  inventoryItem: {fileID: 11400000, guid: d761c5ba9cb91174389bc241e6e254d5, type: 2}

@@ -10090,7 +10090,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564014425314569353}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21671051, y: 0.003335899, z: -0.00074052665, w: 0.97622997}
+  m_LocalRotation: {x: 0.21671051, y: 0.0033359663, z: -0.0007405416, w: 0.97622997}
   m_LocalPosition: {x: 23.076279, y: 6.047, z: -60.050003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10554,7 +10554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2524537232706955901}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2527746, y: 0.003306174, z: -0.000863773, w: 0.96751916}
+  m_LocalRotation: {x: 0.2527746, y: 0.0033061574, z: -0.00086376857, w: 0.96751916}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13554,6 +13554,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6840563219719277717, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6559368353187398748}
+    - targetCorrespondingSourceObject: {fileID: 6840563219719277717, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6191555194992245560}
     - targetCorrespondingSourceObject: {fileID: 6952484892728181756, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 523056719844951427}
@@ -14052,6 +14055,20 @@ MonoBehaviour:
   healBackground: {fileID: 5519694851052179281}
   audioSource: {fileID: 3069924239999648087}
   healClip: {fileID: 8300000, guid: 1c0898fc9ec35b84bbe606b46406461d, type: 3}
+--- !u!114 &6191555194992245560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470127838172138677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e26ac2faef86449bae0ba280ccd545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalArmor: 0
+  shoulderArmor: 0
 --- !u!4 &7754414798333919634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9122722075377156530, guid: c03cd30445d551d4aa0ca8af3eca77f2, type: 3}
@@ -14424,6 +14441,10 @@ PrefabInstance:
       propertyPath: menuManager
       value: 
       objectReference: {fileID: 7315151408021616169}
+    - target: {fileID: 2056457411172066604, guid: e9e602375932846478a81aca8c1e4b10, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Item, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5511598077001179051, guid: e9e602375932846478a81aca8c1e4b10, type: 3}
       propertyPath: m_Name
       value: Slot(0) 1
@@ -19048,7 +19069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2633ebaf3f6e5b429fc0870b23c5e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldersPosition: 0
   shoulder: {fileID: 0}
   mainAccesories: {fileID: 5832460103133549455}
   accesoriesList: []
@@ -21391,6 +21411,9 @@ MonoBehaviour:
   - {fileID: 2253533780093564795}
   weaponEquipped: {fileID: 0}
   weaponInBack: {fileID: 0}
+  shoulderEquipped: {fileID: 0}
+  equipClip: {fileID: 8300000, guid: 231eb344cdee08e4a925093526f53e6b, type: 3}
+  audioSource: {fileID: 3069924239999648087}
 --- !u!114 &5519694851052179281 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3646948447296492999, guid: 6e66859bf2bb5b64bbf48d72476dcb6a, type: 3}

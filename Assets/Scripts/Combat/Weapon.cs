@@ -1,6 +1,7 @@
 using RPG.Inventories;
 using System;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 namespace RPG.Combat
 {
@@ -118,6 +119,12 @@ namespace RPG.Combat
         public InventoryItem GetInventoryItem()
         {
             return weaponItem;
+        }
+        public void EquipWeaponFromInventory(InventoryItem inventoryItem, Item item)
+        {
+            Armory.Instance.EquipWeapon(this);
+            Armory.Instance.DesactivateBackWeapon();
+            InventoryManager.Instance.SetNewInventoryWeapon(inventoryItem, item);
         }
     }
 }

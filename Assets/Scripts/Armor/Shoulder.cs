@@ -1,3 +1,4 @@
+using RPG.Inventories;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class Shoulder : ScriptableObject
     [Header("Settings")]
     public int ShoulderIndex;
     public float ShoulderArmor;
+    [Header("Inventory")]
+    public InventoryItem inventoryItem;
 
     public float GetArmor()
     {
@@ -16,5 +19,14 @@ public class Shoulder : ScriptableObject
     public int GetIndex()
     {
         return ShoulderIndex;
+    }
+    public InventoryItem GetInventoryItem()
+    {
+        return inventoryItem;
+    }
+    public void EquipShoulderFromInventory(InventoryItem inventoryItem, Item item)
+    {
+        ArmorManager.Instance.EquipShoulder(this);
+        InventoryManager.Instance.SetNewInventoryShoulder(inventoryItem, item);
     }
 }

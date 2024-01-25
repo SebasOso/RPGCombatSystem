@@ -15,6 +15,9 @@ public class Health : MonoBehaviour, IJsonSaveable
     [SerializeField] float regenerationHealth = 80;
     [SerializeField] float healRate = 6.5f;
 
+    [Header("Armor")]
+    public float armor;
+
     //Events
     public event Action OnDie;
     public event Action OnTakeDamage;
@@ -112,7 +115,9 @@ public class Health : MonoBehaviour, IJsonSaveable
         {
             GetComponent<EnemyLife>().lerpTimer = 0f;
         }
-        health.value = Mathf.Max(health.value - damage, 0);
+        float reducedDamage = armor / (armor + 100);
+        float finalDamage = damage * (1 - reducedDamage);
+        health.value = Mathf.Max(health.value - finalDamage, 0);
         if(gameObject.CompareTag("Enemy"))
         {
             if(GetComponent<EnemyStateMachine>().isStunned)
@@ -147,7 +152,9 @@ public class Health : MonoBehaviour, IJsonSaveable
         {
             GetComponent<EnemyLife>().lerpTimer = 0f;
         }
-        health.value = Mathf.Max(health.value - damage, 0);
+        float reducedDamage = armor / (armor + 100);
+        float finalDamage = damage * (1 - reducedDamage);
+        health.value = Mathf.Max(health.value - finalDamage, 0);
         if (health.value == 0)
         {
             OnDie?.Invoke();

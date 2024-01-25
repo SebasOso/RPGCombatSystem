@@ -8,26 +8,32 @@ using RPG.Saving;
 using Newtonsoft.Json.Linq;
 using System;
 
-public class WeaponItem : MonoBehaviour
+public class Item : MonoBehaviour
 {
     [SerializeField] InventoryItem item;
     [SerializeField] Image itemSprite;
     [SerializeField] string itemId = "PLATANOOOOOOOOOOOOOOOOOOOOO";
     [SerializeField] Weapon weapon;
+    [SerializeField] Shoulder shoulder;
     [SerializeField] int index;
     [SerializeField] Sprite defaultSprite;
-    public void EquipWeaponFromInventory()
+    public void UseObject()
     {
-        if(item == null){return;}
-        Armory.Instance.EquipWeapon(weapon);
-        Armory.Instance.DesactivateBackWeapon();
-        InventoryManager.Instance.SetNewInventoryWeapon(this.item, this);
+        if(weapon != null)
+        {
+            weapon.EquipWeaponFromInventory(this.item, this);
+        }
+        if(shoulder != null)
+        {
+            shoulder.EquipShoulderFromInventory(this.item, this);
+        }
     }
     public void SetItem(int index)
     {
         this.item = MenuManager.Instance.GetItemInSlot(index);
         itemId = item?.GetItemID();
         weapon = item.GetWeapon();
+        shoulder = item?.GetShoulder();
         itemSprite.sprite = item?.GetIcon();
     }
     public void DeleteItemFromInventory()
@@ -35,6 +41,7 @@ public class WeaponItem : MonoBehaviour
         this.item = null;
         this.itemId = null;
         this.weapon = null;
+        this.shoulder = null;
         this.itemSprite.sprite = defaultSprite;
         MenuManager.Instance.DeleteItemFlomSlot(index);
     }

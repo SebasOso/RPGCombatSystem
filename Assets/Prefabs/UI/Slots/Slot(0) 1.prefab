@@ -139,6 +139,7 @@ MonoBehaviour:
   itemSprite: {fileID: 1010610096457665546}
   itemId: 
   weapon: {fileID: 0}
+  shoulder: {fileID: 0}
   index: 0
   defaultSprite: {fileID: 21300010, guid: 7188e9d0ec465034995ea794e337b4bd, type: 3}
 --- !u!114 &2056457411172066604
@@ -160,7 +161,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1721120638201117071}
           m_TargetAssemblyTypeName: WeaponItem, Assembly-CSharp
-          m_MethodName: EquipWeaponFromInventory
+          m_MethodName: UseObject
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
