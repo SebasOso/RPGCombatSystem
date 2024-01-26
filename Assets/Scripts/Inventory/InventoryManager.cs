@@ -7,6 +7,7 @@ using RPG.Combat;
 using RPG.Saving;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {

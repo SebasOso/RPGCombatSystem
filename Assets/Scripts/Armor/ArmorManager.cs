@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ArmorManager : MonoBehaviour
@@ -31,7 +32,12 @@ public class ArmorManager : MonoBehaviour
     }
     private void CalculateTotalArmor()
     {
+        shoulderArmor = ShoulderArmorManager.Instance.shoulder.GetArmor();
         totalArmor = shoulderArmor;
         playerHealth.armor = totalArmor;
+    }
+    public float GetArmor()
+    {
+        return playerHealth.armor;
     }
 }
