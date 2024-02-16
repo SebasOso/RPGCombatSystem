@@ -1,7 +1,6 @@
 using RPG.Inventories;
 using System;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 namespace RPG.Combat
 {

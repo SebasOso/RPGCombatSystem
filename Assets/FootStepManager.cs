@@ -23,14 +23,12 @@ public class FootStepManager : MonoBehaviour
     {
         if(GetComponent<Animator>().GetFloat("speed") <= 1)
         {
-            Debug.Log("No speed");
             return;
         }
         Vector3 rayDirection = new Vector3(0, -1, 0);
         Ray ray = new Ray(transform.position, rayDirection);
         if(Physics.Raycast(ray, out raycastHit, Mathf.Infinity))
         {
-            Debug.Log("Raycast hit Layer: " + raycastHit.transform.gameObject.layer);
             if(GetComponent<Animator>().GetFloat("speed") >= 0)
             {
                 //MUD LAYER MANAGER
@@ -60,14 +58,12 @@ public class FootStepManager : MonoBehaviour
     {
         if(GetComponent<Animator>().GetFloat("speed") <= 1)
         {
-            Debug.Log("No speed");
             return;
         }
         Vector3 rayDirection = new Vector3(0, -1, 0);
         Ray ray = new Ray(transform.position, rayDirection);
         if(Physics.Raycast(ray, out raycastHit, Mathf.Infinity))
         {
-            Debug.Log("Raycast hit Layer: " + raycastHit.transform.gameObject.layer);
             if(GetComponent<Animator>().GetFloat("speed") >= 0)
             {
                 //MUD LAYER MANAGER

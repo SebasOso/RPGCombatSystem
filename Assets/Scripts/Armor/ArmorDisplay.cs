@@ -5,11 +5,23 @@ using UnityEngine;
 
 public class ArmorDisplay : MonoBehaviour
 {
+    public static ArmorDisplay Instance { get; private set; }
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
     void Start()
     {
-        GetComponent<TextMeshProUGUI>().text = ArmorManager.Instance.GetArmor().ToString();
+        SetArmor();
     }
     private void OnEnable()
+    {
+        SetArmor();
+    }
+    public void SetArmor()
     {
         GetComponent<TextMeshProUGUI>().text = ArmorManager.Instance.GetArmor().ToString();
     }

@@ -29,10 +29,14 @@ public class ArmorManager : MonoBehaviour
         ShoulderArmorManager.Instance.SetShoulders(shoulderToEquip);
         shoulderArmor = shoulderToEquip.GetArmor();
         CalculateTotalArmor();
+        ArmorDisplay.Instance.SetArmor();
     }
     private void CalculateTotalArmor()
     {
-        shoulderArmor = ShoulderArmorManager.Instance.shoulder.GetArmor();
+        if(ShoulderArmorManager.Instance.shoulder != null)
+        {
+            shoulderArmor = ShoulderArmorManager.Instance.shoulder.GetArmor();
+        }
         totalArmor = shoulderArmor;
         playerHealth.armor = totalArmor;
     }

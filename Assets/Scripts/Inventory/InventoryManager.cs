@@ -44,7 +44,10 @@ public class InventoryManager : MonoBehaviour
     {
         Redraw();
         weaponEquipped = Armory.Instance.currentWeapon.value.GetInventoryItem();
-        shoulderEquipped = ShoulderArmorManager.Instance.shoulder.GetInventoryItem();
+        if(ShoulderArmorManager.Instance.shoulder != null)
+        {
+            shoulderEquipped = ShoulderArmorManager.Instance.shoulder.GetInventoryItem();
+        }
         if(Armory.Instance.disarmedWeapon != null)
         {
             weaponInBack = Armory.Instance.disarmedWeapon.GetInventoryItem();

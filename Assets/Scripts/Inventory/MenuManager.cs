@@ -15,7 +15,7 @@ public class MenuManager : MonoBehaviour, IJsonSaveable
     [SerializeField] private GridLayoutGroup contentInventory;
     [SerializeField] private List<GameObject> itemsGO;
     private PlayerStateMachine playerStateMachine;
-    [SerializeField] string a;
+
     [SerializeField] private List<GameObject> uiToHide;
     public bool isPaused;
     public event Action inventoryUpdated;

@@ -32529,7 +32529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5140588608885301901, guid: 4cbec32eea806614fa993825ab725e14, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5791563470989739012, guid: 4cbec32eea806614fa993825ab725e14, type: 3}
       propertyPath: pickupUI
@@ -59880,7 +59880,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3146898473443088037, guid: f2d8117d6458b9a4b8627a5d9904cdfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -71.021774
+      value: -83.377
       objectReference: {fileID: 0}
     - target: {fileID: 3146898473443088037, guid: f2d8117d6458b9a4b8627a5d9904cdfe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -59888,23 +59888,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3146898473443088037, guid: f2d8117d6458b9a4b8627a5d9904cdfe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 142.77739
+      value: 161.496
       objectReference: {fileID: 0}
     - target: {fileID: 3146898473443088037, guid: f2d8117d6458b9a4b8627a5d9904cdfe, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.93834275
       objectReference: {fileID: 0}
     - target: {fileID: 3146898473443088037, guid: f2d8117d6458b9a4b8627a5d9904cdfe, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3146898473443088037, guid: f2d8117d6458b9a4b8627a5d9904cdfe, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.34570628
       objectReference: {fileID: 0}
     - target: {fileID: 3146898473443088037, guid: f2d8117d6458b9a4b8627a5d9904cdfe, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3146898473443088037, guid: f2d8117d6458b9a4b8627a5d9904cdfe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -59912,7 +59912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3146898473443088037, guid: f2d8117d6458b9a4b8627a5d9904cdfe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 40.45
       objectReference: {fileID: 0}
     - target: {fileID: 3146898473443088037, guid: f2d8117d6458b9a4b8627a5d9904cdfe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -100295,11 +100295,11 @@ PrefabInstance:
       objectReference: {fileID: 1101126907}
     - target: {fileID: 770375299147074766, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.959989
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 770375299147074766, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.850015
+      value: -4.85
       objectReference: {fileID: 0}
     - target: {fileID: 785878966322477771, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_AnchorMax.y
@@ -100639,11 +100639,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2887011967740655599, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.959989
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 2887011967740655599, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.850015
+      value: -4.85
       objectReference: {fileID: 0}
     - target: {fileID: 2901590333400470602, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ChildCameras.Array.size
@@ -100755,15 +100755,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3887573746240533091, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ReactionSettings.m_Duration
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3887573746240533091, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ReactionSettings.m_AmplitudeGain
-      value: 7.12
+      value: 4.48
       objectReference: {fileID: 0}
     - target: {fileID: 3887573746240533091, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ReactionSettings.m_FrequencyGain
-      value: 5.1
+      value: 3.16
       objectReference: {fileID: 0}
     - target: {fileID: 3999609564376600388, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: menuManager
@@ -101083,11 +101083,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5416607540951644639, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0033348324
+      value: 0.0033348696
       objectReference: {fileID: 0}
     - target: {fileID: 5416607540951644639, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0007453829
+      value: -0.0007453912
       objectReference: {fileID: 0}
     - target: {fileID: 5463786236012517195, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: menuManager
@@ -101095,11 +101095,11 @@ PrefabInstance:
       objectReference: {fileID: 1101126907}
     - target: {fileID: 5473178056576182491, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.959989
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 5473178056576182491, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.850015
+      value: -4.85
       objectReference: {fileID: 0}
     - target: {fileID: 5504927921566474940, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_AnchorMax.y
@@ -101303,15 +101303,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5852143921483921567, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ReactionSettings.m_Duration
-      value: 0.8
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5852143921483921567, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ReactionSettings.m_AmplitudeGain
-      value: 7.12
+      value: 4.48
       objectReference: {fileID: 0}
     - target: {fileID: 5852143921483921567, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_ReactionSettings.m_FrequencyGain
-      value: 5.1
+      value: 3.16
       objectReference: {fileID: 0}
     - target: {fileID: 5852847437561838835, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_AnchorMax.y
@@ -101459,11 +101459,11 @@ PrefabInstance:
       objectReference: {fileID: 1101126907}
     - target: {fileID: 6558685882725060163, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_DefaultVelocity.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6558685882725060163, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_DefaultVelocity.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6558685882725060163, guid: 9a7b622b7c1ae0348b9364ed23fa2144, type: 3}
       propertyPath: m_DefaultVelocity.z
