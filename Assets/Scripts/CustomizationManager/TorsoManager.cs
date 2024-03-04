@@ -11,7 +11,6 @@ public class TorsoManager : MonoBehaviour, IEnumerator, IJsonSaveable
     [SerializeField] private GameObject mainAccesories;
     [SerializeField] private List<GameObject> accesoriesList = new List<GameObject>();
     [SerializeField] public int torsoPosition = 0;
-
     public object Current => CurrentAccesorie();
     private void Awake() 
     {

@@ -38,9 +38,18 @@ public class SavingWrapper : MonoBehaviour
     private IEnumerator Transition()
     {
         Fader fader = FindObjectOfType<Fader>();
+
         fader.FadeOutInmediate();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Load();
-        yield return fader.FadeIn(1f);
+
+        SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+
+        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+
+        wrapper.Load();
+
+        wrapper.Save();
+
+        yield return new WaitForSeconds(1f);
+        yield return fader.FadeIn(3f);
     }
 }

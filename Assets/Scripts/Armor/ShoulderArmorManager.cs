@@ -10,7 +10,7 @@ using RPG.Combat;
 public class ShoulderArmorManager : MonoBehaviour, IJsonSaveable
 {
     public static ShoulderArmorManager Instance;
-    [Header("Position")]
+    [Header("Current Shoulder")]
     [SerializeField] public Shoulder shoulder;
 
     [Header("Shoulder Right")]

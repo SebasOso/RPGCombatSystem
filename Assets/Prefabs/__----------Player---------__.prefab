@@ -14254,7 +14254,6 @@ MonoBehaviour:
   inventoryCanvasGO: {fileID: 573289277005152558}
   contentInventory: {fileID: 2722233906157887558}
   itemsGO: []
-  a: 
   uiToHide:
   - {fileID: 5073523907848206267}
   - {fileID: 3743624470367900804}
@@ -19349,7 +19348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9ea311b553574b9021e5ba58acd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueIdentifier: 
+  uniqueIdentifier: a19bc389-a5dd-41cf-86e0-b5ab96aacdfc
 --- !u!1 &5832738503626799777 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1130796469677940, guid: ff493cd6baa032349a466b935b6af92f, type: 3}
@@ -21130,7 +21129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5616397674778234386, guid: 6e66859bf2bb5b64bbf48d72476dcb6a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6156670065998040018, guid: 6e66859bf2bb5b64bbf48d72476dcb6a, type: 3}
       propertyPath: m_Sprite
